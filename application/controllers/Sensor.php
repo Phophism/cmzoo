@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Sensor extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,8 +20,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->name = 'CMZoo';
-		$this->load->view('welcome_message',$this);
+		$this->load->model("datain");
+		$sensortable = $this->load->model("datain");
+
+		$this->load->view('sensorstatus',$sensortable);
 
 		/*
 		$data['nickname']->nickname = 'Phoom';

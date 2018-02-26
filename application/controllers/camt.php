@@ -8,3 +8,4 @@ class Emark extends CI_Controller {
 		echo "eiei";
 	}
 }
+
