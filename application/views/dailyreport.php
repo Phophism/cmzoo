@@ -11,14 +11,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<style>
 		.header{
 			height: 50px;
-			background-color: Yellow ;
+			background-color: #39393aA6 ;
 		}
 		.border{
 			margin : 30px;
 			border-width: 10px;
 		}
 		body{
-			background-color: #cdcdcd;
+			background-color: #455E66;
 		}
 	</style>
 
@@ -28,19 +28,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class = "header"></div>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-2">
-				<h1>A</h1>
+			<!-- nav bar -->
+			<div class="col-lg-2" style="padding:0;">
+				<div> <!--scroll bar-->
+					<nav>
+						<ul>
+							<li>
+								<a>map</a>
+							</li>
+							<li>
+								<a>report</a>
+							</li>
+							<li>
+								<a>chart</a>
+							</li>
+							<li>
+								<a>status</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
 			</div>
 
 			<!--details-->
 			<div class="col-lg-10 row">
 				<!-- report -->
 				<div class="col-lg-12 row">
-					<div class = "col-lg-6">
-						<h1>report</h1>
-					</div>
-					<div class = "col-lg-6">
-						<h1>date picker</h1>
+					<div class="col-lg-12 row">
+						<div class = "col-lg-6">
+							<h1>report</h1>
+						</div>
+						<div class = "col-lg-6">
+							<h1>date picker</h1>
+						</div>
 					</div>
 					<div class = "col-lg-12 row">
 						<div class = "col-lg-3">
@@ -60,34 +80,73 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!--average-->
 				<div class="col-lg-12 row">
 					<!-- column 1 -->
-					<div class="col-lg-5 row-fluid ">
+					<div class="col-lg-6 row-fluid ">
 						<!-- radar chart -->
 						<div class="col-lg-12 ">
-							<h1>Radar Chart</h1>
+							<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+								<div class="card-header">Header</div>
+								<div class="card-body">
+									<P>Radar chart</P>
+								</div>
+					  		</div>
 						</div>
 						<!-- whole system -->
 						<div class="col-lg-12 " >
-							<h1>whole system</h1>
-						</div>
-					</div>
-					<!-- column 2 -->
-					<div class="col-lg-5 row">
-						<!-- by cage -->
-						<div class="col-lg-12">
-							<h1>by cage</h1>
-						</div>
-						<!-- by system -->
-						<div class="col-lg-12 " style="background-color: transparent;">
 							<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
-								<div class="card-header">Header</div>
+								<div class="card-header">whole</div>
 								<div class="card-body">
 									<table class="table">
 										<thead>
 											<tr>
 												<th>#</th>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th>Username</th>
+												<th>Mean</th>
+												<th>Mediun</th>
+												<th>Mode</th>
+												<th>Percentage</th>
+												<th>Amount</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- column 2 -->
+					<div class="col-lg-6 row-fluid">
+						<!-- by cage -->
+						<div class="col-lg-12">
+							<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+								<div class="card-header">Cages</div>
+								<div class="card-body">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>#</th>
+												<th>Mean</th>
+												<th>Mediun</th>
+												<th>Mode</th>
+												<th>Percentage</th>
+												<th>Amount</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- by system -->
+						<div class="col-lg-12 " >
+							<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+								<div class="card-header">Sensors</div>
+								<div class="card-body">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>#</th>
+												<th>Mean</th>
+												<th>Mediun</th>
+												<th>Mode</th>
+												<th>Percentage</th>
+												<th>Amount</th>
 											</tr>
 										</thead>
 									</table>
