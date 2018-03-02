@@ -5,6 +5,11 @@ class Emark extends CI_Controller {
 
 	function index()
 	{
-		echo "eiei";
+		$this->load->view('header');
+		echo $this->key(2);
+	}
+
+	function key($epoom) {
+		return $epoom + 2;
 	}
 }
