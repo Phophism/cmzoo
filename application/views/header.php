@@ -19,6 +19,30 @@
 		body{
 			background-color: #455E66;
 		}
+
+		.side-nav {
+			list-style-type: none;
+    		display: flex;
+    		flex-direction: column;
+    		height: 100vh;
+    		padding: 0;
+		}
+
+		.side-nav-link-panel {
+			cursor: pointer;
+			padding: 20px;
+    		text-align: center;
+		}
+
+		.side-nav-link-panel:hover {
+			background-color: rgba(255,255,255, 0.3);
+		}
+
+		.side-nav-link {
+			font-size: 16px;
+			font-size: 18px;
+   			font-weight: bold;
+		}
 	</style>
 
 </head>

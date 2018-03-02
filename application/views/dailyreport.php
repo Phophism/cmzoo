@@ -9,18 +9,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-lg-2" style="padding:0;">
 				<div> <!--scroll bar-->
 					<nav>
-						<ul>
-							<li>
-								<a>map</a>
+						<ul class="side-nav">
+							<li class="side-nav-link-panel">
+								<a class="side-nav-link">map</a>
 							</li>
-							<li>
-								<a>report</a>
+							<li class="side-nav-link-panel">
+								<a  class="side-nav-link">report</a>
 							</li>
-							<li>
-								<a>chart</a>
+							<li class="side-nav-link-panel">
+								<a class="side-nav-link">chart</a>
 							</li>
-							<li>
-								<a>status</a>
+							<li class="side-nav-link-panel">
+								<a class="side-nav-link">status</a>
 							</li>
 						</ul>
 					</nav>
