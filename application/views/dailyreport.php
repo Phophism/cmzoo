@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<nav>
 						<ul class="side-nav">
 							<li class="side-nav-link-panel">
-								<a class="side-nav-link">map</a>
+								<a class="side-nav-link" href="Welcome">map</a>
 							</li>
 							<li class="side-nav-link-panel">
 								<a  class="side-nav-link">report</a>
@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<a class="side-nav-link">chart</a>
 							</li>
 							<li class="side-nav-link-panel">
-								<a class="side-nav-link">status</a>
+								<a class="side-nav-link" href = "Sensor">status</a>
 							</li>
 						</ul>
 					</nav>

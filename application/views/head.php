@@ -36,12 +36,23 @@
 
 		.side-nav-link-panel:hover {
 			background-color: rgba(255,255,255, 0.3);
+			color: #cecece;
 		}
 
 		.side-nav-link {
+			color: #cecece;
 			font-size: 16px;
 			font-size: 18px;
    			font-weight: bold;
+		}
+
+		a{
+			text-decoration : none!important;
+		}
+
+		a:hover {
+			text-decoration : none;
+			color : rgba(255,255,255,0.6);
 		}
 	</style>
 

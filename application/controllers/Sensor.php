@@ -20,10 +20,9 @@ class Sensor extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model("datain");
-		$sensortable = $this->load->model("datain");
-
-		$this->load->view('sensorstatus',$sensortable);
+	
+		$this->load->view('head');
+		$this->load->view('sensorstatus');
 
 		/*
 		$data['nickname']->nickname = 'Phoom';

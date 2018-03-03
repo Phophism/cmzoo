@@ -20,7 +20,7 @@ class Report extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('header');
+		$this->load->view('head');
 		$this->load->view('dailyreport');
 
 	}
