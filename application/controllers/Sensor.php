@@ -20,7 +20,6 @@ class Sensor extends CI_Controller {
 	 */
 	public function index()
 	{
-	
 		$this->load->view('head');
 		$this->load->view('sensorstatus');
 

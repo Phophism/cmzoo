@@ -11,13 +11,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<nav>
 						<ul class="side-nav">
 							<li class="side-nav-link-panel">
-								<a class="side-nav-link" href="Welcome">map</a>
+								<a class="side-nav-link" href="application/views/Welcome.php">map</a>
 							</li>
 							<li class="side-nav-link-panel">
-								<a  class="side-nav-link">report</a>
+								<a  class="side-nav-link" href="Report">report</a>
 							</li>
 							<li class="side-nav-link-panel">
-								<a class="side-nav-link">chart</a>
+								<a class="side-nav-link" >chart</a>
 							</li>
 							<li class="side-nav-link-panel">
 								<a class="side-nav-link" href = "Sensor">status</a>
