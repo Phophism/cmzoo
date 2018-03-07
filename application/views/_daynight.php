@@ -12,22 +12,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card-header">
-					<form id="dateForm" method="POST" action="<?php echo base_url();?>daynight">
-						<input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" data-onstyle="success" data-offstyle="info" onchange="change();"
-						<?php
-							if(isset($cageReceive)==false)
-								echo "checked" ;	
-							else if($cageReceive=="on")
-								echo "checked" ;
-						?>
-						/>
-						<?php
-							if(isset($dateReceive))
-								echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  />" ;
-							else
-								echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" />" ;				
-						?>			
-					</form>
+						<form id="dateForm" method="POST" action="<?php echo base_url();?>daynight">
+							<input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" data-onstyle="success" data-offstyle="info" onchange="change();" 
+							<?php
+								if(!isset($cageReceive))
+									echo " " ;
+								else
+									echo " checked";	
+							?>
+							/>
+							<?php
+								if(isset($dateReceive))
+									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
+								else
+									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".date('Y-m-d')."\"  max=\"".date('Y-m-d')."\" />" ;				
+							?>			
+						</form>
 					</div>
 				</div>
 			</div>
@@ -47,7 +47,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<div class="row">
 											<div class="col-lg-12" >
 												<div class="card" >
-													<div id="numActDayA" style="height:350px;"></div>	
+													<?php
+														if($cageReceive=="on")
+															echo "<div id=\"numActDayA\" style=\"height:350px;\"></div>" ;
+														else 
+															echo "<div id=\"numActDayB\" style=\"height:350px;\"></div>" ;
+													?>
 												</div>
 											</div>
 											<div class="col-lg-12">
@@ -73,7 +78,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="numActDayB" style="height:350px;"></div>	
+													<?php
+														if($cageReceive=="on")
+															echo "<div id=\"numActNightA\" style=\"height:350px;\"></div>" ;
+														else 
+															echo "<div id=\"numActNightB\" style=\"height:350px;\"></div>" ;
+													?>
 												</div>
 											</div>
 											<div class="col-lg-12">
