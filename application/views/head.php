@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!--Responsive meta tag-->
+	<title><?php echo $title ?></title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/sb-admin-2.css">
+	
 	<!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.css">
@@ -26,6 +28,16 @@
 		body{
 			background-color: #455E66;
 		}
+
+		.map{
+			border-width:1px;
+			border-style:solid;
+			border-color:black;
+			height:50px;
+			width:50px;
+			margin: 20px;
+		}
+
 
 		.side-nav {
 			list-style-type: none;
@@ -61,6 +73,12 @@
 			text-decoration : none;
 			color : rgba(255,255,255,0.6);
 		}
+
+		span{
+			color : rgba(255,255,255,0.6);
+		}
 	</style>
+
+	
 
 </head>

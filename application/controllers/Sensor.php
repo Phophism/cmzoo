@@ -19,8 +19,9 @@ class Sensor extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		$this->load->view('head');
+	{		
+		$data['title']="Sensor Status";
+		$this->load->view('head',$data);
 		$this->load->view('body_layout_1');
 		$this->load->view('header');
 		$this->load->view('menu');
