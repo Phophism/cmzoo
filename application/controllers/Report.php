@@ -21,9 +21,14 @@ class Report extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('head');
-		$this->load->view('dailyreport');
-
+		$this->load->view('body_layout_1');
+		$this->load->view('header');
+		$this->load->view('menu');
+		$this->load->view('_dailyreport');
+		$this->load->view('body_layout_2');
 	}
+
+	
 
 }
 

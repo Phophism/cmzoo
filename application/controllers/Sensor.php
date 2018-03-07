@@ -21,8 +21,11 @@ class Sensor extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('head');
-		$this->load->view('sensorstatus');
-
+		$this->load->view('body_layout_1');
+		$this->load->view('header');
+		$this->load->view('menu');
+		$this->load->view('_sensorstatus');
+		$this->load->view('body_layout_2');
 		/*
 		$data['nickname']->nickname = 'Phoom';
 		$this->load->view('welcome_message',$data);
