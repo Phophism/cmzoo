@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
-
+$config['base_url'] = 'http://localhost:8080/cmzoo';
+// ขึ้นเซิฟ ต้องแก้ 
 /*
 |--------------------------------------------------------------------------
 | Index File

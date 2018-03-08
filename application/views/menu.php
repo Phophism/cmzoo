@@ -5,7 +5,7 @@
 		<nav>
 			<ul class="side-nav">
 				<li class="side-nav-link-panel">
-					<a class="side-nav-link" href="/Map">map</a>
+					<a class="side-nav-link" href="index.php/Map">map</a>
 				</li>
 				<li class="side-nav-link-panel">
 					<a class="side-nav-link" href="index.php/Report">report</a>
