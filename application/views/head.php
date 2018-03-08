@@ -8,6 +8,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/sb-admin-2.css">
 	
+	<!-- slider -->
+	<link rel="stylesheet" href="assets/bootstrap/node_module/bootstrap-slider/dist/css/bootstrap-slider.css" />
+	
+	
 	<!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.css">
@@ -77,6 +81,7 @@
 		span{
 			color : rgba(255,255,255,0.6);
 		}
+		
 	</style>
 
 	

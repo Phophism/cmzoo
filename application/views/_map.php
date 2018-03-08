@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-lg-12"> <!--Map-->
                             <h1 style="text-align: center;"> Map</h1>
                         </div>
-                        <div class="col-lg-12"> <!--Slider-->
-                            <h1>slide bar</h1>
+                        <div class="col-lg-12 container"> <!--Slider-->
+                            <input id="ex13"/>
                         </div>
                     </div>
                     <div class="col-lg-12 row"> <!--Status Details-->
