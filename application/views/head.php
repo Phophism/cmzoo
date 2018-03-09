@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="assets/css/sb-admin-2.css">
 	
 	<!-- slider -->
-	<link rel="stylesheet" href="node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" />
 	
 	
 	<!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
