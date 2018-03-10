@@ -16,25 +16,34 @@ class Sensor extends CI_Controller {
 	 *
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 * @see https://codeigniter.com/user_guide/general/urls.html 
 	 */
 	public function index()
-	{		
-		$data['title']="Sensor Status";
-		$this->load->view('head',$data);
-		$this->load->view('body_layout_1');
-		$this->load->view('header');
-		$this->load->view('menu');
-		$this->load->view('_sensorstatus');
-		$this->load->view('body_layout_2');
+	{
+		$this->load->model('sensor_model');
+		
+		$this->load->view('_sensorstatus',
+			array(
+				"sensors" => $this->sensor_model->get()
+			)
+		);
+
+
+	
 		/*
 		$data['nickname']->nickname = 'Phoom';
 		$this->load->view('welcome_message',$data);
 		*/
 	}
+  
+	// เปลี่ยน http update ในsensorเป็น
 
-	public function epoom() {
-		echo "aaa";
+	public function update(){
+		$nodeId = $this->input->get('nodeId'); // receive nodeId from url parameter
+		$status = $this->input->get('status'); // receive status from url parameter
+		$this->load->model('sensor_model');
+		$this->sensor_model->update($nodeId,$status);
 	}
+
 }
 

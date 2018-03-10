@@ -1,5 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+		$this->load->view('layouts/head', array('title' => "Sensor Status"));
+		$this->load->view('layouts/body_layout_1');
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/menu');
 ?>
 
 	<!--details-->
@@ -24,6 +28,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<th>Note</th>
 									</tr>
 								</thead>
+								<tbody>
+									<?php 
+										foreach($sensors as $sensor){
+									?>
+										<tr>
+											<td><?php echo $sensor->nodeId; ?></td>
+											<td><?php echo $sensor->status; ?></td>
+											<td><?php echo $sensor->startTime; ?></td>
+											<td><?php echo $sensor->recentTime; ?></td>
+											<td><?php if($sensor->status==0){
+												echo "Node Inactive";
+											}else if($sensor->status==1){
+												echo "Node Active";
+											}else{
+												echo "Detecting";
+											}
+											 ?></td>
+										</tr> xcxcxc
+									<?php
+										}
+									?>
+								</tbody>
 							</table>
 						</div>
 					</div>
@@ -32,17 +58,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 
-
-
-	<!-- <hr />
-				<footer>
-					<div class="container-fluid">
-						<p>&copy; @DateTime.Now.Year - Logical Supporting Logistic System</p>
-					</div>
-				</footer> -->
-
-	<div class="container-fluid">Page rendered in
-		<strong>{elapsed_time}</strong> seconds.
-		<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
-	</div>
-
+<?php 
+	$this->load->view('layouts/body_layout_2');
+?>

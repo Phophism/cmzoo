@@ -6,7 +6,7 @@
 	<title><?php echo $title ?></title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="assets/css/sb-admin-2.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/sb-admin-2.css">
 	
 	<!-- slider -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" />

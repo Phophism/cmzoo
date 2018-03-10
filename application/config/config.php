@@ -22,8 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | If you need to allow multiple domains, remember that this file is still
 | a PHP script and you can easily do that on your own.
 |
-*/
-$config['base_url'] = 'http://localhost:8080/cmzoo';
+*/ 
+$config['base_url'] = 'http://localhost:8080/cmzoo'; // xampp
+// $config['base_url'] = 'http://teng.thai2biz.net/cmzoo2'; // DB-thai2bizz
 // ขึ้นเซิฟ ต้องแก้ 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,8 @@ $config['base_url'] = 'http://localhost:8080/cmzoo';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
+// $config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------

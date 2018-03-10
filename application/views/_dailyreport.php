@@ -1,5 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+		$this->load->view('layouts/head', array('title' => "Report"));
+		$this->load->view('layouts/body_layout_1');
+		$this->load->view('layouts/header');
+		$this->load->view('layouts/menu');
 ?>
 
 	<!--content-->
@@ -121,3 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<strong>{elapsed_time}</strong> seconds.
 		<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
 	</div>
+
+<?php 
+	$this->load->view('layouts/body_layout_2');
+?>	
