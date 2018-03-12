@@ -9,8 +9,7 @@ class Report extends CI_Controller {
 		$this->load->model('animal_log_model');
 
 
-		$this->load->view('_dailyreport'
-		);
+		$this->load->view('_dailyreport');
 	}
 
 

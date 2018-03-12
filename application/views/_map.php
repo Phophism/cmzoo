@@ -1,5 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+$this->load->view('layouts/head', array('title' => "Visual Map"));
+$this->load->view('layouts/body_layout_1');
+$this->load->view('layouts/header');
+$this->load->view('layouts/menu');
 ?>
 
     <!-- content -->
@@ -47,9 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
-
-
- 
-        
-        
     </div>
+ 
+<?php 
+	$this->load->view('layouts/body_layout_2');
+?>   

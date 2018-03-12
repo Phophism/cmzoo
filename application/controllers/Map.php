@@ -20,13 +20,7 @@ class Map extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['title']="Sensor Map";
-		$this->load->view('head',$data);
-		$this->load->view('body_layout_1');
-		$this->load->view('header');
-		$this->load->view('menu');
 		$this->load->view('_map');
-		$this->load->view('body_layout_2');
 		// $this->load->view('pageLayout');
 	
 		/*

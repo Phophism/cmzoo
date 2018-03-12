@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												echo "Detecting";
 											}
 											 ?></td>
-										</tr> xcxcxc
+										</tr>
 									<?php
 										}
 									?>
