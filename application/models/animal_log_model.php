@@ -8,10 +8,9 @@
             return $this->db->get('animal_log')->result();
         }
 
-
     /*    "http://teng.thai2biz.net/cmzoo/datain.php?sensor_id=" + nodeId + "&light_intensity=" + LI 
             + "&temperatureC=" + C + "&temperatureF=" + F + "&duration=" + Dur + "&humidity=" + Humid ;
-*/
+    */
 
         public function add($nodeId,$lightIntensity,$temperatureC,$temperatureF,$humidity,$duration){
             

@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Animal_log extends CI_Controller {
 
+	// เปลี่ยน url ของ method Httpget() ใน sensor จาก httpget?...  เป็น add?...
+
 	public function add(){
 		$nodeId = $this->input->get('nodeId'); // receive nodeId from url parameter
 		$lightIntensity = $this->input->get('lightIntensity'); // receive status from url parameter

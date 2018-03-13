@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="card-body">
 					<div class="row-fluid">
 						<div class="col-lg-12">
-							<a>Current Time</a>
+							<a>Current Time : </a> <?php echo date("M d, Y H:i:s"); ?>
 						</div>
 						<div class="col-lg-12">
 							<table class="table">

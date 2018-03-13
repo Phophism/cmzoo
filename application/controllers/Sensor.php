@@ -3,21 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Sensor extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html 
-	 */
 	public function index()
 	{
 		$this->load->model('sensor_model');
@@ -29,14 +14,13 @@ class Sensor extends CI_Controller {
 		);
 
 
-	
 		/*
 		$data['nickname']->nickname = 'Phoom';
 		$this->load->view('welcome_message',$data);
 		*/
 	}
   
-	// เปลี่ยน http update ในsensorเป็น
+	// เปลี่ยน url จาก /httpupdate?... ใน sensor เป็น /update?...
 
 	public function update(){
 		$nodeId = $this->input->get('nodeId'); // receive nodeId from url parameter
@@ -44,6 +28,8 @@ class Sensor extends CI_Controller {
 		$this->load->model('sensor_model');
 		$this->sensor_model->update($nodeId,$status);
 	}
+
+
 
 }
 
