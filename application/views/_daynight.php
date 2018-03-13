@@ -6,39 +6,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->view('layouts/menu');
 ?>
 
-    <div class="col-lg-10 row">
-
-        <!-- selector -->
-        <div class="col-lg-12 row" style=" height: 80px">
-            <!-- cage A / b  -->
-            <div class="col-lg-6">
-                <a>A/B</a>
-            </div>
-            <!-- datepicker -->
-            <div class="col-lg-6" style="text-align:right;" >
-                <a>A/B</a>
-            </div>        
-        </div>
-
-        <!-- detail part -->
-        <div class="col-lg-12 row" >
-            <!-- sun and moon pic -->
-            <div class="col-lg-12" style="text-align:center;">
-                <a>Pic</a>
-            </div>
-            <!-- deatails -->
-            <div class="col-lg-12 row" > 
-                <!-- day -->
-                <div class="col-lg-6 row">
-                <a>day</a>
-                </div>
-                <!-- night -->
-                <div class="col-lg-6 row" style="border-style:solid;">
-                <a>night</a>
-                </div>
-            </div>
-        </div>
+    <div class="col-lg-10 ">
         
+        <div class="row">
+        <!--Group 1-->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <button type="button" class="btn btn-danger pull-left">Toggle</button>
+                    <input type="date" class="input-sm pull-right" />
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <!--Group 2-->
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="text-align:center;">A</h1>
+                    <hr />
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1 style="text-align:center;">A</h1>
+                        </div>
+                        <div class="col-lg-6">
+                            <h1 style="text-align:center;">A</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
     </div>
 
 <?php 
