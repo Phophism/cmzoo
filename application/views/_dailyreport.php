@@ -8,104 +8,120 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<!--content-->
 	<div class="col-lg-10 row">
-		<!-- report -->
-		<div class="col-lg-12 row">
-			<div class="col-lg-12 row">
-				<div class="col-lg-6">
-					<h1>report</h1>
-				</div>
-				<div class="col-lg-6">
-					<h1>date picker</h1>
-				</div>
-			</div>
-			<div class="col-lg-12 row">
-				<div class="col-lg-3">
-					<h1>1</h1>
-				</div>
-				<div class="col-lg-3">
-					<h1>2</h1>
-				</div>
-				<div class="col-lg-3">
-					<h1>3</h1>
-				</div>
-				<div class="col-lg-3">
-					<h1>4</h1>
-				</div>
-			</div>
-		</div>
-		<!--average-->
-		<div class="col-lg-12 row">
-			<!-- column 1 -->
-			<div class="col-lg-6 row-fluid ">
-				<!-- radar chart -->
-				<div class="col-lg-12 ">
-					<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
-						<div class="card-header">Header</div>
-						<div class="card-body">
-							<P>Radar chart</P>
+		<div class="row">
+			<!-- report -->
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-12 ">
+						<div class="row">
+							<div class="col-lg-6">
+								<h1>report</h1>
+							</div>
+							<div class="col-lg-6">
+								<h1>date picker</h1>
+							</div>
 						</div>
 					</div>
 				</div>
-				<!-- whole system -->
-				<div class="col-lg-12 ">
-					<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
-						<div class="card-header">whole</div>
-						<div class="card-body">
-							<table class="table">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Mean</th>
-										<th>Mediun</th>
-										<th>Mode</th>
-										<th>Percentage</th>
-										<th>Amount</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- column 2 -->
-			<div class="col-lg-6 row-fluid">
-				<!-- by cage -->
 				<div class="col-lg-12">
-					<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
-						<div class="card-header">Cages</div>
-						<div class="card-body">
-							<table class="table">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Mean</th>
-										<th>Mediun</th>
-										<th>Mode</th>
-										<th>Percentage</th>
-										<th>Amount</th>
-									</tr>
-								</thead>
-							</table>
+					<div class="row">
+						<div class="col-lg-3">
+							<h1>1</h1>
+						</div>
+						<div class="col-lg-3">
+							<h1>2</h1>
+						</div>
+						<div class="col-lg-3">
+							<h1>3</h1>
+						</div>
+						<div class="col-lg-3">
+							<h1>4</h1>
 						</div>
 					</div>
 				</div>
-				<!-- by system -->
-				<div class="col-lg-12 ">
-					<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
-						<div class="card-header">Sensors</div>
-						<div class="card-body">
-							<table class="table">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Mean</th>
-										<th>Mediun</th>
-										<th>Mode</th>
-										<th>Percentage</th>
-										<th>Amount</th>
-									</tr>
-								</thead>
-							</table>
+			</div>
+
+
+			<!--average-->
+			<div class="col-lg-12 ">
+				<div class="row">
+					<!-- column 1 -->
+					<div class="col-lg-6" >
+						<div class="row">
+							<!-- radar chart -->
+							<div class="col-lg-12 " >
+								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+									<div class="card-header">Header</div>
+									<div class="card-body">
+										<P>Radar chart</P>
+									</div>
+								</div>
+							</div>
+							<!-- whole system -->
+							<div class="col-lg-12 ">
+								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+									<div class="card-header">whole</div>
+									<div class="card-body">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Mean</th>
+													<th>Mediun</th>
+													<th>Mode</th>
+													<th>Percentage</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- column 2 -->
+					<div class="col-lg-6">
+						<div class="row">
+							<!-- by cage -->
+							<div class="col-lg-12">
+								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+									<div class="card-header">Cages</div>
+									<div class="card-body">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Mean</th>
+													<th>Mediun</th>
+													<th>Mode</th>
+													<th>Percentage</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- by system -->
+							<div class="col-lg-12 ">
+								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+									<div class="card-header">Sensors</div>
+									<div class="card-body">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Mean</th>
+													<th>Mediun</th>
+													<th>Mode</th>
+													<th>Percentage</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -126,6 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
 	</div>
 
-<?php 
+	<?php 
 	$this->load->view('layouts/body_layout_2');
-?>	
+?>
+

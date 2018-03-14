@@ -7,9 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 	<!--details-->
-	<div class="col-lg-10 row">
+	<div class="col-lg-10 ">
+	<div class = "row">
 		<!-- sensorstatus -->
-		<div class="container" style="padding-top:81px;">
+		<div class="container" style="padding-top:50px;">
 			<div class="card text-white bg-secondary mb-3" style="max-width: 55rem; ">
 				<div class="card-header">Sensor Status</div>
 				<div class="card-body">
@@ -34,7 +35,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									?>
 										<tr>
 											<td><?php echo $sensor->nodeId; ?></td>
-											<td><?php echo $sensor->status; ?></td>
+											<td style="
+												<?php 
+													if($sensor->status==0){
+														echo "background-color:#F77D7D;";
+													}else if($sensor->status==1){
+														echo "background-color:#70D19F;";
+													}else{
+														echo "background-color:#00E6E6;";
+													}
+												?>
+											border-radius: 7%;
+											">
+											</td>
 											<td><?php echo $sensor->startTime; ?></td>
 											<td><?php echo $sensor->recentTime; ?></td>
 											<td><?php if($sensor->status==0){
@@ -55,6 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 

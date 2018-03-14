@@ -49,23 +49,22 @@
         public function get(){
 
             date_default_timezone_set("Asia/Bangkok");
-            $currentDateTime = date("Y-m-d H:i:s"); 
+            $currentDateTime = date("Y-m-d H:i:s");
+
 
             $sensors = $this->db->get('sensor')->result();
             foreach($sensors as $sensor){
-                var_dump(
-                    $sensor->startTime,
-                    strtotime($sensor->startTime),
-                    $currentDateTime ,
-                    strtotime($currentDateTime)
-                );
-                echo "<Br>" ;
-                $sensor->recentTime = (strtotime($currentDateTime)-strtotime($sensor->startTime))/1; // divided by one for turn unknow num to second
-               
-                var_dump(
-                    $sensor->recentTime 
-                );
-                echo "<Br>" ;
+              
+                $recentSec = (strtotime($currentDateTime)-strtotime($sensor->startTime))/1; // different between currenttime and start time // divided by one for turn unknow num to second
+                $toMonth = floor($recentSec / 2592000 % 12 );
+                $toDay = floor($recentSec / 86400 % 30 );
+                $toHour = floor($recentSec / 3600 % 24);
+                $toMin = floor($recentSec / 60 % 60);
+                $toSec = floor($recentSec % 60);
+                $timeFormat = sprintf('%2dM %3dD %02d:%02d:%02d',$toMonth ,$toDay ,$toHour, $toMin, $toSec);
+
+                $sensor->recentTime = $timeFormat ;    
+                         
             }
             return $sensors;
         }

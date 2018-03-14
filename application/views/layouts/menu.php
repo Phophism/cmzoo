@@ -5,16 +5,19 @@
 		<nav>
 			<ul class="side-nav">
 				<li class="side-nav-link-panel">
-					<a class="side-nav-link" href="<?php echo base_url(); ?>map">map</a>
+					<a class="side-nav-link" href="<?php echo base_url(); ?>map">Map</a>
 				</li>
 				<li class="side-nav-link-panel">
-					<a class="side-nav-link" href="<?php echo base_url(); ?>report">report</a>
+					<a class="side-nav-link" href="<?php echo base_url(); ?>daynight">Day &#38; Night</a>
 				</li>
 				<li class="side-nav-link-panel">
-					<a class="side-nav-link" href="<?php echo base_url(); ?>chart">chart</a>
+					<a class="side-nav-link" href="<?php echo base_url(); ?>chart">Chart</a>
 				</li>
 				<li class="side-nav-link-panel">
-					<a class="side-nav-link" href="<?php echo base_url(); ?>sensor">status</a>
+					<a class="side-nav-link" href="<?php echo base_url(); ?>report">Report</a>
+				</li>
+				<li class="side-nav-link-panel">
+					<a class="side-nav-link" href="<?php echo base_url(); ?>sensor">Status</a>
 				</li>
 			</ul>
 		</nav>
