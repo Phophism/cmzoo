@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-		$this->load->view('layouts/head', array('title' => "Report"));
+		$this->load->view('layouts/head', array('title' => "Day Night Status",'test'=>"Test"));
 		$this->load->view('layouts/body_layout_1');
 		$this->load->view('layouts/header');
 		$this->load->view('layouts/menu');
@@ -12,22 +12,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card-header">
-						<button type="button" class="btn btn-danger pull-left">Toggle</button>
-						<input type="date" class="input-sm pull-right" />
+						<input type="checkbox" checked data-toggle="toggle" data-style="ios">
+						<input type="date" class="input-sm float-right"  />
 					</div>
 				</div>
 			</div>
-			<hr />
+			<hr/>
 
 			<!--Group 2-->
 			<div class="col-lg-12" style="margin-top:12px;">
 				<div class="card">
 					<div class="row">
-
-
 						<div class="col-lg-12">
 							<h1 style="text-align:center;">A</h1>
-
+							
 						</div>
 						<div class="col-lg-12">
 							<div class="row">
@@ -48,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													</div>
 													<div class="col-lg-6">
 														<div class="card">
-															<h1 style="text-align:center;">A</h1>
+														<div id="chartdiv"></div>
 														</div>
 													</div>
 												</div>
@@ -96,7 +94,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 

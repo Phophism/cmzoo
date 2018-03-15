@@ -4,20 +4,18 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!--Responsive meta tag-->
 	<title><?php echo $title ?></title>
-
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/sb-admin-2.css">
 	
 	<!-- slider -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" />
-	
+
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/amchart/amcharts/plugins/export/export.css" type="text/css" media="all" />
 	
 	<!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.css">
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.css">
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css"> -->
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.css"-->
 
 	
 	<style>
@@ -80,6 +78,14 @@
 
 		span{
 			color : rgba(255,255,255,0.6);
+		}
+
+		.toggle.ios, .toggle-on.ios, .toggle-off.ios { 
+			border-radius: 20px; 
+		
+		}
+  		.toggle.ios .toggle-handle { 
+			border-radius: 20px; 
 		}
 		
 	</style>

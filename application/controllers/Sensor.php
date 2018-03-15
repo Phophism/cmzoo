@@ -13,7 +13,6 @@ class Sensor extends CI_Controller {
 			)
 		);
 
-
 		/*
 		$data['nickname']->nickname = 'Phoom';
 		$this->load->view('welcome_message',$data);

@@ -6,10 +6,21 @@
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
     <script src="<?php echo base_url(); ?>assets/jquery/jquery-3-2-1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
     <script src="<?php echo base_url(); ?>node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
- 
+    
+    <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
+
+    <script src="<?php echo base_url(); ?>assets/node_modules/chart.js/dist/Chart.js"></script>
+
+    <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
+
+
+
     <!-- Slider -->
     <script>
             // With JQuery
@@ -19,6 +30,92 @@
                 ticks_snap_bounds: 5
             });
         </script>
+
+<!-- datepicker -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        var currentDate = new Date();  
+        $("#mydate").datepicker().datepicker("setDate", new Date());
+    </script>    
+
+    <!-- chart report percentage -->
+    <script src="assets/amchart/amcharts/amcharts.js"></script>
+    <script src="assets/amchart/amcharts/serial.js"></script>
+    <script src="assets/amchart/amcharts/plugins/export/export.min.js"></script>
+    <script src="assets/amchart/amcharts//themes/light.js"></script>
+
+    <script>
+        var chart = AmCharts.makeChart( "chartdiv", {
+        "type": "serial",
+        "theme": "light",
+        "dataProvider": [ {
+            "year": 2005,
+            "value": 11.5,
+            "error": 5
+        }, {
+            "year": 2006,
+            "value": 26.2,
+            "error": 5
+        }, {
+            "year": 2007,
+            "value": 30.1,
+            "error": 5
+        }, {
+            "year": 2008,
+            "value": 29.5,
+            "error": 7
+        }, {
+            "year": 2009,
+            "value": 24.6,
+            "error": 10
+        } ],
+        "balloon": {
+            "textAlign": "left"
+        },
+        "valueAxes": [ {
+            "id": "v1",
+            "axisAlpha": 0
+        } ],
+        "startDuration": 1,
+        "graphs": [ {
+            "balloonText": "value:<b>[[value]]</b><br>error:<b>[[error]]</b>",
+            "bullet": "yError",
+            "bulletSize": 10,
+            "errorField": "error",
+            "lineThickness": 2,
+            "valueField": "value",
+            "bulletAxis": "v1",
+            "fillAlphas": 0
+        }, {
+            "bullet": "round",
+            "bulletBorderAlpha": 1,
+            "bulletBorderColor": "#FFFFFF",
+            "lineAlpha": 0,
+            "lineThickness": 2,
+            "showBalloon": false,
+            "valueField": "value"
+
+        } ],
+        "chartCursor": {
+            "cursorAlpha": 0,
+            "cursorPosition": "mouse",
+            "graphBulletSize": 1,
+            "zoomable": false
+        },
+        "categoryField": "year",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "axisAlpha": 0
+        },
+        "export": {
+            "enabled": true
+        }
+        } );
+    </script>
+    
 
 
 </body>

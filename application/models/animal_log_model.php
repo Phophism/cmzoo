@@ -8,10 +8,12 @@
             return $this->db->get('animal_log')->result();
         }
 
-    /*    "http://teng.thai2biz.net/cmzoo/datain.php?sensor_id=" + nodeId + "&light_intensity=" + LI 
-            + "&temperatureC=" + C + "&temperatureF=" + F + "&duration=" + Dur + "&humidity=" + Humid ;
-    */
+        public function get_date($datepicker){
+            $data = $this->db->like('animal_log',array('startTime'=>$datepicker))->result();
+            var_dump($data);
+        }
 
+        //httpget
         public function add($nodeId,$lightIntensity,$temperatureC,$temperatureF,$humidity,$duration){
             
             date_default_timezone_set("Asia/Bangkok");

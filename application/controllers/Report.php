@@ -5,11 +5,23 @@ class Report extends CI_Controller {
 
 	public function index()
 	{
-
 		$this->load->model('animal_log_model');
+		$this->load->view('_dailyreport',
+			array(
+				"log" => $this->animal_log_model->get()
+			)
+		);
+		$datepicker = $this->input->get('datepicker');
+		$datepicker = date("Y-m-d",strtotime($datepicker));
+		// var_dump($datepicker);
+	}
 
-
-		$this->load->view('_dailyreport');
+	public function get(){
+		$datepicker = $this->input->get('datepicker');
+		$datepicker = date("Y-m-d",strtotime($datepicker));
+		$this->load->model('animal_log_model');
+		$this->animal_log_model->get_date($datepicker);
+		
 	}
 
 

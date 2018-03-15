@@ -18,7 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<h1>report</h1>
 							</div>
 							<div class="col-lg-6">
-								<h1>date picker</h1>
+								<form action="<?php echo base_url();?>report/get">
+									<input id="mydate" name ="datepicker" type="text" />
+									<button type="submit"></button>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -40,7 +43,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-
 
 			<!--average-->
 			<div class="col-lg-12 ">
