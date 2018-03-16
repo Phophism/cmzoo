@@ -16,13 +16,13 @@ class Report extends CI_Controller {
 		// var_dump($datepicker);
 	}
 
-	public function get(){
-		$datepicker = $this->input->get('datepicker');
-		$datepicker = date("Y-m-d",strtotime($datepicker));
-		$this->load->model('animal_log_model');
-		$this->animal_log_model->get_date($datepicker);
+	// public function get(){
+	// 	$datepicker = $this->input->get('datepicker');
+	// 	$datepicker = date("Y-m-d",strtotime($datepicker));
+	// 	$this->load->model('animal_log_model');
+	// 	$this->animal_log_model->get_date($datepicker);
 		
-	}
+	// }
 
 
 }
