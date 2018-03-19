@@ -23,100 +23,23 @@
 
     <!-- Slider -->
     <script>
-            // With JQuery
-            $("#ex13").slider({
-                ticks: [0, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600, 660, 720, 780, 840, 900, 960, 1020, 1080, 1140, 1200, 1260, 1320, 1380, 1439],
-                ticks_labels: ['00.00', '01.00', '02.00', '03.00', '04.00', '06.00', '07.00', '08.00', '09.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00', '17.00', '18.00', '19.00', '20.00', '21.00', '22.00', '23.00', '23.59'],
-                ticks_snap_bounds: 5
-            });
-        </script>
-
-<!-- datepicker -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        var currentDate = new Date();  
-        $("#mydate").datepicker().datepicker("setDate", new Date());
-    </script>    
-
-    <!-- chart report percentage -->
-    <script src="assets/amchart/amcharts/amcharts.js"></script>
-    <script src="assets/amchart/amcharts/serial.js"></script>
-    <script src="assets/amchart/amcharts/plugins/export/export.min.js"></script>
-    <script src="assets/amchart/amcharts//themes/light.js"></script>
-
-    <script>
-        var chart = AmCharts.makeChart( "chartdiv", {
-        "type": "serial",
-        "theme": "light",
-        "dataProvider": [ {
-            "year": 2005,
-            "value": 11.5,
-            "error": 5
-        }, {
-            "year": 2006,
-            "value": 26.2,
-            "error": 5
-        }, {
-            "year": 2007,
-            "value": 30.1,
-            "error": 5
-        }, {
-            "year": 2008,
-            "value": 29.5,
-            "error": 7
-        }, {
-            "year": 2009,
-            "value": 24.6,
-            "error": 10
-        } ],
-        "balloon": {
-            "textAlign": "left"
-        },
-        "valueAxes": [ {
-            "id": "v1",
-            "axisAlpha": 0
-        } ],
-        "startDuration": 1,
-        "graphs": [ {
-            "balloonText": "value:<b>[[value]]</b><br>error:<b>[[error]]</b>",
-            "bullet": "yError",
-            "bulletSize": 10,
-            "errorField": "error",
-            "lineThickness": 2,
-            "valueField": "value",
-            "bulletAxis": "v1",
-            "fillAlphas": 0
-        }, {
-            "bullet": "round",
-            "bulletBorderAlpha": 1,
-            "bulletBorderColor": "#FFFFFF",
-            "lineAlpha": 0,
-            "lineThickness": 2,
-            "showBalloon": false,
-            "valueField": "value"
-
-        } ],
-        "chartCursor": {
-            "cursorAlpha": 0,
-            "cursorPosition": "mouse",
-            "graphBulletSize": 1,
-            "zoomable": false
-        },
-        "categoryField": "year",
-        "categoryAxis": {
-            "gridPosition": "start",
-            "axisAlpha": 0
-        },
-        "export": {
-            "enabled": true
-        }
-        } );
+        // With JQuery
+        $("#ex13").slider({
+            ticks: [0, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600, 660, 720, 780, 840, 900, 960, 1020, 1080, 1140, 1200, 1260, 1320, 1380, 1439],
+            ticks_labels: ['00.00', '01.00', '02.00', '03.00', '04.00', '06.00', '07.00', '08.00', '09.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00', '17.00', '18.00', '19.00', '20.00', '21.00', '22.00', '23.00', '23.59'],
+            ticks_snap_bounds: 5
+        });
     </script>
-    
 
+    <!-- datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        var currentDate = new Date();
+        $("#mydate").datepicker().datepicker("setDate", new Date());
+    </script>
 
 </body>
 </html>

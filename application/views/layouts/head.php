@@ -78,15 +78,7 @@
 
 		span{
 			color : rgba(255,255,255,0.6);
-		}
-
-		.toggle.ios, .toggle-on.ios, .toggle-off.ios { 
-			border-radius: 20px; 
-		
-		}
-  		.toggle.ios .toggle-handle { 
-			border-radius: 20px; 
-		}
+		}s
 		
 	</style>
 

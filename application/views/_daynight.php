@@ -34,26 +34,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="card">
-													<h1 style="text-align:center;">A</h1>
+													<div id="numAct" style="height:350px;"></div>	
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="row">
-													<div class="col-lg-6">
-														<div class="card">
-															<h1 style="text-align:center;">A</h1>
-														</div>
-													</div>
-													<div class="col-lg-6">
-														<div class="card">
-														<div id="chartdiv"></div>
-														</div>
-													</div>
+												<div class="card">
+													<div id="percentile" style="height:350px;"></div>	
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
 													<h1 style="text-align:center;">A</h1>
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<div class="card">
+													<div id="sdLine" style="height:350px;	"></div>
 												</div>
 											</div>
 										</div>
@@ -68,22 +64,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="row">
-													<div class="col-lg-6">
-														<div class="card">
-															<h1 style="text-align:center;">A</h1>
-														</div>
-													</div>
-													<div class="col-lg-6">
-														<div class="card">
-															<h1 style="text-align:center;">A</h1>
-														</div>
-													</div>
+												<div class="card">
+													<div id="piechart" style="height:350px;"></div>	
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
 													<h1 style="text-align:center;">A</h1>
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<div class="card">
+													<div id="chartdiv" style="height:350px;"></div>
 												</div>
 											</div>
 										</div>
@@ -99,5 +91,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<?php 
 	$this->load->view('layouts/body_layout_2');
+	$this->load->view('scripts/daynight_chart');
 ?>
 

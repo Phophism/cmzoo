@@ -8,9 +8,11 @@
             return $this->db->get('animal_log')->result();
         }
 
-        public function get_date($datepicker){
-            $data = $this->db->like('animal_log',array('startTime'=>$datepicker))->result();
+        public function get_data_by_date($datepicker){
+            $this->db->get('animal_log')
+            $data = $this->db->like('startTime',$datepicker)->result();
             var_dump($data);
+            return $data;
         }
 
         //httpget
