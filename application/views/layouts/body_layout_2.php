@@ -15,7 +15,7 @@
     
     <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
 
-    <script src="<?php echo base_url(); ?>assets/node_modules/chart.js/dist/Chart.js"></script>
+    <script src="<?php echo base_url(); ?>node_modules/chart.js/dist/Chart.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
 

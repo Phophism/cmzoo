@@ -11,7 +11,7 @@
 					<a class="side-nav-link" href="<?php echo base_url(); ?>daynight">Day &#38; Night</a>
 				</li>
 				<li class="side-nav-link-panel">
-					<a class="side-nav-link" href="<?php echo base_url(); ?>chart">Chart</a>
+					<a class="side-nav-link" href="<?php echo base_url(); ?>visual">Visual</a>
 				</li>
 				<li class="side-nav-link-panel">
 					<a class="side-nav-link" href="<?php echo base_url(); ?>report">Report</a>

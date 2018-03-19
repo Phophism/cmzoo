@@ -3,7 +3,7 @@
 <script src="assets/amchart/amcharts/amcharts.js"></script>
 <script src="assets/amchart/amcharts/serial.js"></script>
 <script src="assets/amchart/amcharts/plugins/export/export.min.js"></script>
-<script src="assets/amchart/amcharts//themes/light.js"></script>
+<script src="assets/amchart/amcharts/themes/light.js"></script>
 
 <!-- Standdard Diviation -->
 <script>

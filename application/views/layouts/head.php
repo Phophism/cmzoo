@@ -11,8 +11,10 @@
 	<!-- slider -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" />
 
+	<!-- amchart -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/amchart/amcharts/plugins/export/export.css" type="text/css" media="all" />
 	
+
 	<!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.css"-->

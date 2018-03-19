@@ -11,39 +11,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<!-- report -->
 			<div class="col-lg-12">
-				<div class="row">
-					<div class="col-lg-12 ">
+				<div class="card text-white bg-secondary mb-3">
+					<div class="car-body">
 						<div class="row">
-							<div class="col-lg-6">
-								<h1>report</h1>
+							<div class="col-lg-12 ">
+								<div class="row">
+									<div class="col-lg-6">
+										<h1>report</h1>
+									</div>
+									<div class="col-lg-6">
+										<form id="dateForm" method="POST" action="<?php echo base_url();?>report/get">
+											<!-- <input id="mydate" name ="datepicker" type="text" /> -->
+											<input type="date" class="input-sm float-right"  name ="datepicker" id="date"/>
+										</form>
+									</div>
+								</div>
 							</div>
-							<div class="col-lg-6">
-								<form action="<?php echo base_url();?>report/get">
-									<input id="mydate" name ="datepicker" type="text" />
-									<button type="submit"></button>
-								</form>
+						</div>
+						<div class="col-lg-12">
+							<div class="row">
+								<div class="col-lg-3">
+									<h1>1</h1>
+								</div>
+								<div class="col-lg-3">
+									<h1>2</h1>
+								</div>
+								<div class="col-lg-3">
+									<h1>3</h1>
+								</div>
+								<div class="col-lg-3">
+									<h1>4</h1>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-12">
-					<div class="row">
-						<div class="col-lg-3">
-							<h1>1</h1>
-						</div>
-						<div class="col-lg-3">
-							<h1>2</h1>
-						</div>
-						<div class="col-lg-3">
-							<h1>3</h1>
-						</div>
-						<div class="col-lg-3">
-							<h1>4</h1>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			<!--average-->
 			<div class="col-lg-12 ">
 				<div class="row">
@@ -55,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
 									<div class="card-header">Header</div>
 									<div class="card-body">
-										<P>Radar chart</P>
+										<div id="reportRadar" style="height: 400px; width:100%;"></div>
 									</div>
 								</div>
 							</div>
@@ -144,7 +147,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
 	</div>
 
-	<?php 
+<?php 
 	$this->load->view('layouts/body_layout_2');
+	$this->load->view('scripts/report_script');
 ?>
 

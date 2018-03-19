@@ -32,8 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="col-lg-6">
 									<div class="card">
 										<div class="row">
-											<div class="col-lg-12">
-												<div class="card">
+											<div class="col-lg-12" >
+												<div class="card" >
 													<div id="numAct" style="height:350px;"></div>	
 												</div>
 											</div>
@@ -60,22 +60,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="card">
+													<div id="numAct" style="height:350px;"></div>	
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<div class="card">
+													<div id="percentile" style="height:350px;"></div>	
+												</div>
+											</div>
+											<div class="col-lg-12">
+												<div class="card">
 													<h1 style="text-align:center;">A</h1>
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="piechart" style="height:350px;"></div>	
-												</div>
-											</div>
-											<div class="col-lg-12">
-												<div class="card">
-													<h1 style="text-align:center;">A</h1>
-												</div>
-											</div>
-											<div class="col-lg-12">
-												<div class="card">
-													<div id="chartdiv" style="height:350px;"></div>
+													<div id="sdLine" style="height:350px;	"></div>
 												</div>
 											</div>
 										</div>

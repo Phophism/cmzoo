@@ -11,16 +11,16 @@ class Report extends CI_Controller {
 				"log" => $this->animal_log_model->get()
 			)
 		);
-		$datepicker = $this->input->get('datepicker');
+		$datepicker = $this->input->post('datepicker');
 		$datepicker = date("Y-m-d",strtotime($datepicker));
-		// var_dump($datepicker);
+		var_dump($datepicker);
 	}
 
 	public function get(){
-		$datepicker = $this->input->get('datepicker');
+		$datepicker = $this->input->post('datepicker');
 		$datepicker = date("Y-m-d",strtotime($datepicker));
 		$this->load->model('animal_log_model');
-		$this->animal_log_model->get_date($datepicker);
+		$this->animal_log_model->get_data_by_date($datepicker);
 		
 	}
 
