@@ -28,7 +28,5 @@ class Sensor extends CI_Controller {
 		$this->sensor_model->update($nodeId,$status);
 	}
 
-
-
 }
 

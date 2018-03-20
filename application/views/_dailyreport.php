@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<div class="col-lg-6">
 										<form id="dateForm" method="POST" action="<?php echo base_url();?>report/get">
 											<!-- <input id="mydate" name ="datepicker" type="text" /> -->
-											<input type="date" id="date" name ="datepicker"class="input-sm float-right"  onchange="change();"  />
+											<input type="date" id="date" name ="datepicker" class="input-sm float-right" onkeydown="return false" onchange="change();"  />
 										</form>
 									</div>
 								</div>
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-lg-12">
 							<div class="row">
 								<div class="col-lg-3">
-									<div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 200px; height: 50px;"></div>
+									<div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
 								</div>
 								<div class="col-lg-3">
 									<div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
@@ -57,8 +57,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="row">
 							<!-- radar chart -->
 							<div class="col-lg-12 " >
-								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
-									<div class="card-header">Header</div>
+								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
+									<div class="card-header">Total Amount</div>
 									<div class="card-body">
 										<div id="reportRadar" style="height: 400px; width:100%;"></div>
 									</div>
@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<!-- whole system -->
 							<div class="col-lg-12 ">
-								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
 									<div class="card-header">whole</div>
 									<div class="card-body">
 										<table class="table">
@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="row">
 							<!-- by cage -->
 							<div class="col-lg-12">
-								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
 									<div class="card-header">Cages</div>
 									<div class="card-body">
 										<table class="table">
@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<!-- by system -->
 							<div class="col-lg-12 ">
-								<div class="card text-white bg-secondary mb-3" style="max-width: 30rem; ">
+								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
 									<div class="card-header">Sensors</div>
 									<div class="card-body">
 										<table class="table">

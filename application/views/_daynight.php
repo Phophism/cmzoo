@@ -12,8 +12,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card-header">
-						<input type="checkbox" checked data-toggle="toggle" data-style="ios">
-						<input type="date" class="input-sm float-right"  />
+					<form id="dateForm" method="POST" action="<?php echo base_url();?>daynight/get">
+						<input type="checkbox" id="checkbox" checked data-toggle="toggle" data-style="ios" onchange="change();">
+						<span class="slider round"></span>
+						<input type="date" id="date" name ="datepicker" class="input-sm float-right" onkeydown="return false" onchange="change();"  />
+					</form>
 					</div>
 				</div>
 			</div>
@@ -91,6 +94,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<?php 
 	$this->load->view('layouts/body_layout_2');
-	$this->load->view('scripts/daynight_chart');
+	$this->load->view('scripts/daynight_script');
 ?>
 

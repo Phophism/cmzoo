@@ -2,7 +2,6 @@
 
 <script src="assets/amchart/amcharts/amcharts.js"></script>
 <script src="assets/amchart/amcharts/serial.js"></script>
-<script src="assets/amchart/amcharts/plugins/export/export.min.js"></script>
 <script src="assets/amchart/amcharts/themes/light.js"></script>
 
 <!-- Standdard Diviation -->
@@ -287,4 +286,15 @@ var chart = AmCharts.makeChart("numAct",
     	"enabled": true
      }
 });
+</script>
+
+
+<!-- datepicker -->
+
+<script type="text/javascript">
+	function change() {
+		document.getElementById("dateForm").submit();
+		console.log($("#date").val());
+		console.log($("#checkbox").val());
+	}
 </script>

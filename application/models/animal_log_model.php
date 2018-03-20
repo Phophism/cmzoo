@@ -9,15 +9,15 @@
         }
 
         public function get_data_by_date($datepicker){
-            var_dump($datepicker);
+            //var_dump($datepicker);
             $time = array('endTime'=>$datepicker); // ใช้ endTime ก่อน เพราะ startTime ข้อมูลไม่วิ่ง
             $this->db->select('*');
             $this->db->from('animal_log');
             $this->db->like($time);
             $data = $this->db->get()->result();
-            echo "<br>" ;
-            var_dump($data);
-      
+            // echo "<br>" ;
+            // var_dump($data);
+            return $data ;
         }
 
         //httpget
