@@ -1,7 +1,11 @@
 <script src="assets/amchart/amcharts/amcharts.js"></script>
 <script src="assets/amchart/amcharts/radar.js"></script>
+<script src="assets/amchart/amcharts/serial.js"></script>
 <script src="assets/amchart/amcharts/plugins/export/export.min.js"></script>
 <script src="assets/amchart/amcharts/themes/light.js"></script>
+
+
+<!-- radar -->
 
 <script>
 	var chart = AmCharts.makeChart("reportRadar", {
@@ -85,8 +89,20 @@
 
 
 
+<script src="node_modules/chart.js/dist/Chart.js"></script>
+
+<!-- Line Amount -->
+
+
+
+
+<!-- datepicker -->
+
 <script type="text/javascript">
-    document.getElementById("date").onclick = function() {
-    document.getElementById("dateForm").submit();
-    };
+
+	function change(){
+		document.getElementById("dateForm").submit();
+		console.log($("#date").val());
+	}
+    
 </script>

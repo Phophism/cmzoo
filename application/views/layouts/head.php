@@ -13,7 +13,8 @@
 
 	<!-- amchart -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/amchart/amcharts/plugins/export/export.css" type="text/css" media="all" />
-	
+
+	<!-- chartjs -->
 
 	<!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.css">

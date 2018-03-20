@@ -21,7 +21,6 @@ class Report extends CI_Controller {
 		$datepicker = date("Y-m-d",strtotime($datepicker));
 		$this->load->model('animal_log_model');
 		$this->animal_log_model->get_data_by_date($datepicker);
-		
 	}
 
 

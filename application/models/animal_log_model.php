@@ -14,7 +14,8 @@
             $this->db->select('*');
             $this->db->from('animal_log');
             $this->db->like($time);
-            $data = $this->db->get();
+            $data = $this->db->get()->result();
+            echo "<br>" ;
             var_dump($data);
       
         }

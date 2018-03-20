@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- report -->
 			<div class="col-lg-12">
 				<div class="card text-white bg-secondary mb-3">
-					<div class="car-body">
+					<div class="car-header">
 						<div class="row">
 							<div class="col-lg-12 ">
 								<div class="row">
@@ -22,25 +22,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<div class="col-lg-6">
 										<form id="dateForm" method="POST" action="<?php echo base_url();?>report/get">
 											<!-- <input id="mydate" name ="datepicker" type="text" /> -->
-											<input type="date" class="input-sm float-right"  name ="datepicker" id="date"/>
+											<input type="date" id="date" name ="datepicker"class="input-sm float-right"  onchange="change();"  />
 										</form>
 									</div>
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="card-body">
 						<div class="col-lg-12">
 							<div class="row">
 								<div class="col-lg-3">
-									<h1>1</h1>
+									<div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 200px; height: 50px;"></div>
 								</div>
 								<div class="col-lg-3">
-									<h1>2</h1>
+									<div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
 								</div>
 								<div class="col-lg-3">
-									<h1>3</h1>
+									<div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
 								</div>
 								<div class="col-lg-3">
-									<h1>4</h1>
+									<div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
 								</div>
 							</div>
 						</div>
