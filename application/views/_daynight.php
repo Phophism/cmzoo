@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card-header">
-					<form id="dateForm" method="POST" action="<?php echo base_url();?>daynight/get">
+					<form id="dateForm" method="POST" action="<?php echo base_url();?>daynight">
 						<input type="checkbox" id="checkbox" checked data-toggle="toggle" data-style="ios" onchange="change();">
 						<span class="slider round"></span>
 						<input type="date" id="date" name ="datepicker" class="input-sm float-right" onkeydown="return false" onchange="change();"  />
