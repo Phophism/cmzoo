@@ -5,20 +5,31 @@ class Daynight extends CI_Controller {
 
 	public function index(){
 		$this->load->model('animal_log_model');
-		$datepicker = $this->input->post('datepicker');
+		$dateReceive = $this->input->post('datepicker');
 		
-		if($datepicker==null){
+		if($dateReceive==null){
 			$this->load->view('_daynight');
 		}else{
-			$datepicker = date("Y-m-d",strtotime($datepicker));
+
+			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 			$this->load->model('animal_log_model');
-			$date = $this->animal_log_model->get_data_by_date($datepicker);
-			var_dump($date);
+			$day = $this->animal_log_model->get_data_by_date_day($dateReceive);
+			$night = $this->animal_log_model->get_data_by_date_night($dateReceive);
+
+			$daySensor = array(
+				'id' = ,
+				'amount' = 
+			)
+
+			
+
 			$this->load->view('_daynight',
 				array(
-					"log" => $date
+					"logDay" => $day,
+					"logNight" => $night
 				)
 			);
+			
 		}
 	}
 

@@ -3,28 +3,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Report extends CI_Controller {
 
-	public function index(){
-		$this->load->model('animal_log_model');
-		$this->load->view('_dailyreport',
-			array(
-				"log" => $this->get()
-			)
-		);
-	}
+	$this->load->model('animal_log_model');
+	$datepicker = $this->input->post('datepicker');
+	
+	if($datepicker==null){
+		$this->load->view('_dailyreport');
+	}else{
 
-	public function get(){
-		$datepicker = $this->input->post('datepicker');
 		$datepicker = date("Y-m-d",strtotime($datepicker));
 		$this->load->model('animal_log_model');
-		$this->animal_log_model->get_data_by_date($datepicker);
-	}
-
-	public function calWholeMean(){
-		foreach( $animal_logs as $log ){
-			$mean = $mean+1 ; 
-		}
+		$day = $this->animal_log_model->get_data_by_date($datepicker);
+		var_dump($day);
+		>view('_dailyreport',
+			array(
+				"log" => $day,
+			)
+		);
 		
 	}
+	}
+
 
 }
 
