@@ -16,12 +16,13 @@ class Daynight extends CI_Controller {
 			$day = $this->animal_log_model->get_data_by_date_day($dateReceive);
 			$night = $this->animal_log_model->get_data_by_date_night($dateReceive);
 
-			$daySensor = array(
-				'id' = ,
-				'amount' = 
-			)
-
-			
+			$dayNode = array();
+			if(isset($day)){
+				foreach($day as $dayNode){
+					$dayNode->node = $day->nodeId;
+				}
+			}
+			var_dump($dayNode);
 
 			$this->load->view('_daynight',
 				array(
@@ -32,8 +33,5 @@ class Daynight extends CI_Controller {
 			
 		}
 	}
-
-	
-
 }
 
