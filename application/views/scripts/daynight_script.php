@@ -212,16 +212,28 @@
 
 </script>
 
+<div id="val1" value="
+<?php	
+	$count = 0;
+	foreach($logDayA as $val)
+		if( $val[id] == "1")
+			$count++;
+	echo $count ;
+?>
+"
+>
+</div>
 
 <!-- # of act -->
 <script>
+
 var chart = AmCharts.makeChart("numAct",
 {
     "type": "serial",
     "theme": "white",
     "dataProvider": [{
         "name": "Sensor #1",
-        "points": 345,
+		"points": document.getElementById('val1').value ,
         "color": "#7F8DA9",
         "bullet": "https://www.amcharts.com/lib/images/faces/A04.png"
     }, {
@@ -251,7 +263,7 @@ var chart = AmCharts.makeChart("numAct",
         "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
     }],
     "valueAxes": [{
-        "maximum": 1000,
+        "maximum": 300,
         "minimum": 0,
         "axisAlpha": 0,
         "dashLength": 4,
@@ -259,7 +271,7 @@ var chart = AmCharts.makeChart("numAct",
     }],
     "startDuration": 1,
     "graphs": [{
-        "balloonText": "<span style='font-size:13px;'>[[category]]: <b>[[value]]</b></span>",
+        "balloonText": "<span style='color:gray; font-size:13px;'> Actsivities : <b>[[value]]</b></span>",
         "bulletOffset": 10,
         "bulletSize": 52,
         "colorField": "color",

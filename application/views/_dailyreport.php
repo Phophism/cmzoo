@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<h1>report</h1>
 									</div>
 									<div class="col-lg-6">
-										<form id="dateForm" method="POST" action="<?php echo base_url();?>report/get">
+										<form id="dateForm" method="POST" action="<?php echo base_url();?>report">
 											<!-- <input id="mydate" name ="datepicker" type="text" /> -->
 											<input type="date" id="date" name ="datepicker" class="input-sm float-right" onkeydown="return false" onchange="change();"  />
 										</form>
