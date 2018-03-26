@@ -212,59 +212,113 @@
 
 </script>
 
-<div id="val1" value="
-<?php	
-	$count = 0;
-	foreach($logDayA as $val)
-		if( $val[id] == "1")
-			$count++;
-	echo $count ;
-?>
-"
->
-</div>
+
+
 
 <!-- # of act -->
+
+<!-- separate sensor's value (DA)-->
+<?php	
+$countDay = array(0,0,0,0,0,0,0,0,0,0);
+foreach($logDayA as $val){
+	if( $val['id'] == "1")
+		$countDay[0]++;
+	else if( $val['id'] == "2")
+		$countDay[1]++;	
+	else if( $val['id'] == "3")
+		$countDay[2]++;	
+	else if( $val['id'] == "4")
+		$countDay[3]++;	
+	else if( $val['id'] == "5")
+		$countDay[4]++;	
+	else
+		$countDay[5]++;	
+}
+?>
+
+<!-- separate sensor's value (DB)-->
+<?php	
+foreach($logDayA as $val){
+	if( $val['id'] == "7")
+		$countDay[6]++;	
+	else if( $val['id'] == "8")
+		$countDay[7]++;	
+	else if( $val['id'] == "9")
+		$countDay[8]++;		
+	else
+		$countDay[9]++;	
+}
+?>
+
+<!-- set sensor's value -->
+<div id="val1" hidden><?php echo $countDay[0]; ?></div>
+<div id="val2" hidden><?php echo $countDay[1]; ?></div>
+<div id="val3" hidden><?php echo $countDay[2]; ?></div>
+<div id="val4" hidden><?php echo $countDay[3]; ?></div>
+<div id="val5" hidden><?php echo $countDay[4]; ?></div>
+<div id="val6" hidden><?php echo $countDay[5]; ?></div>
+<div id="val7" hidden><?php echo $countDay[6]; ?></div>
+<div id="val8" hidden><?php echo $countDay[7]; ?></div>
+<div id="val9" hidden><?php echo $countDay[8]; ?></div>
+<div id="val10" hidden><?php echo $countDay[9]; ?></div>
+
 <script>
 
-var chart = AmCharts.makeChart("numAct",
+// declare variable that contain value of each sensor
+var value1 = document.getElementById('val1').innerHTML;
+var value2 = document.getElementById('val2').innerHTML;
+var value3 = document.getElementById('val3').innerHTML;
+var value4 = document.getElementById('val4').innerHTML;
+var value5 = document.getElementById('val5').innerHTML;
+var value6 = document.getElementById('val6').innerHTML;
+var value7 = document.getElementById('val7').innerHTML;
+var value8 = document.getElementById('val8').innerHTML;
+var value9 = document.getElementById('val9').innerHTML;
+var value10 = document.getElementById('val10').innerHTML;
+// window.alert(value1 + " " + value2 + " " + value3 + " " + value4 + " " + value5 + " " + value6);
+
+// create separate sensor in system to set of day and night to find maximum amount of activities  
+var daySet = [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10];
+var maxDay = Math.max.apply(null,daySet);
+
+var chart = AmCharts.makeChart("numActDayA",
 {
     "type": "serial",
     "theme": "white",
     "dataProvider": [{
         "name": "Sensor #1",
-		"points": document.getElementById('val1').value ,
+		"activities":value1,
         "color": "#7F8DA9",
         "bullet": "https://www.amcharts.com/lib/images/faces/A04.png"
     }, {
         "name": "Sensor #2",
-        "points": 234,
+        "activities": value2,
         "color": "#FEC514",
         "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
     }, {
         "name": "Sensor #3",
-        "points": 125,
+        "activities": value3,
         "color": "#DB4C3C",
         "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
     }, {
         "name": "Sensor #4",
-        "points": 521,
+        "activities": value4,
         "color": "#DAF0FD",
         "bullet": "https://www.amcharts.com/lib/images/faces/E01.png"
     }, {
         "name": "Sensor #5",
-        "points": 426,
+        "activities": value5,
         "color": "#FEC552",
         "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
     }, {
         "name": "Sensor #6",
-        "points": 416,
+        "activities": value6,
         "color": "#DB4C1A",
         "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
     }],
     "valueAxes": [{
-        "maximum": 300,
-        "minimum": 0,
+        "maximum": maxDay+3,
+        "minimum": -1,
         "axisAlpha": 0,
         "dashLength": 4,
         "position": "left"
@@ -280,7 +334,69 @@ var chart = AmCharts.makeChart("numAct",
         "fillAlphas": 0.8,
         "lineAlpha": 0,
         "type": "column",
-        "valueField": "points"
+        "valueField": "activities"
+    }],
+    "marginTop": 0,
+    "marginRight": 0,
+    "marginLeft": 0,
+    "marginBottom": 0,
+    "autoMargins": false,
+    "categoryField": "name",
+    "categoryAxis": {
+        "axisAlpha": 0,
+        "gridAlpha": 0,
+        "inside": true,
+        "tickLength": 0
+    },
+    "export": {
+    	"enabled": true
+     }
+});
+
+var chart = AmCharts.makeChart("numActDayB",
+{
+    "type": "serial",
+    "theme": "white",
+    "dataProvider": [{
+        "name": "Sensor #7",
+		"activities":value7,
+        "color": "#7F8DA9",
+        "bullet": "https://www.amcharts.com/lib/images/faces/A04.png"
+    }, {
+        "name": "Sensor #8",
+        "activities": value8,
+        "color": "#FEC514",
+        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+    },{
+        "name": "Sensor #9",
+        "activities": value9,
+        "color": "#FEC552",
+        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+    }, {
+        "name": "Sensor #10",
+        "activities": value10,
+        "color": "#DB4C1A",
+        "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
+    }],
+    "valueAxes": [{
+        "maximum": maxDay+3,
+        "minimum": -1,
+        "axisAlpha": 0,
+        "dashLength": 4,
+        "position": "left"
+    }],
+    "startDuration": 1,
+    "graphs": [{
+        "balloonText": "<span style='color:gray; font-size:13px;'> Actsivities : <b>[[value]]</b></span>",
+        "bulletOffset": 10,
+        "bulletSize": 52,
+        "colorField": "color",
+        "cornerRadiusTop": 8,
+        "customBulletField": "bullet",
+        "fillAlphas": 0.8,
+        "lineAlpha": 0,
+        "type": "column",
+        "valueField": "activities"
     }],
     "marginTop": 0,
     "marginRight": 0,

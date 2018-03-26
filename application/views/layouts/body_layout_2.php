@@ -19,6 +19,9 @@
 
     <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
 
+    <!-- toggle -->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 
 
     <!-- Slider -->

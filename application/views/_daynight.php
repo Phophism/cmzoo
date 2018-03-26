@@ -13,9 +13,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="card">
 					<div class="card-header">
 					<form id="dateForm" method="POST" action="<?php echo base_url();?>daynight">
-						<input type="checkbox" id="checkbox" checked data-toggle="toggle" data-style="ios" onchange="change();">
-						<span class="slider round"></span>
-						<input type="date" id="date" name ="datepicker" class="input-sm float-right" onkeydown="return false" onchange="change();"  />
+						<input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" data-onstyle="success" data-offstyle="info" onchange="change();"
+						<?php
+							if(isset($cageReceive)==false)
+								echo "checked" ;	
+							else if($cageReceive=="on")
+								echo "checked" ;
+						?>
+						/>
+						<?php
+							if(isset($dateReceive))
+								echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  />" ;
+							else
+								echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" />" ;				
+						?>			
 					</form>
 					</div>
 				</div>
@@ -36,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<div class="row">
 											<div class="col-lg-12" >
 												<div class="card" >
-													<div id="numAct" style="height:350px;"></div>	
+													<div id="numActDayA" style="height:350px;"></div>	
 												</div>
 											</div>
 											<div class="col-lg-12">
@@ -62,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="numAct" style="height:350px;"></div>	
+													<div id="numActDayB" style="height:350px;"></div>	
 												</div>
 											</div>
 											<div class="col-lg-12">

@@ -5,9 +5,11 @@ class Daynight extends CI_Controller {
 
 	public function index(){
 		$this->load->model('animal_log_model');
+		$dateReceive = null;
 		$dateReceive = $this->input->post('datepicker');
-		
-		if($dateReceive==null){
+		$cageReceive = $this->input->post('cageselect');
+		var_dump($cageReceive);
+		if($dateReceive==null && $cageReceive==null){
 			$this->load->view('_daynight');
 		}else{
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
@@ -74,4 +76,3 @@ class Daynight extends CI_Controller {
 		}
 	}
 }
-
