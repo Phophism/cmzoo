@@ -57,7 +57,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="percentile" style="height:350px;"></div>	
+													<?php
+														if($cageReceive=="on")
+															echo "<div id=\"percentageDA\" style=\"height:350px;\"></div>" ;
+														else 
+															echo  "<div id=\"percentageDB\" style=\"height:350px;\"></div>" ;
+													?>
 												</div>
 											</div>
 											<div class="col-lg-12">
@@ -88,7 +93,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="percentile" style="height:350px;"></div>	
+													<?php
+														if($cageReceive=="on")
+															echo "<div id=\"percentageNA\" style=\"height:350px;\"></div>" ;
+														else 
+															echo  "<div id=\"percentageNB\" style=\"height:350px;\"></div>" ;
+													?>	
 												</div>
 											</div>
 											<div class="col-lg-12">

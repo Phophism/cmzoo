@@ -6,40 +6,99 @@
 
 <!-- radar -->
 
+<?php	
+$count = array(0,0,0,0,0,0,0,0,0,0);
+if(isset($logs)){
+	foreach($logs as $log){
+		if( $log->nodeId == "1")
+			$count[0]++;
+		else if( $log->nodeId == "2")
+			$count[1]++;	
+		else if( $log->nodeId == "3")
+			$count[2]++;	
+		else if( $log->nodeId == "4")
+			$count[3]++;	
+		else if( $log->nodeId == "5")
+			$count[4]++;	
+		else if( $log->nodeId == "6")
+			$count[5]++;
+		else if( $log->nodeId == "7")
+			$count[6]++;
+		else if( $log->nodeId == "8")
+			$count[7]++;
+		else if( $log->nodeId == "9")
+			$count[8]++;
+		else if( $log->nodeId == "10")
+			$count[9]++;
+	}
+}
+?>
+
+<!-- set sensor's value -->
+<div id="val1" hidden><?php echo $count[0]; ?></div>
+<div id="val2" hidden><?php echo $count[1]; ?></div>
+<div id="val3" hidden><?php echo $count[2]; ?></div>
+<div id="val4" hidden><?php echo $count[3]; ?></div>
+<div id="val5" hidden><?php echo $count[4]; ?></div>
+<div id="val6" hidden><?php echo $count[5]; ?></div>
+<div id="val7" hidden><?php echo $count[6]; ?></div>
+<div id="val8" hidden><?php echo $count[7]; ?></div>
+<div id="val9" hidden><?php echo $count[8]; ?></div>
+<div id="val10" hidden><?php echo $count[9]; ?></div>
+
+<script>
+
+// declare variable that contain value of each sensor
+var value1 = document.getElementById('val1').innerHTML;
+var value2 = document.getElementById('val2').innerHTML;
+var value3 = document.getElementById('val3').innerHTML;
+var value4 = document.getElementById('val4').innerHTML;
+var value5 = document.getElementById('val5').innerHTML;
+var value6 = document.getElementById('val6').innerHTML;
+var value7 = document.getElementById('val7').innerHTML;
+var value8 = document.getElementById('val8').innerHTML;
+var value9 = document.getElementById('val9').innerHTML;
+var value10 = document.getElementById('val10').innerHTML;
+
+var dataSet = [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10];
+maxActivity  = Math.max.apply(null,dataSet);
+</script>
+
+
 <script>
 	var chart = AmCharts.makeChart("reportRadar", {
 		"type": "radar",
 		"theme": "light",
 		"dataProvider": [{
 			"sensor": "sensor #1",
-			"amount": 156
+			"amount": value1
 		}, {
 			"sensor": "sensor #2",
-			"amount": 131
+			"amount": value2
 		}, {
 			"sensor": "sensor #3",
-			"amount": 115
+			"amount": value3
 		}, {
 			"sensor": "sensor #4",
-			"amount": 109
+			"amount": value4
 		}, {
 			"sensor": "sensor #5",
-			"amount": 108
+			"amount": value5
 		}, {
 			"sensor": "sensor #6",
-			"amount": 99
+			"amount": value6
 		}, {
 			"sensor": "sensor #7",
-			"amount": 115
+			"amount": value7
 		}, {
 			"sensor": "sensor #8",
-			"amount": 109
+			"amount": value8
 		}, {
 			"sensor": "sensor #9",
-			"amount": 108
+			"amount": value9
 		}, {
 			"sensor": "sensor #10",
-			"amount": 99
+			"amount": value10
 		}],
 		"valueAxes": [{
 			"gridType": "circles",
@@ -55,7 +114,7 @@
 				"fillColor": "#0066CC",
 				"tickLength": 0,
 				"toAngle": 107.5,
-				"toValue": 199,
+				"toValue": ((maxActivity+10)/10)*10,
 				"value": 0,
 				"lineAlpha": 0,
 			}, {
@@ -64,7 +123,7 @@
 				"fillColor": "#CC3333",
 				"tickLength": 0,
 				"toAngle": 252.5,
-				"toValue": 199,
+				"toValue": ((maxActivity+10)/10)*10,
 				"value": 0,
 				"lineAlpha": 0,
 			}],

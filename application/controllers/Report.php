@@ -16,7 +16,7 @@ class Report extends CI_Controller {
 			$day = $this->animal_log_model->get_data_by_date($datepicker);
 			$this->load->view('_dailyreport',
 				array(
-					"log" => $day
+					"logs" => $day
 				)
 			);
 		}
