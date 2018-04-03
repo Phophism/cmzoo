@@ -72,14 +72,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<table class="table">
 											<thead>
 												<tr>
-													<th>#</th>
 													<th>Mean</th>
-													<th>Mediun</th>
-													<th>Mode</th>
+													<th>Most Active Period</th>
 													<th>Percentage</th>
 													<th>Amount</th>
 												</tr>
 											</thead>
+											<tbody>
+												<tr>
+													<td></td>
+												</tr>
+											</tbody>
 										</table>
 									</div>
 								</div>
@@ -99,8 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												<tr>
 													<th>#</th>
 													<th>Mean</th>
-													<th>Mediun</th>
-													<th>Mode</th>
+													<th>Most Active Period</th>
 													<th>Percentage</th>
 													<th>Amount</th>
 												</tr>
@@ -119,8 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												<tr>
 													<th>#</th>
 													<th>Mean</th>
-													<th>Mediun</th>
-													<th>Mode</th>
+													<th>Most Active Period</th>
 													<th>Percentage</th>
 													<th>Amount</th>
 												</tr>
