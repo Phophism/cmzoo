@@ -73,14 +73,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<thead>
 												<tr>
 													<th>Mean</th>
-													<th>Most Active Period</th>
-													<th>Percentage</th>
+													<th>M.A.P</th>
+													<th>M.A.N</th>
 													<th>Amount</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<td></td>
+													<td> <?php echo $dataSet['meanWhole'] ;?> </td>
+													<td> <?php echo $dataSet['mostPeriod'] ?> </td>
+													<td> <?php echo $dataSet['mostNode'] ?> </td>
+													<td> <?php echo $dataSet['amountAll'] ?> </td>
 												</tr>
 											</tbody>
 										</table>
@@ -102,11 +105,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												<tr>
 													<th>#</th>
 													<th>Mean</th>
-													<th>Most Active Period</th>
+													<th>M.A.P</th>
+													<th>M.A.N</th>
 													<th>Percentage</th>
 													<th>Amount</th>
 												</tr>
 											</thead>
+											<tbody>
+												<tr>
+													<td>A</td>
+													<td><?php echo $dataSet['meanA'] ; ?></td>
+													<td><?php echo $dataSet['mostPeriodA'] ; ?></td>
+													<td><?php echo $dataSet['mostNodeA'] ; ?></td>
+													<td><?php echo $dataSet['percentageA']." %" ; ?></td>
+													<td><?php echo $dataSet['amountA'] ; ?></td>
+												</tr>
+												<tr>
+													<td>B</td>
+													<td><?php echo $dataSet['meanB'] ; ?></td>
+													<td><?php echo $dataSet['mostPeriodB'] ; ?></td>
+													<td><?php echo $dataSet['mostNodeB'] ; ?></td>
+													<td><?php echo $dataSet['percentageB']." %"; ?></td>
+													<td><?php echo $dataSet['amountB'] ; ?></td>
+												</tr>
+											</tbody>
 										</table>
 									</div>
 								</div>
@@ -121,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												<tr>
 													<th>#</th>
 													<th>Mean</th>
-													<th>Most Active Period</th>
+													<th>M.A.P</th>
 													<th>Percentage</th>
 													<th>Amount</th>
 												</tr>
