@@ -19,20 +19,29 @@ class Report extends CI_Controller {
 				$periodCount = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 				$nodeCount = array(0,0,0,0,0,0,0,0,0,0);
 				$nodeDuration = array();
-
+		
 				foreach($day as $whole){ 
 					$countDur = 0;	
 					$whole->startTime = date("H:i:s",strtotime($whole->startTime));
 					
+					
+					// if($whole->startTime == date("H:i:s",strtotime("00:00:00"))){
+					// 	$periodCount[0] += 1;
+					// 	$nodeCount[($whole->nodeId)-1] +=1; 
+					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[0];
+					// 	var_dump("A");
+					// }
+					// else 
 					if($whole->startTime < date("H:i:s",strtotime($duration[0]))){
 						$periodCount[0] += 1;
 						$nodeCount[($whole->nodeId)-1] +=1; 
 						$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[0];
+						var_dump("B");
 					}
 					
 					
 					while($countDur<23){
-						if($whole->startTime < date("H:i:s",strtotime($duration[$countDur+1])) && $whole->startTime > date("H:i:s",strtotime($duration[$countDur]))){
+						if($whole->startTime < date("H:i:s",strtotime($duration[$countDur+1])) && $whole->startTime >= date("H:i:s",strtotime($duration[$countDur]))){
 							$periodCount[$countDur+1]++;
 							$nodeCount[($whole->nodeId)-1]++;
 							$nodeDuration[($whole->nodeId)-1]['nodeDur'][] = $duration[$countDur+1]; 
@@ -40,125 +49,9 @@ class Report extends CI_Controller {
 						$countDur++;
 					
 					}
-					// else if($whole->startTime < strtotime($duration[2]) && $whole->startTime > strtotime($duration[1])){
-					// 	$periodCount[2]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[2];   
-					// }
-					// else if($whole->startTime < strtotime($duration[3]) && $whole->startTime > strtotime($duration[2])){
-					// 	$periodCount[3]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[3]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[4])&&$whole->startTime > strtotime($duration[3])){
-					// 	$periodCount[4]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	 
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[4]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[5]) && $whole->startTime > strtotime($duration[4])){
-					// 	$periodCount[5]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[5]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[6]) && $whole->startTime > strtotime($duration[5])){
-					// 	$periodCount[6]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	  
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[6]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[7])&&$whole->startTime > strtotime($duration[6])){
-					// 	$periodCount[7]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[7];  
-					// }
-					// else if($whole->startTime < strtotime($duration[8]) && $whole->startTime > strtotime($duration[7])){
-					// 	$periodCount[8]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[8]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[9]) && $whole->startTime > strtotime($duration[8])){
-					// 	$periodCount[9]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[9]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[10])&& $whole->startTime > strtotime($duration[9])){
-					// 	$periodCount[10]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[10]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[11])&& $whole->startTime > strtotime($duration[10])){
-					// 	$periodCount[11]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	 
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[11]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[12])&& $whole->startTime > strtotime($duration[11])){
-					// 	$periodCount[12]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	 
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[12]; 
-					// 	echo "--------------12---------------";
-					// }
-					// else if($whole->startTime < strtotime($duration[13])&& $whole->startTime > strtotime($duration[12])){
-					// 	$periodCount[13]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[13]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[14])&& $whole->startTime > strtotime($duration[13])){
-					// 	$periodCount[14]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[14]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[15])&& $whole->startTime > strtotime($duration[14])){
-					// 	$periodCount[15]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[15];   
-					// }
-					// else if($whole->startTime < strtotime($duration[16])&& $whole->startTime > strtotime($duration[15])){
-					// 	$periodCount[16]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	 
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[16];  	
-					// }
-					// else if($whole->startTime < strtotime($duration[17])&& $whole->startTime > strtotime($duration[16])){
-					// 	$periodCount[17]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[17];  
-					// }
-					// else if($whole->startTime < strtotime($duration[18])&& $whole->startTime > strtotime($duration[17])){
-					// 	$periodCount[18]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	  
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[18]; 	
-					// }
-					// else if($whole->startTime < strtotime($duration[19])&& $whole->startTime > strtotime($duration[18])){
-					// 	$periodCount[19]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;	  
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[19]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[20])&& $whole->startTime > strtotime($duration[19])){
-					// 	$periodCount[20]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[20]; 		  
-					// }
-					// else if($whole->startTime < strtotime($duration[21])&& $whole->startTime > strtotime($duration[20])){
-					// 	$periodCount[21]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[21]; 	
-					// }
-					// else if($whole->startTime < strtotime($duration[22])&& $whole->startTime > strtotime($duration[21])){
-					// 	$periodCount[22]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[22]; 		  
-					// }
-					// else if($whole->startTime < strtotime($duration[23])&& $whole->startTime > strtotime($duration[22])){
-					// 	$periodCount[23]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[23]; 
-					// }
-					// else if($whole->startTime < strtotime($duration[24])&& $whole->startTime > strtotime($duration[23])){
-					// 	$periodCount[24]++;
-					// 	$nodeCount[($whole->nodeId)-1]++;
-					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[24]; 
-					// }
 				}
-
-				var_dump($nodeDuration);
+				
+	
 	
 				// ****** amount ******
 				$amountAll = count($day);
@@ -177,12 +70,12 @@ class Report extends CI_Controller {
 					$nodeCount[9]
 				;
 				$amountNode = $nodeCount;
-
-				var_dump($amountNode);
-
+echo "<pre>";
+				//var_dump($whole->startTime < date("H:i:s",strtotime($duration[0])));
+echo "</pre>";
 			// -----------------Percentage----------------- //
 			
-				if($amountAll != 0 ){
+				if(count($day)!= 0 ){
 					// ******** Percentage Cage A/B ******** //
 					$percentageA = round((($amountCageA*100)/$amountAll),2)." %";
 					$percentageB = round((($amountCageB*100)/$amountAll),2)." %";
@@ -203,8 +96,7 @@ class Report extends CI_Controller {
 
 			// ------------------Mean------------------//
 
-				if(count($amount)!=0){
-
+				if(count($day)!=0){
 					// ****** Mean whole ******
 					$meanWhole = round((count($day)/24),2);
 					// ****** Mean Cage ********
@@ -212,16 +104,20 @@ class Report extends CI_Controller {
 					$i=0;
 					$meanCageA = 0;
 					$meanCageB = 0;
+					
 					while($i<6){
 						$meanCageA += $nodeCount[$i];
 						$i++;
 					}
+					if($meanCageA == 0 )
+						$meanCageA = round(($meanCageA/24),3) ; // total in "A" divide by 24 hr -> get mean , decimal = 3 
+					
 					while($i<10){
 						$meanCageB += $nodeCount[$i];
 						$i++;
 					}
-					$meanCageA = round(($meanCageA/24),3) ; // All in A divide by 24 -> get mean , decimal = 3 
-					$meanCageB = round(($meanCageB/24),3) ;
+					if($meanCageB == 0 )
+						$meanCageB = round(($meanCageB/24),3) ; // total in "A" divide by 24 hr -> get mean , decimal = 3 
 
 					// ***** mean sensor(node) ******
 					
@@ -247,8 +143,10 @@ class Report extends CI_Controller {
 						$j++ ;	
 					}
 				}else{
-
-
+					$meanWhole = 0;
+					$meanCageA = 0; 
+					$meanCageB = 0;
+					$meanNode = 0;
 				}
 
 
@@ -305,7 +203,10 @@ class Report extends CI_Controller {
 											)
 										]
 									;								
-				$mostPeriodA = date("H:i",strtotime($mostPeriodA)-3600). " - " . date("H:i",strtotime($mostPeriodA)); // Most A
+				if($mostPeriodA == $duration[23])
+				$mostPeriodA = date("H:i",strtotime($mostPeriodA)-3599). " - " . date("H:i",strtotime($mostPeriodA)); // Most A
+				else
+					$mostPeriodA = date("H:i",strtotime($mostPeriodA)-3600). " - " . date("H:i",strtotime($mostPeriodA)); // Most A
 				
 
 				// **** Most Active Peroid in Cage B **** //	
