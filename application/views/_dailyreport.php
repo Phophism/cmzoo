@@ -80,10 +80,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</thead>
 											<tbody>
 												<tr>
-													<td> <?php echo $dataSet['meanWhole'] ;?> </td>
-													<td> <?php echo $dataSet['mostPeriod'] ?> </td>
-													<td> <?php echo $dataSet['mostNode'] ?> </td>
-													<td> <?php echo $dataSet['amountAll'] ?> </td>
+													<td> <?php echo $means['meanWhole'] ;?> </td>
+													<td> <?php echo $periods['mostPeriod'] ?> </td>
+													<td> <?php echo $mostNodes['mostNode'] ?> </td>
+													<td> <?php echo $amounts['amountAll'] ?> </td>
 												</tr>
 											</tbody>
 										</table>
@@ -114,19 +114,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<tbody>
 												<tr>
 													<td>A</td>
-													<td><?php echo $dataSet['meanA'] ; ?></td>
-													<td><?php echo $dataSet['mostPeriodA'] ; ?></td>
-													<td><?php echo $dataSet['mostNodeA'] ; ?></td>
-													<td><?php echo $dataSet['percentageA']." %" ; ?></td>
-													<td><?php echo $dataSet['amountA'] ; ?></td>
+													<td><?php echo $means['meanA'] ; ?></td>
+													<td><?php echo $periods['mostPeriodA'] ; ?></td>
+													<td><?php echo $mostNodes['mostNodeA'] ; ?></td>
+													<td><?php echo $percentages['percentageA']; ?></td>
+													<td><?php echo $amounts['amountA'] ; ?></td>
 												</tr>
 												<tr>
 													<td>B</td>
-													<td><?php echo $dataSet['meanB'] ; ?></td>
-													<td><?php echo $dataSet['mostPeriodB'] ; ?></td>
-													<td><?php echo $dataSet['mostNodeB'] ; ?></td>
-													<td><?php echo $dataSet['percentageB']." %"; ?></td>
-													<td><?php echo $dataSet['amountB'] ; ?></td>
+													<td><?php echo $means['meanB'] ; ?></td>
+													<td><?php echo $periods['mostPeriodB'] ; ?></td>
+													<td><?php echo $mostNodes['mostNodeB'] ; ?></td>
+													<td><?php echo $percentages['percentageB']; ?></td>
+													<td><?php echo $amounts['amountB'] ; ?></td>
 												</tr>
 											</tbody>
 										</table>
@@ -148,6 +148,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 													<th>Amount</th>
 												</tr>
 											</thead>
+											<tbody>
+												<?php
+													$counter = 0 ;
+													while($counter<10){
+												?>
+												<tr>
+													<td><?php echo $counter+1 ;?></td>
+													<td><?php echo $means['meanNode'][$counter] ;?></td>
+													<td><?php echo $periods['mostPeriodNode'][$counter] ;?></td>
+													<td><?php echo $percentages['percentageNode'][$counter] ;?></td>
+													<td><?php echo $amounts['amountNode'][$counter] ;?></td>
+												</tr>
+												<?php 
+													$counter++;
+													}
+												?>
+											</tbody>
 										</table>
 									</div>
 								</div>

@@ -157,80 +157,109 @@ class Report extends CI_Controller {
 					// 	$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[24]; 
 					// }
 				}
+
+				var_dump($nodeDuration);
 	
-				//amount
-					$amountAll = count($day);
-					$amountCageA = 
-						$nodeCount[0]+
-						$nodeCount[1]+
-						$nodeCount[2]+
-						$nodeCount[3]+
-						$nodeCount[4]+
-						$nodeCount[5]
-					;
-					$amountCageB = 
-						$nodeCount[6]+
-						$nodeCount[7]+
-						$nodeCount[8]+
-						$nodeCount[9]
-					;
-					$percentageA = round((($amountCageA*100)/$amountAll),2);
-					$percentageB = round((($amountCageB*100)/$amountAll),2);
-					// ดัก divide by 0
-
-				// Mean whole
-				$meanWhole = round((count($day)/24),2);
-			
-				// Mean Cage
-				$i=0;
-				$meanCageA = 0;
-				$meanCageB = 0;
-				while($i<6){
-					$meanCageA += $nodeCount[$i];
-					$i++;
-				}
-				while($i<10){
-					$meanCageB += $nodeCount[$i];
-					$i++;
-				}
-				$meanCageA = round(($meanCageA/24),3) ; // All in A divide by 24 -> get mean , decimal = 3 
-				$meanCageB = round(($meanCageB/24),3) ;
-
-				// mean sensor(node)
-				$meanNode = array(
-					$nodeCount[0],
-					$nodeCount[1],
-					$nodeCount[2],
-					$nodeCount[3],
-					$nodeCount[4],
-				    $nodeCount[5],
-					$nodeCount[6],
-					$nodeCount[7],
-					$nodeCount[8],
+				// ****** amount ******
+				$amountAll = count($day);
+				$amountCageA = 
+					$nodeCount[0]+
+					$nodeCount[1]+
+					$nodeCount[2]+
+					$nodeCount[3]+
+					$nodeCount[4]+
+					$nodeCount[5]
+				;
+				$amountCageB = 
+					$nodeCount[6]+
+					$nodeCount[7]+
+					$nodeCount[8]+
 					$nodeCount[9]
-				);
+				;
+				$amountNode = $nodeCount;
 
-				$j = 0 ;
-				while($j < 10){
-					if($meanNode[$j] != 0)
-						$meanNode[$j] = round(($meanNode[$j]/24),3) ;
-					else
-						$meanNode[$j] = "N/A"; 
-					$j++ ;	
+				var_dump($amountNode);
+
+			// -----------------Percentage----------------- //
+			
+				if($amountAll != 0 ){
+					// ******** Percentage Cage A/B ******** //
+					$percentageA = round((($amountCageA*100)/$amountAll),2)." %";
+					$percentageB = round((($amountCageB*100)/$amountAll),2)." %";
+					// ดัก divide by 0 ด้วย
+
+					// ******** Percentage Node ********** //
+					$percentageNode = array();
+					$countPercenNode = 0 ;
+					while($countPercenNode<10){
+						$percentageNode[] = round((($nodeCount[$countPercenNode]*100)/$amountAll),2)." %";
+						$countPercenNode++;
+					}
+				}else{
+					$percentageA = Null ;
+					$percentageB = Null	;
+					$percentageNode = Null ;
 				}
 
-				// most active
+			// ------------------Mean------------------//
 
-						//$countDup = array_count_values($nodeCount);
-				// echo "<pre>";
-				// var_dump($nodeDuration);
-				// echo "</pre>";
+				if(count($amount)!=0){
 
-				// period		
-				$mostActivePeriod = array_search(max($periodCount),$periodCount);
-				
+					// ****** Mean whole ******
+					$meanWhole = round((count($day)/24),2);
+					// ****** Mean Cage ********
+
+					$i=0;
+					$meanCageA = 0;
+					$meanCageB = 0;
+					while($i<6){
+						$meanCageA += $nodeCount[$i];
+						$i++;
+					}
+					while($i<10){
+						$meanCageB += $nodeCount[$i];
+						$i++;
+					}
+					$meanCageA = round(($meanCageA/24),3) ; // All in A divide by 24 -> get mean , decimal = 3 
+					$meanCageB = round(($meanCageB/24),3) ;
+
+					// ***** mean sensor(node) ******
+					
+					$meanNode = array(
+						$nodeCount[0]/24,
+						$nodeCount[1]/24,
+						$nodeCount[2]/24,
+						$nodeCount[3]/24,
+						$nodeCount[4]/24,
+						$nodeCount[5]/24,
+						$nodeCount[6]/24,
+						$nodeCount[7]/24,
+						$nodeCount[8]/24,
+						$nodeCount[9]/24
+					);
+
+					$j = 0 ;
+					while($j < 10){
+						if($meanNode[$j] != 0)
+							$meanNode[$j] = round(($meanNode[$j]/24),3) ;
+						else
+							$meanNode[$j] = "N/A"; 
+						$j++ ;	
+					}
+				}else{
+
+
+				}
+
+
+
+				// -------------------period---------------- //
+
+				// ****Most Active Period - System**** //
+				$mostActivePeriod = $duration[array_search(max($periodCount),$periodCount)];
+				$mostActivePeriod = date("H:i",strtotime($mostActivePeriod)-3600)." - ".date("H:i",strtotime($mostActivePeriod));
+
 				$mostActivePeriodPerNode = array();
-
 				$activePeriodCount = 0;
 				while($activePeriodCount<10){
 					if(isset($nodeDuration[$activePeriodCount])){
@@ -239,65 +268,65 @@ class Report extends CI_Controller {
 							$periodPernode = (int)$periodPernode;
 						}
 					}else
-						$mostActivePeriodPerNode[] = "Null";	
+						$mostActivePeriodPerNode[] = null;	
 					$activePeriodCount++;
 				}
-
-				echo "A<pre>";
-				var_dump($mostActivePeriodPerNode);
-				echo "</pre>";
 
 				// ระบบจะแยกเวลาออกเป็นจำนวนๆ 
 				// เหลือหาจำนวนที่มากที่สุด
 				// ใช้ var_dump($mostActivePeriodPerNode); ดู
 
+				// **** Most Active Peroid separated by sensors **** //
 				$setMost = 0;
-				$mostPeriodNode = array();
+				$mostPeriodNode = array(); 
 				while($setMost<10){
-					if(isset($mostActivePeriodPerNode))
-						$mostPeriodNode[] = array_search(max($mostActivePeriodPerNode[$setMost]),$mostActivePeriodPerNode[$setMost]);	
-					// else if(isset($mostActivePeriodPerNode) &&  count($mostActivePeriodPerNode)==1) 
-					// 	$mostActivePeriodPerNode[$setMost] = count($mostActivePeriodPerNode[$setMost]);
+					if(isset($mostActivePeriodPerNode[$setMost])){
+						$mostPeriodNode[] = 
+							array_search(
+								max($mostActivePeriodPerNode[$setMost]),
+								$mostActivePeriodPerNode[$setMost]
+							
+							);
+					}else
+						$mostPeriodNode[$setMost] = null;
 					$setMost++;
 				}
-		
-				echo "A<pre>";
-				var_dump($mostPeriodNode);
-				echo "</pre>";
 
-		
+				// **** Most Active Peroid in Cage A **** //
+				$mostPeriodFromA = array();
+				$countPeriodA = 0;
+				while($countPeriodA < 6){
+					$mostPeriodFromA[] = $mostPeriodNode[$countPeriodA];
+					$countPeriodA++;
+				}
+				$mostPeriodA =	$mostPeriodNode[
+											array_search(
+												max($mostPeriodFromA),$mostPeriodFromA
+											)
+										]
+									;								
+				$mostPeriodA = date("H:i",strtotime($mostPeriodA)-3600). " - " . date("H:i",strtotime($mostPeriodA)); // Most A
+				
 
-				$mostActivePeriodB = date("H:i",
-					strtotime(
-						$duration[
-							array_search(max(
-								$mostPeriodNode
-							),
-							$mostPeriodNode)
-						]
-					)
-				);
-				echo "A<pre>";
-				var_dump(array_search(max(
-					$mostActivePeriodPerNode
-				),
-				$mostActivePeriodPerNode));
-				var_dump($mostActivePeriodB);
-				echo "</pre>";
+				// **** Most Active Peroid in Cage B **** //	
+				$mostPeriodFromB = array();
+				$countPeriodB = 6;
+				while($countPeriodB < 10){
+					$mostPeriodFromB[] = $mostPeriodNode[$countPeriodB];
+					$countPeriodB++;
+				}
+				$mostPeriodB =	$mostPeriodNode[
+											array_search(
+												max($mostPeriodFromB),$mostPeriodFromB
+											)
+										]
+									;								
+				$mostPeriodB = date("H:i",strtotime($mostPeriodB)-3600). " - " . date("H:i",strtotime($mostPeriodB)); // Most B
 				
-		
-				// echo "<hr/>";
-				// var_dump(array_search(max(
-				// 	$periodCount[6],
-				// 	$periodCount[7],
-				// 	$periodCount[8],
-				// 	$periodCount[9]
-				// ),
-				// $periodCount));
-				// var_dump($periodCount);
-				// echo "<hr/>";
-				
-				// node
+
+
+			// --------------------node-------------------- //
+
 				$mostActiveNode = array_search(max($nodeCount),$nodeCount)+1;
 				$mostActiveNodeA = array_search(
 					max(
@@ -318,7 +347,9 @@ class Report extends CI_Controller {
 						$nodeCount[9]
 					)
 					,$nodeCount
-				)+1;
+				)+1+6;
+				// + 1 for plus 1 element (element 0 = node 1)
+				// + 6 for plus 6 sensors. So, it will start at sensor 7
 				
 				// 
 				//
@@ -328,35 +359,53 @@ class Report extends CI_Controller {
 
 
 				// Data Set
-				$dataSetTable = array(
+			
+				$dataSetMean = array(
 					'meanWhole' => $meanWhole,
 					'meanA' => $meanCageA,
 					'meanB' => $meanCageB,
+					'meanNode' => $meanNode
+				);
+
+				$dataSetPeriod = array(
 					'mostPeriod' => $mostActivePeriod,
-					// 'mostPeriodA' => $mostActivePeriodA,
-					// 'mostPeriodB' => $mostActivePeriodB,
+					'mostPeriodA' => $mostPeriodA,
+					'mostPeriodB' => $mostPeriodB,
+					'mostPeriodNode' => $mostPeriodNode
+				);
+
+				$dataSetMostNode = array(
 					'mostNode' => $mostActiveNode,
 					'mostNodeA' => $mostActiveNodeA,
-					'mostNodeB' => $mostActiveNodeB,
+					'mostNodeB' => $mostActiveNodeB
+				);
+
+				$dataSetPercentage = array(
+					'percentageA' => $percentageA,
+					'percentageB' => $percentageB,
+					'percentageNode' => $percentageNode
+				);
+
+				$dataSetAmount = array(
 					'amountAll' => $amountAll,
 					'amountA' => $amountCageA,
 					'amountB' => $amountCageB,
-					'percentageA' => $percentageA,
-					'percentageB' => $percentageB
-					
+					'amountNode' => $amountNode
 				);
+
+		
+
 				// เหลือ most Node A / B
-
-
-				
-
-
-
 			
 			$this->load->view('_dailyreport',
 							array(
 								"logs" => $day,
-								"dataSet" => $dataSetTable
+								"means" => $dataSetMean,
+								"periods" => $dataSetPeriod,
+								"mostNodes" => $dataSetMostNode,
+								"percentages" => $dataSetPercentage,
+								"amounts" => $dataSetAmount
+								
 							)
 						);
 			
