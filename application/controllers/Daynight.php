@@ -11,17 +11,20 @@ class Daynight extends CI_Controller {
 
 		if($dateReceive==null && $cageReceive==null){
 			$dateReceive = date("Y-m-d");
-			$cageReceive = "ON";
+			$cageReceive = "on";
 		}else{
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
-			var_dump($dateReceive);
-		}
+		}	var_dump($cageReceive);
+		
 			echo "datechange";
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 			$this->load->model('animal_log_model');
+
+			$sdDataSet =  $this->animal_log_model->get_data_set_sd($dateReceive);
 			$day = $this->animal_log_model->get_data_by_date_day($dateReceive);
 			$night = $this->animal_log_model->get_data_by_date_night($dateReceive);
-		
+			
+
 			$minA = 1; // First node of cage A
 			$maxA = 6; // Last node of cage A
 			$minB = 7; // First node of cage B

@@ -43,6 +43,22 @@
 
             return $data ;
         }
+        public function get_data_set_sd($dateReceive){
+            $countDay = 0 ;
+            $data = array();
+            while($countDay < 30){
+                $time =  array('endTime'=> date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ); // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 29 วัน
+                $this->db->select('*');
+                $this->db->from('animal_log');
+                $this->db->like($time);
+                $data[] = $this->db->count_all_results()->result();
+                $countDay++;
+            }
+            
+            // echo "<br>" ;
+            var_dump($data);
+            return $data ;
+        }
 
         //httpget
         public function add($nodeId,$lightIntensity,$temperatureC,$temperatureF,$humidity,$duration){
