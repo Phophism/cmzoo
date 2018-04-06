@@ -10,13 +10,12 @@ class Daynight extends CI_Controller {
 	
 
 		if($dateReceive==null && $cageReceive==null){
-			$cageReceive = "default";	
-			var_dump($cageReceive);
-			echo "date not change";
-			$this->load->view('_daynight',array(
-				'cageReceive' => $cageReceive
-			));
+			$dateReceive = date("Y-m-d");
+			$cageReceive = "ON";
 		}else{
+			$dateReceive = date("Y-m-d",strtotime($dateReceive));
+			var_dump($dateReceive);
+		}
 			echo "datechange";
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 			$this->load->model('animal_log_model');
@@ -137,6 +136,6 @@ class Daynight extends CI_Controller {
 					)
 				);
 			} 	
-		}
+		
 	}
 }

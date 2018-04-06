@@ -125,7 +125,7 @@ var valueN8 = document.getElementById('valN8').innerHTML;
 var valueN9 = document.getElementById('valN9').innerHTML;
 var valueN10 = document.getElementById('valN10').innerHTML;
 
-window.alert(valueD1 + valueN1);
+//window.alert(valueD1 + valueN1);
 
 // create separate sensor in system to set of day and night to find maximum amount of activities  
 var daySet = [valueD1,valueD2,valueD3,valueD4,valueD5,valueD6,valueD7,valueD8,valueD9,valueD10];
