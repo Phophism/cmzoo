@@ -48,31 +48,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<div class="col-lg-12" >
 												<div class="card" >
 													<?php
-														if($cageReceive=="on")
-															echo "<div id=\"numActDayA\" style=\"height:350px;\"></div>" ;
-														else 
-															echo "<div id=\"numActDayB\" style=\"height:350px;\"></div>" ;
+														if($cageReceive=="on"){
+															if(count($logDayA)!=0)
+																echo "<div id=\"numActDayA\" style=\"height:350px;\"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}else {
+															if(count($logDayB)!=0)
+																echo "<div id=\"numActDayB\" style=\"height:350px;\"></div>" ;
+															else
+																 echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}	
 													?>
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
 													<?php
-														if($cageReceive=="on")
-															echo "<div id=\"percentageDA\" style=\"height:350px;\"></div>" ;
-														else 
-															echo  "<div id=\"percentageDB\" style=\"height:350px;\"></div>" ;
+														if($cageReceive=="on"){
+															if(count($logDayA)!=0)
+																echo "<div id=\"percentageDA\" style=\"height:350px;\"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}else {
+															if(count($logDayB)!=0)
+																echo  "<div id=\"percentageDB\" style=\"height:350px;\"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}
 													?>
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<h1 style="text-align:center;">A</h1>
+													<div id="chartMean" style="height:350px; "></div>
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="sdLine" style="height:350px;	"></div>
+													<div id="sdLine" style="height:350px; "></div>
 												</div>
 											</div>
 										</div>
@@ -84,20 +98,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<div class="col-lg-12">
 												<div class="card">
 													<?php
-														if($cageReceive=="on")
-															echo "<div id=\"numActNightA\" style=\"height:350px;\"></div>" ;
-														else 
-															echo "<div id=\"numActNightB\" style=\"height:350px;\"></div>" ;
+														if($cageReceive=="on"){
+															if(count($logNightA) != 0)
+																echo "<div id=\"numActNightA\" style=\"height:350px;\"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}else {
+															if(count($logNightB) != 0)
+																echo "<div id=\"numActNightB\" style=\"height:350px;\"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}	
 													?>
 												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
 													<?php
-														if($cageReceive=="on")
-															echo "<div id=\"percentageNA\" style=\"height:350px;\"></div>" ;
-														else 
-															echo  "<div id=\"percentageNB\" style=\"height:350px;\"></div>" ;
+														if($cageReceive=="on"){
+															if(count($logNightA) != 0)
+																echo "<div id=\"percentageNA\" style=\"height:350px;\"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}else {
+															if(count($logNightB)!=0)
+																echo  "<div id=\"percentageNB\" style=\"height:350px;\"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}	
 													?>	
 												</div>
 											</div>
@@ -121,7 +149,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</div>
-
+	<div class="container-fluid">Page rendered in
+		<strong>{elapsed_time}</strong> seconds.
+		<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
+	</div>
 	<?php 
 	$this->load->view('layouts/body_layout_2');
 	$this->load->view('scripts/daynight_script');

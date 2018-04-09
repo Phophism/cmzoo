@@ -3,18 +3,17 @@
 <script src="assets/amchart/amcharts/amcharts.js"></script>
 <script src="assets/amchart/amcharts/serial.js"></script>
 <script src="assets/amchart/amcharts/themes/light.js"></script>
+<script src="assets/amchart/amcharts/themes/dark.js"></script>
 
 
 
 <!-- Number of act -->
 <?php
     $this->load->view('scripts/daynight_get_value');
-	$this->load->view('scripts/daynight_num_of_act');
+	$this->load->view('scripts/daynight_num_of_act'); 
+	$this->load->view('scripts/daynight_pie');
+	$this->load->view('scripts/daynight_mean');
 ?>
-<?php
-    $this->load->view('scripts/daynight_pie');
-?>
-
 
 <!-- Standdard Diviation -->
 <script>

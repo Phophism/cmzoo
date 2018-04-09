@@ -35,21 +35,39 @@
         public function get_data_by_date_night($dateReceive){
             //var_dump($datepicker);
             $nextNight = date("Y-m-d",strtotime($dateReceive. '+1 day' )); // dateRecieve + 1 day
-            $limitTime = date("H:i:s",strtotime("12.00.00"));
+            $limitTimeFirst = date("H:i:s",strtotime("16.00.00"));
+            $limitTimeSecond = date("H:i:s",strtotime("09.00.00"));
 
-            $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and endTime > '".$dateReceive." ".$limitTime.
-                                    "') and (lightIntensity < 40 and endTime < '".$nextNight." ".$limitTime."')")->result();
+            $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and endTime > '".$dateReceive." ".$limitTimeFirst.
+                                    "') and (lightIntensity < 40 and endTime < '".$nextNight." ".$limitTimeSecond."')")->result();
             // select * from animal_log where (lightIntensity < 40 and endTime > '2018-03-07 12:00:00') and (lightIntensity < 40 and endTime < '2018-03-08 12:00:00')  
 
             return $data ;
         }
-        public function get_data_set_sd($dateReceive){
+
+        public function get_data_set_month_day($dateReceive){
             $countDay = 0 ;
             $dataSet = array();
             while($countDay < 30){
                 $time = date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 29 วัน
-                $data = $this->db->query('select * from animal_log where endTime like \'%'.$time.'%\'' )->result();
-                $dataSet[] = count($data);
+                $data = $this->db->query('select * from animal_log where lightIntensity >=40 and endTime like \'%'.$time.'%\' order by endTime desc' )->result();
+                $dataSet[] = $data;
+                $countDay++;
+            }
+            return $dataSet ;
+        }
+
+        public function get_data_set_month_night($dateReceive){
+            $countDay = 0 ;
+            $dataSet = array();
+            $limitTimeFirst = date("H:i:s",strtotime("16.00.00"));
+            $limitTimeSecond = date("H:i:s",strtotime("09.00.00"));
+            while($countDay < 30){
+                $nextNight = date("Y-m-d",strtotime($dateReceive. '-'.($countDay+1).' day' )); // dateRecieve + 1 day
+                $nightTime = date("Y-m-d",strtotime($dateReceive. '-'.($countDay).' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 29 วัน
+                $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and endTime > '".$nightTime." ".$limitTimeFirst.
+                                        "') and (lightIntensity < 40 and endTime < '".$nextNight." ".$limitTimeSecond."')  order by endTime desc ")->result();
+                $dataSet[] = $data;
                 $countDay++;
             }
             return $dataSet ;

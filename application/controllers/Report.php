@@ -291,7 +291,10 @@ echo "</pre>";
 				//
 				//
 
-				if(isset($day)){
+
+				// ------------ Temperature (max/min) ------------------///
+			
+				if(!empty($day)){
 					$highestTmp = max(array_column($day, 'temperatureC'));
 					$lowestTmp = min(array_column($day, 'temperatureC'));
 				}else{
@@ -299,7 +302,22 @@ echo "</pre>";
 					$lowestTmp = "-";
 				}
 
-				if(isset($day)){
+				//--------------avg tmp--------------//
+				if(!empty($day)){
+					$sumTmp = 0 ;
+					$countNA = 0 ;
+					foreach($day as $d){
+						if($d->temperatureC == "NA")
+							$countNA++;
+						else
+							$sumTmp += $d->temperatureC;
+					}
+					$avgTmp = $sumTmp/(count($day)-$countNA); 
+				}else
+					$avgTmp = "-";
+
+				//--------------humidity--------------//
+				if(!empty($day)){
 					$sumHumid = 0 ;
 					$countNA = 0 ;
 					foreach($day as $d){
@@ -350,6 +368,13 @@ echo "</pre>";
 					'amountNode' => $amountNode
 				);
 				// เหลือ most Node A / B
+
+				$weather = array(
+					'tmp' => $avgTmp,
+					'minTmp' => $lowestTmp,
+					'maxTmp' => $highestTmp,
+					'humid' => $avgHumid
+				);
 			
 			$this->load->view('_report',
 							array(
@@ -361,7 +386,9 @@ echo "</pre>";
 								"amounts" => $dataSetAmount,
 								"datepicker" => $datepicker,
 								"day" => $day,
-								"nodecount" => $nodeCount
+								"nodecount" => $nodeCount,
+								"weather" =>$weather
+
 							)
 						);
 			

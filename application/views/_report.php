@@ -36,17 +36,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="row">
 								<div class="col-lg-3">
 									<!-- <div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h1>Total Amount : <?php echo $amounts['amountAll'];?> </h1>  
+									<h1><?php echo "Total Amount : ".$amounts['amountAll'] ; ?> </h1>  
 								</div>
 								<div class="col-lg-3">
 									<!-- <div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h1>temperature(&#8451) : <?php ?> </h1>
+									<h1><?php echo "Temp (&#8451) : ".$weather['tmp'] ?> </h1>
 								</div>
 								<div class="col-lg-3">
 									<!-- <div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
+									<h1><?php echo "Max/Min Temp (&#8451) : ".$weather['maxTmp']."/".$weather['minTmp'] ?> </h1>
 								</div>
 								<div class="col-lg-3">
 									<!-- <div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
+									<h1><?php echo"Avg Humidity : ". $weather['humid']."%"?></h1>
 								</div>
 							</div>
 						</div>
