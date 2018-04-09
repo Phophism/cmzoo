@@ -54,6 +54,6 @@ var value9 = document.getElementById('val9').innerHTML;
 var value10 = document.getElementById('val10').innerHTML;
 
 var dataSet = [value1,value2,value3,value4,value5,value6,value7,value8,value9,value10];
-maxActivity  = Math.max.apply(null,dataSet);
+var maxActivity  = Math.max.apply(null,dataSet);
 </script>
 

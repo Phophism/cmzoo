@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- report -->
 			<div class="col-lg-12">
 				<div class="card text-white bg-secondary mb-3">
-					<div class="car-header">
+					<div class="card-header">
 						<div class="row">
 							<div class="col-lg-12 ">
 								<div class="row">
@@ -35,16 +35,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-lg-12">
 							<div class="row">
 								<div class="col-lg-3">
-									<div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
+									<!-- <div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
+									<h1>Total Amount : <?php echo $amounts['amountAll'];?> </h1>  
 								</div>
 								<div class="col-lg-3">
-									<div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
+									<!-- <div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
+									<h1>temperature(&#8451) : <?php ?> </h1>
 								</div>
 								<div class="col-lg-3">
-									<div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
+									<!-- <div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								</div>
 								<div class="col-lg-3">
-									<div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div>
+									<!-- <div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								</div>
 							</div>
 						</div>
@@ -62,7 +64,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
 									<div class="card-header">Total Amount</div>
 									<div class="card-body">
-										<div id="reportRadar" style="height: 400px; width:100%;"></div>
+										<div class = "row">
+											<?php 
+												if(is_null($mostNodes['mostNode'])){
+													echo	"<div id=\"reportRadar1\" style=\"height: 500px; width:100%;\"></div>";
+												}else{
+													if($nodecount[$mostNodes['mostNode']-1] >=50)
+														echo	"<div id=\"reportRadar1\" style=\"height: 400px; width:100%;\"></div>";
+													else if($nodecount[$mostNodes['mostNode']-1] >=10 && $nodecount[$mostNodes['mostNode']-1] <50)
+														echo	"<div id=\"reportRadar2\" style=\"height: 400px; width:100%;\"></div>";
+													else 
+														echo	"<div id=\"reportRadar3\" style=\"height: 400px; width:100%;\"></div>";
+												}
+											?>
+										</div>
+										<div class = "row" style=" padding-top:5px; padding-bottom:15px;">
+											<div class="col text-center">
+												<span class="badge badge-pill badge-light" style=" height: 55px; line-height: 4; margin-right:12.5px; background-color:#CC33334D; color:#e9e9e2E6;"  >Cage B</span>
+												<span class="badge badge-pill badge-info" style=" height: 55px; line-height: 4; margin-left:12.5px; background-color:#0066CC4D;  color:#e9e9e2E6;"  >Cage A</span>
+												
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

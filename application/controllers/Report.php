@@ -139,7 +139,7 @@ echo "</pre>";
 						$nodeCount[9]
 					);
 
-					var_dump($meanNode);
+					// var_dump($meanNode);
 
 					$j = 0 ;
 					while($j < 10){
@@ -291,7 +291,31 @@ echo "</pre>";
 				//
 				//
 
-				// Data Set
+				if(isset($day)){
+					$highestTmp = max(array_column($day, 'temperatureC'));
+					$lowestTmp = min(array_column($day, 'temperatureC'));
+				}else{
+					$highestTmp = "-";
+					$lowestTmp = "-";
+				}
+
+				if(isset($day)){
+					$sumHumid = 0 ;
+					$countNA = 0 ;
+					foreach($day as $d){
+						if($d->temperatureC == "NA")
+							$countNA++;
+						else
+							$sumHumid += $d->temperatureC;
+						// var_dump($sumTemp);
+					}
+					$avgHumid = $sumHumid/(count($day)-$countNA); 
+				}else
+					$avgHumid = "-";
+					
+					var_dump($avgHumid); 	 
+
+				//-----------------Data Set-------------------
 			
 				$dataSetMean = array(
 					'meanWhole' => $meanWhole,
@@ -327,7 +351,7 @@ echo "</pre>";
 				);
 				// เหลือ most Node A / B
 			
-			$this->load->view('_dailyreport',
+			$this->load->view('_report',
 							array(
 								"logs" => $day,
 								"means" => $dataSetMean,
@@ -336,7 +360,8 @@ echo "</pre>";
 								"percentages" => $dataSetPercentage,
 								"amounts" => $dataSetAmount,
 								"datepicker" => $datepicker,
-								"day" => $day
+								"day" => $day,
+								"nodecount" => $nodeCount
 							)
 						);
 			

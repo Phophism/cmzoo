@@ -45,19 +45,14 @@
         }
         public function get_data_set_sd($dateReceive){
             $countDay = 0 ;
-            $data = array();
+            $dataSet = array();
             while($countDay < 30){
-                $time =  array('endTime'=> date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ); // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 29 วัน
-                $this->db->select('*');
-                $this->db->from('animal_log');
-                $this->db->like($time);
-                $data[] = $this->db->count_all_results()->result();
+                $time = date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 29 วัน
+                $data = $this->db->query('select * from animal_log where endTime like \'%'.$time.'%\'' )->result();
+                $dataSet[] = count($data);
                 $countDay++;
             }
-            
-            // echo "<br>" ;
-            var_dump($data);
-            return $data ;
+            return $dataSet ;
         }
 
         //httpget
