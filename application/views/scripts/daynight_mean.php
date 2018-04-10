@@ -18,7 +18,7 @@
 					"id": "blur",
 					"feGaussianBlur": {
 						"in": "SourceGraphic",
-						"stdDeviation": "10"
+						"stdDeviation": sdD1
 					}
 				},
 				{
@@ -34,7 +34,7 @@
 					"feGaussianBlur": {
 						"result": "blurOut",
 						"in": "offOut",
-						"stdDeviation": "10"
+						"stdDeviation":  sdD1
 					},
 					"feColorMatrix": {
 						"result": "blurOut",

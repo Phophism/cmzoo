@@ -36,7 +36,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="row">
 								<div class="col-lg-3">
 									<!-- <div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h1><?php echo "Total Amount : ".$amounts['amountAll'] ; ?> </h1>  
+									<div class="card text-white bg-secondary mb-2">
+										<div class="card-header">
+											<div class="float-right col-lg-7" style="padding:0;">
+												<div class="row">
+													<div class="col">
+														<h4 class="float-right" style="  text-align: right; line-height:1;">Total Amount</h2>
+													</div>
+												</div>
+												<div class="row">
+													<div class = "col">
+														<p class="float-right"><?php echo $amounts['amountAll'] ; ?> </p>
+													</div>
+												</div>												
+											</div>
+										</div>
+										<div class="card-body">
+											total amount of activities
+										</div>
+									</div>	
+									<h1></h1>  
 								</div>
 								<div class="col-lg-3">
 									<!-- <div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
@@ -90,24 +109,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 								</div>
 							</div>
-							<!-- whole system -->
-							<div class="col-lg-12 ">
-								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
-									<div class="card-header">Cages</div>
-									<div class="card-body">
-										<table class="table">
-											<thead>
-												<tr>
-													<th>#</th>
-													<th>Mean</th>
-													<th>M.A.P</th>
-													<th>M.A.N</th>
-													<th>Percentage</th>
-													<th>Amount</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php if(count($day)!=0){?>
+							<!-- by cage (if exist) -->
+							<?php if(count($day) != 0) {?>
+								<div class="col-lg-12 ">
+									<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
+										<div class="card-header">Cages</div>
+										<div class="card-body">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>Mean</th>
+														<th>M.A.P</th>
+														<th>M.A.N</th>
+														<th>Percentage</th>
+														<th>Amount</th>
+													</tr>
+												</thead>
+												<tbody>
 													<tr>
 														<td>A</td>
 														<td><?php echo $means['meanA'] ; ?></td>
@@ -124,27 +143,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 														<td><?php echo $percentages['percentageB']; ?></td>
 														<td><?php echo $amounts['amountB'] ; ?></td>
 													</tr>
-
-												<?php
-												}
-												else{
-												?>
-													<td class="text-center" colspan="6"><p>NO DATA TO SHOW</p></td>
-												<?php
-												}
-												?>
-											</tbody>
-										</table>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
-
-							</div>
+							<?php
+							}
+							?>	
 						</div>
 					</div>
 					<!-- column 2 -->
 					<div class="col-lg-6">
 						<div class="row">
-							<!-- by cage -->
+							<!-- by sensor -->
 							<div class="col-lg-12">
 								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
 									<div class="card-header">Sensors</div>
@@ -190,7 +202,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 
 							</div>
-							<!-- by system -->
+							<!-- whole system -->
 							<div class="col-lg-12 ">
 								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
 									<div class="card-header">whole</div>
@@ -225,6 +237,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 								</div>
 							</div>
+
+							<?php if(count($day)==0){?>
+								<div class="col-lg-12 ">
+									<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
+										<div class="card-header">Cages</div>
+										<div class="card-body">
+											<table class="table">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>Mean</th>
+														<th>M.A.P</th>
+														<th>M.A.N</th>
+														<th>Percentage</th>
+														<th>Amount</th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php if(count($day)!=0){?>
+														<tr>
+															<td>A</td>
+															<td><?php echo $means['meanA'] ; ?></td>
+															<td><?php echo $periods['mostPeriodA'] ; ?></td>
+															<td><?php echo $mostNodes['mostNodeA'] ; ?></td>
+															<td><?php echo $percentages['percentageA']; ?></td>
+															<td><?php echo $amounts['amountA'] ; ?></td>
+														</tr>
+														<tr>
+															<td>B</td>
+															<td><?php echo $means['meanB'] ; ?></td>
+															<td><?php echo $periods['mostPeriodB'] ; ?></td>
+															<td><?php echo $mostNodes['mostNodeB'] ; ?></td>
+															<td><?php echo $percentages['percentageB']; ?></td>
+															<td><?php echo $amounts['amountB'] ; ?></td>
+														</tr>
+
+													<?php
+													}
+													else{
+													?>
+														<td class="text-center" colspan="6"><p>NO DATA TO SHOW</p></td>
+													<?php
+													}
+													?>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							<?php
+							}
+							?>
 						</div>
 					</div>
 				</div>

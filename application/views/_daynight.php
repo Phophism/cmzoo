@@ -98,7 +98,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="sdLine" style="height:350px; "></div>
+													<?php
+														if($cageReceive=="on"){
+															if(count($logDayA)!=0)
+																echo "<div id=\"sdLineDA\" style=\"height:350px; \"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}else {
+															if(count($logDayB)!=0)
+																echo "<div id=\"sdLineDB\" style=\"height:350px; \"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}
+													?>
 												</div>
 											</div>
 										</div>
@@ -160,7 +172,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="sdLine" style="height:350px;	"></div>
+													<?php
+														if($cageReceive=="on"){
+															if(count($logNightA)!=0)
+																echo "<div id=\"sdLineNA\" style=\"height:350px; \"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}else {
+															if(count($logNightB)!=0)
+																echo "<div id=\"sdLineNB\" style=\"height:350px; \"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}
+													?>
 												</div>
 											</div>
 										</div>

@@ -15,8 +15,7 @@ class Daynight extends CI_Controller {
 		}else{
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 		}	
-		
-		echo "datechange";
+
 		$dateReceive = date("Y-m-d",strtotime($dateReceive));
 		$this->load->model('animal_log_model');
 

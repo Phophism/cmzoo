@@ -7,15 +7,11 @@ class Report extends CI_Controller {
 		$this->load->helper('array');
 		$this->load->model('animal_log_model');
 		$datepicker = $this->input->post('datepicker');
-		var_dump($datepicker);
 
 		if($datepicker==null){
 			$datepicker = date("Y-m-d");
-			var_dump($datepicker);
-			echo "*";
 		}else{
 			$datepicker = date("Y-m-d",strtotime($datepicker));
-			echo "-";
 		}
 			$day = $this->animal_log_model->get_data_by_date($datepicker);
 		
@@ -42,7 +38,6 @@ class Report extends CI_Controller {
 						$periodCount[0] += 1;
 						$nodeCount[($whole->nodeId)-1] +=1; 
 						$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[0];
-						var_dump("B");
 					}
 					
 					
@@ -57,7 +52,8 @@ class Report extends CI_Controller {
 					}
 				}
 				
-	
+			}
+			
 	
 				// ****** amount ******
 				$amountAll = count($day);
@@ -76,9 +72,7 @@ class Report extends CI_Controller {
 					$nodeCount[9]
 				;
 				$amountNode = $nodeCount;
-echo "<pre>";
-				//var_dump($whole->startTime < date("H:i:s",strtotime($duration[0])));
-echo "</pre>";
+
 			// -----------------Percentage----------------- //
 			
 				if(count($day)!= 0 ){
@@ -138,8 +132,6 @@ echo "</pre>";
 						$nodeCount[8],
 						$nodeCount[9]
 					);
-
-					// var_dump($meanNode);
 
 					$j = 0 ;
 					while($j < 10){
@@ -325,13 +317,10 @@ echo "</pre>";
 							$countNA++;
 						else
 							$sumHumid += $d->temperatureC;
-						// var_dump($sumTemp);
 					}
 					$avgHumid = $sumHumid/(count($day)-$countNA); 
 				}else
-					$avgHumid = "-";
-					
-					var_dump($avgHumid); 	 
+					$avgHumid = "-";	 
 
 				//-----------------Data Set-------------------
 			
@@ -391,11 +380,6 @@ echo "</pre>";
 
 							)
 						);
-			
-			}else
-				echo "no data";
-			
-			
 		
 	}
 
