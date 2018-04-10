@@ -81,7 +81,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<div id="chartMean" style="height:350px; "></div>
+													<?php
+														if($cageReceive=="on"){
+															if(count($logDayA)!=0)
+																echo "<div id=\"chartMeanDA\" style=\"height:350px; \"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}else {
+															if(count($logDayB)!=0)
+																echo   "<div id=\"chartMeanDB\" style=\"height:350px; \"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}
+													?>
 												</div>
 											</div>
 											<div class="col-lg-12">
@@ -131,7 +143,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</div>
 											<div class="col-lg-12">
 												<div class="card">
-													<h1 style="text-align:center;">A</h1>
+													<?php
+														if($cageReceive=="on"){
+															if(count($logNightA)!=0)
+																echo "<div id=\"chartMeanNA\" style=\"height:350px; \"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}else {
+															if(count($logNightB)!=0)
+																echo   "<div id=\"chartMeanNB\" style=\"height:350px; \"></div>" ;
+															else
+																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
+														}
+													?>
 												</div>
 											</div>
 											<div class="col-lg-12">

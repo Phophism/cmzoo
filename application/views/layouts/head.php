@@ -47,7 +47,6 @@
 			margin: 20px;
 		}
 
-
 		.side-nav {
 			list-style-type: none;
     		display: flex;
@@ -85,8 +84,31 @@
 
 		span{
 			color : rgba(255,255,255,0.6);
-		}s
+		}
 		
+	</style>
+
+<!--Mean chart Day-Night-->
+	<style>
+		#chartdiv {
+		width: 96%;
+		height: 475px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 15px;
+		}
+
+		.amcharts-graph-g1 .amcharts-graph-fill {
+		filter: url(#blur);
+		}
+
+		.amcharts-graph-g2 .amcharts-graph-fill {
+		filter: url(#blur);
+		}
+
+		.amcharts-cursor-fill {
+		filter: url(#shadow);
+		}
 	</style>
 
 	
