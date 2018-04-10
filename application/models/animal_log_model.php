@@ -63,13 +63,17 @@
             $limitTimeFirst = date("H:i:s",strtotime("16.00.00"));
             $limitTimeSecond = date("H:i:s",strtotime("09.00.00"));
             while($countDay < 30){
-                $nextNight = date("Y-m-d",strtotime($dateReceive. '-'.($countDay+1).' day' )); // dateRecieve + 1 day
+                if($countDay == 0)
+                    $nextNight = date("Y-m-d",strtotime($dateReceive.'+'.($countDay+1).' day' )); // dateRecieve + 1 day 
+                else
+                    $nextNight = date("Y-m-d",strtotime($dateReceive. '-'.($countDay-1).' day' )); // dateRecieve + 1 day              
                 $nightTime = date("Y-m-d",strtotime($dateReceive. '-'.($countDay).' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 29 วัน
                 $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and endTime > '".$nightTime." ".$limitTimeFirst.
                                         "') and (lightIntensity < 40 and endTime < '".$nextNight." ".$limitTimeSecond."')  order by endTime desc ")->result();
                 $dataSet[] = $data;
                 $countDay++;
             }
+          
             return $dataSet ;
         }
 

@@ -168,6 +168,30 @@ if(isset($logNightB)){
 <div id="minN9" hidden><?php echo $minN[8];?></div>
 <div id="minN10" hidden><?php echo $minN[9];?></div>
 
+ <!-- SD -->
+
+<div id="sdD1" hidden><?php echo $sdD[0];?></div>
+<div id="sdD2" hidden><?php echo $sdD[1];?></div>
+<div id="sdD3" hidden><?php echo $sdD[2];?></div>
+<div id="sdD4" hidden><?php echo $sdD[3];?></div>
+<div id="sdD5" hidden><?php echo $sdD[4];?></div>
+<div id="sdD6" hidden><?php echo $sdD[5];?></div>
+<div id="sdD7" hidden><?php echo $sdD[6];?></div>
+<div id="sdD8" hidden><?php echo $sdD[7];?></div>
+<div id="sdD9" hidden><?php echo $sdD[8];?></div>
+<div id="sdD10" hidden><?php echo $sdD[9];?></div>
+
+<div id="sdN1" hidden><?php echo $sdN[0];?></div>
+<div id="sdN2" hidden><?php echo $sdN[1];?></div>
+<div id="sdN3" hidden><?php echo $sdN[2];?></div>
+<div id="sdN4" hidden><?php echo $sdN[3];?></div>
+<div id="sdN5" hidden><?php echo $sdN[4];?></div>
+<div id="sdN6" hidden><?php echo $sdN[5];?></div>
+<div id="sdN7" hidden><?php echo $sdN[6];?></div>
+<div id="sdN8" hidden><?php echo $sdN[7];?></div>
+<div id="sdN9" hidden><?php echo $sdN[8];?></div>
+<div id="sdN10" hidden><?php echo $sdN[9];?></div>
+
 <script>
 
 // declare variable that contain value of each sensor
@@ -269,6 +293,30 @@ var maxN8 = document.getElementById('maxN8').innerHTML;
 var maxN9 = document.getElementById('maxN9').innerHTML;
 var maxN10 = document.getElementById('maxN10').innerHTML;
 
+// declare variable that contain SD of each sensor for last 30 days (Day)
+var sdD1 = document.getElementById('sdD1').innerHTML;
+var sdD2 = document.getElementById('sdD2').innerHTML;
+var sdD3 = document.getElementById('sdD3').innerHTML;
+var sdD4 = document.getElementById('sdD4').innerHTML;
+var sdD5 = document.getElementById('sdD5').innerHTML;
+var sdD6 = document.getElementById('sdD6').innerHTML;
+var sdD7 = document.getElementById('sdD7').innerHTML;
+var sdD8 = document.getElementById('sdD8').innerHTML;
+var sdD9 = document.getElementById('sdD9').innerHTML;
+var sdD10 = document.getElementById('sdD10').innerHTML;
+
+// declare variable that contain SD of each sensor for last 30 days (Night)
+var sdN1 = document.getElementById('sdN1').innerHTML;
+var sdN2 = document.getElementById('sdN2').innerHTML;
+var sdN3 = document.getElementById('sdN3').innerHTML;
+var sdN4 = document.getElementById('sdN4').innerHTML;
+var sdN5 = document.getElementById('sdN5').innerHTML;
+var sdN6 = document.getElementById('sdN6').innerHTML;
+var sdN7 = document.getElementById('sdN7').innerHTML;
+var sdN8 = document.getElementById('sdN8').innerHTML;
+var sdN9 = document.getElementById('sdN9').innerHTML;
+var sdN10 = document.getElementById('sdN10').innerHTML;
+
 
 // create separate sensor in system to set of day and night to find maximum amount of activities  
 var daySet = [valueD1,valueD2,valueD3,valueD4,valueD5,valueD6,valueD7,valueD8,valueD9,valueD10];
@@ -276,4 +324,6 @@ var nightSet = [valueN1,valueN2,valueN3,valueN4,valueN5,valueN6,valueN7,valueN8,
 var maxDay = Math.max.apply(null,daySet);
 var maxNight = Math.max.apply(null,nightSet);
 var maxAll = Math.max.apply(maxDay,maxNight);
+
+window.alert(valueD1);
 </script>

@@ -426,7 +426,182 @@ class Daynight extends CI_Controller {
 				$meanN10,
 			);
 
+			// -----------------SD-----------------//
+
 			
+			if(isset($sdSetDay)){
+				$count = count($sdSetDay)-1;
+				$variance = 0.0;
+				foreach($monthCountD1 as $d1){
+					$deviation = ((double)$d1)-$meanD1;
+					$variance += $deviation * $deviation;
+				}
+				$sdD1 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD2 as $d2){
+					$deviation = ((double)$d2)-$meanD2;
+					$variance += $deviation * $deviation;
+				}
+				$sdD2 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD3 as $d3){
+					$deviation = ((double)$d3)-$meanD3;
+					$variance += $deviation * $deviation;
+				}
+				$sdD3 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD4 as $d4){
+					$deviation = ((double)$d4)-$meanD4;
+					$variance += $deviation * $deviation;
+				}
+				$sdD4 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD5 as $d5){
+					$deviation = ((double)$d5)-$meanD5;
+					$variance += $deviation * $deviation;
+				}
+				$sdD5 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD1 as $d6){
+					$deviation = ((double)$d6)-$meanD6;
+					$variance += $deviation * $deviation;
+				}
+				$sdD6 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD7 as $d7){
+					$deviation = ((double)$d7)-$meanD7;
+					$variance += $deviation * $deviation;
+				}
+				$sdD7 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD8 as $d8){
+					$deviation = ((double)$d8)-$meanD8;
+					$variance += $deviation * $deviation;
+				}
+				$sdD8 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD9 as $d9){
+					$deviation = ((double)$d9)-$meanD9;
+					$variance += $deviation * $deviation;
+				}
+				$sdD9 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountD10 as $d10){
+					$deviation = ((double)$d10)-$meanD10;
+					$variance += $deviation * $deviation;
+				}
+				$sdD10 = sqrt($variance/$count);
+
+			}
+			if(isset($sdSetNight)){
+				$count = count($sdSetNight)-1;
+				$variance = 0.0;
+				foreach($monthCountN1 as $n1){
+					$deviation = ((double)$n1)-$meanN1;
+					$variance += $deviation * $deviation;
+				}
+				$sdN1 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN2 as $n2){
+					$neviation = ((double)$n2)-$meanN2;
+					$variance += $deviation * $deviation;
+				}
+				$sdN2 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN3 as $n3){
+					$deviation = ((double)$n3)-$meanN3;
+					$variance += $deviation * $deviation;
+				}
+				$sdN3 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN4 as $n4){
+					$deviation = ((double)$n4)-$meanN4;
+					$variance += $deviation * $deviation;
+				}
+				$sdN4 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN5 as $n5){
+					$deviation = ((double)$n5)-$meanN5;
+					$variance += $deviation * $deviation;
+				}
+				$sdN5 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN1 as $n6){
+					$deviation = ((double)$n6)-$meanN6;
+					$variance += $deviation * $deviation;
+				}
+				$sdN6 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN7 as $n7){
+					$deviation = ((double)$n7)-$meanN7;
+					$variance += $deviation * $deviation;
+				}
+				$sdN7 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN8 as $n8){
+					$deviation = ((double)$n8)-$meanN8;
+					$variance += $deviation * $deviation;
+				}
+				$sdN8 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN9 as $n9){
+					$deviation = ((double)$n9)-$meanN9;
+					$variance += $deviation * $deviation;
+				}
+				$sdN9 = sqrt($variance/$count);
+
+				$variance = 0.0;
+				foreach($monthCountN10 as $n10){
+					$deviation = ((double)$n10)-$meanN10;
+					$variance += $deviation * $deviation;
+				}
+				$sdN10 = sqrt($variance/$count);
+
+			}
+			
+			$sdD = array(
+				$sdD1,
+				$sdD2,
+				$sdD3,
+				$sdD4,
+				$sdD5,
+				$sdD6,
+				$sdD7,
+				$sdD8,
+				$sdD9,
+				$sdD10
+			);
+
+			$sdN = array(
+				$sdN1,
+				$sdN2,
+				$sdN3,
+				$sdN4,
+				$sdN5,
+				$sdN6,
+				$sdN7,
+				$sdN8,
+				$sdN9,
+				$sdN10
+			);
+
 
 			$this->load->view('_daynight',
 				array(
@@ -441,9 +616,12 @@ class Daynight extends CI_Controller {
 					"maxD" => $maxD , 
 					"maxN" => $maxN,
 					"minD" => $minD,
-					"minN" => $minN
+					"minN" => $minN,
+					"sdD" => $sdD,
+					"sdN" => $sdN
 				)
 			);
 		
 	}
+
 }

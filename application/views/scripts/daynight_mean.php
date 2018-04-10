@@ -1,7 +1,7 @@
 
 <script >
 // <!-- DA -->
-	var chartDA = AmCharts.makeChart("chartMeanDA", {
+	var chart = AmCharts.makeChart("chartMeanDA", {
 		"type": "serial",
 		"theme": "light",
 
@@ -175,7 +175,7 @@
 
 // <!-- DB -->
 
-	var chartDB = AmCharts.makeChart("chartMeanDB", {
+	var chart = AmCharts.makeChart("chartMeanDB", {
 		"type": "serial",
 		"theme": "light",
 
@@ -339,7 +339,7 @@
 
 // <!-- NA -->
 
-	var chartNA = AmCharts.makeChart("chartMeanNA", {
+	var chart = AmCharts.makeChart("chartMeanNA", {
 		"type": "serial",
 		"theme": "light",
 
@@ -512,7 +512,7 @@
 
 // <!-- NB -->
 
-	var chartNB = AmCharts.makeChart("chartMeanNB", {
+	var chart = AmCharts.makeChart("chartMeanNB", {
 		"type": "serial",
 		"theme": "light",
 
