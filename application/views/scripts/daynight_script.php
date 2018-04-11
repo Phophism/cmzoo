@@ -1,10 +1,3 @@
-<!-- Chart Day&Night -->
-
-<script src="assets/amchart/amcharts/amcharts.js"></script>
-<script src="assets/amchart/amcharts/serial.js"></script>
-<script src="assets/amchart/amcharts/themes/light.js"></script>
-<script src="assets/amchart/amcharts/themes/dark.js"></script>
-
 
 
 <!-- Number of act -->
@@ -16,12 +9,3 @@
 	$this->load->view('scripts/daynight_standard_deviation');
 ?>
 
-<!-- datepicker -->
-
-<script type="text/javascript">
-	function change() {
-		document.getElementById("dateForm").submit();
-		console.log($("#date").val());
-		console.log($("#checkbox").val());
-	}
-</script>

@@ -52,22 +52,30 @@ $this->load->view('layouts/menu');
 						<!-- option side -->
 						<div class="col-lg-12">
 							<!--Date Time-->
-							<input type="date" class="input-sm float-left"  name ="datepicker" id="date"/>
+							<form id="dateForm" method="POST" action="<?php echo base_url();?>report">
+								<!-- <input id="mydate" name ="datepicker" type="text" /> -->
+								<?php
+									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
+								?>
+							</form>
 							
 						</div>
 						<div class="col-lg-12">
 							<div class="row">
-								<div class="col-lg-12 ">
-									<!--select cage-->
+								<!-- <div class="col-lg-12 ">
 									<div class="row">
 										<div class="col-lg-6">
-											<button type="button" class="btn btn-outline-success float-right">A</button>
+											<form id="cageFormA" method="POST" action="<?php echo base_url();?>map">
+												<button type="button" name="cageButtonA" class="btn btn-outline-success float-right" onclick="selectA();">A</button>
+											</form>
 										</div>
 										<div class="col-lg-6">
-											<button type="button" class="btn btn-outline-info">B</button>
+											<form id="cageFormB" method="POST" action="<?php echo base_url();?>map">
+												<button type="button" name="cageButtonB" class="btn btn-outline-info" onclick="selectA();">B</button>
+											</form>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<div class="col-lg-12">
 									<!--Description-->
 									<div class="card border-dark mb-3">
@@ -88,5 +96,6 @@ $this->load->view('layouts/menu');
 
 	<?php 
 	$this->load->view('layouts/body_layout_2');
-?>
+	$this->load->view('scripts/map_script');
+	?>
 

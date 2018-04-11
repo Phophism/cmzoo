@@ -6,15 +6,19 @@ class Map extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('animal_log_model');
+		$this->load->model('sensor_model');
 		$dateReceive = $this->input->post('datepicker');
+		// $cageA = $this->input->post('cageButtonA');
+		// $cageB = $this->input->post('cageButtonB');
 
-		if($dateReceive==null && $cageReceive==null){
+		var_dump($cageA);
+		if($dateReceive==null /*&& $cageA==null && $cageB==null*/){
 			$dateReceive = date("Y-m-d");
 		}else{
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 		}	
 		$day = $this->animal_log_model->get_data_by_date($dateReceive);
-		$sensors = $this->sensor_status->get();
+		$sensors = $this->sensor_model->get();
 
 		if(isset($day)){
 			$dataNode = array(); // Get Id,Status,Start Time, End Time, Duration
@@ -33,7 +37,9 @@ class Map extends CI_Controller {
 		}	
 		$this->load->view('_map',array(
 			"data" => $dataNode ,
-			"status" => $statusNode
+			"status" => $statusNode,
+			"dateReceive" => $dateReceive
+
 		));
 	
 	}

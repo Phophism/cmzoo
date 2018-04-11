@@ -22,7 +22,12 @@
     <!-- toggle -->
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
-
+ <!-- amchart -->
+    <script src="assets/amchart/amcharts/amcharts.js"></script>
+    <script src="assets/amchart/amcharts/radar.js"></script>
+    <script src="assets/amchart/amcharts/serial.js"></script>
+    <script src="assets/amchart/amcharts/themes/light.js"></script>
+    <script src="assets/amchart/amcharts/themes/dark.js"></script>
 
     <!-- Slider -->
     <script>
@@ -42,6 +47,16 @@
     <script>
         var currentDate = new Date();
         $("#mydate").datepicker().datepicker("setDate", new Date());
+    </script>
+
+    
+    <!-- datepicker -->
+    <script type="text/javascript">
+        function change() {
+            document.getElementById("dateForm").submit();
+            console.log($("#date").val());
+            console.log($("#checkbox").val());
+        }
     </script>
 
 </body>
