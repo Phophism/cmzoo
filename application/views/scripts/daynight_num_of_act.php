@@ -13,32 +13,32 @@ var chart = AmCharts.makeChart("numActDayA",
         "name": "Sensor #1",
 		"activities":valueD1,
         "color": "#7F8DA9",
-        "bullet": "https://www.amcharts.com/lib/images/faces/A04.png"
+        "bullet": "assets/img/icon-num/one.png"
     }, {
         "name": "Sensor #2",
         "activities": valueD2,
         "color": "#FEC514",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+        "bullet": "assets/img/icon-num/two.png"
     }, {
         "name": "Sensor #3",
         "activities": valueD3,
         "color": "#DB4C3C",
-        "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
+        "bullet": "assets/img/icon-num/three.png"
     }, {
         "name": "Sensor #4",
         "activities": valueD4,
         "color": "#DAF0FD",
-        "bullet": "https://www.amcharts.com/lib/images/faces/E01.png"
+        "bullet":  "assets/img/icon-num/four.png"
     }, {
         "name": "Sensor #5",
         "activities": valueD5,
         "color": "#FEC552",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+        "bullet":  "assets/img/icon-num/five.png"
     }, {
         "name": "Sensor #6",
         "activities": valueD6,
         "color": "#DB4C1A",
-        "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
+        "bullet":  "assets/img/icon-num/six.png"
     }],
     "valueAxes": [{
         "maximum": maxAll+3,
@@ -86,22 +86,22 @@ var chart = AmCharts.makeChart("numActDayB",
         "name": "Sensor #7",
 		"activities":valueD7,
         "color": "#7F8DA9",
-        "bullet": "https://www.amcharts.com/lib/images/faces/A04.png"
+        "bullet":  "assets/img/icon-num/seven.png"
     }, {
         "name": "Sensor #8",
         "activities": valueD8,
         "color": "#FEC514",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+        "bullet":  "assets/img/icon-num/eight.png"
     },{
         "name": "Sensor #9",
         "activities": valueD9,
         "color": "#FEC552",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+        "bullet":  "assets/img/icon-num/nine.png"
     }, {
         "name": "Sensor #10",
         "activities": valueD10,
         "color": "#DB4C1A",
-        "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
+        "bullet":  "assets/img/icon-num/ten.png"
     }],
     "valueAxes": [{
         "maximum": maxAll+3,
@@ -148,32 +148,32 @@ var chart = AmCharts.makeChart("numActNightA",
         "name": "Sensor #1",
 		"activities":valueN1,
         "color": "#7F8DA9",
-        "bullet": "https://www.amcharts.com/lib/images/faces/A04.png"
+        "bullet":  "assets/img/icon-num/one.png"
     }, {
         "name": "Sensor #2",
         "activities": valueN2,
         "color": "#FEC514",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+        "bullet":  "assets/img/icon-num/two.png"
     }, {
         "name": "Sensor #3",
         "activities": valueN3,
         "color": "#DB4C3C",
-        "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
+        "bullet":  "assets/img/icon-num/three.png"
     }, {
         "name": "Sensor #4",
         "activities": valueN4,
         "color": "#DAF0FD",
-        "bullet": "https://www.amcharts.com/lib/images/faces/E01.png"
+        "bullet":  "assets/img/icon-num/four.png"
     }, {
         "name": "Sensor #5",
         "activities": valueN5,
         "color": "#FEC552",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+        "bullet":  "assets/img/icon-num/five.png"
     }, {
         "name": "Sensor #6",
         "activities": valueN6,
         "color": "#DB4C1A",
-        "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
+        "bullet":  "assets/img/icon-num/six.png"
     }],
     "valueAxes": [{
         "maximum": maxAll+3,
@@ -221,22 +221,22 @@ var chart = AmCharts.makeChart("numActNightB",
         "name": "Sensor #7",
 		"activities":valueN7,
         "color": "#7F8DA9",
-        "bullet": "https://www.amcharts.com/lib/images/faces/A04.png"
+        "bullet":  "assets/img/icon-num/seven.png"
     }, {
         "name": "Sensor #8",
         "activities": valueN8,
         "color": "#FEC514",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+        "bullet":  "assets/img/icon-num/eight.png"
     },{
         "name": "Sensor #9",
         "activities": valueN9,
         "color": "#FEC552",
-        "bullet": "https://www.amcharts.com/lib/images/faces/C02.png"
+        "bullet":  "assets/img/icon-num/nine.png"
     }, {
         "name": "Sensor #10",
         "activities": valueN10,
         "color": "#DB4C1A",
-        "bullet": "https://www.amcharts.com/lib/images/faces/D02.png"
+        "bullet":  "assets/img/icon-num/ten.png"
     }],
     "valueAxes": [{
         "maximum": maxAll+3,

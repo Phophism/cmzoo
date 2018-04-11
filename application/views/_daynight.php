@@ -10,10 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<!--Group 1-->
 			<div class="col-lg-12">
-				<div class="card">
-					<div class="card-header">
+				<div class="card" >
+					<div class="card-header" >
 						<form id="dateForm" method="POST" action="<?php echo base_url();?>daynight">
-							<input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" data-onstyle="success" data-offstyle="info" onchange="change();" 
+							<input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" style="min-height:32px;" data-onstyle="success" data-offstyle="info" onchange="change();" 
 							<?php
 								if(!isset($cageReceive))
 									echo " " ;
