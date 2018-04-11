@@ -16,9 +16,6 @@ class Daynight extends CI_Controller {
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 		}	
 
-		$dateReceive = date("Y-m-d",strtotime($dateReceive));
-		$this->load->model('animal_log_model');
-
 		$sdSetDay =  $this->animal_log_model->get_data_set_month_day($dateReceive);
 		$sdSetNight =  $this->animal_log_model->get_data_set_month_night($dateReceive);
 		$meanSetDay =  $this->animal_log_model->get_data_set_month_day($dateReceive);
