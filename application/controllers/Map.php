@@ -11,7 +11,6 @@ class Map extends CI_Controller {
 		// $cageA = $this->input->post('cageButtonA');
 		// $cageB = $this->input->post('cageButtonB');
 
-		var_dump($cageA);
 		if($dateReceive==null /*&& $cageA==null && $cageB==null*/){
 			$dateReceive = date("Y-m-d");
 		}else{

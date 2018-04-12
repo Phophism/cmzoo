@@ -23,7 +23,6 @@ class Daynight extends CI_Controller {
 		$day = $this->animal_log_model->get_data_by_date_day($dateReceive);
 		$night = $this->animal_log_model->get_data_by_date_night($dateReceive);
 		
-
 		$minA = 1; // First node of cage A
 		$maxA = 6; // Last node of cage A
 		$minB = 7; // First node of cage B

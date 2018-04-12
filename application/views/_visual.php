@@ -14,16 +14,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <input type="checkbox" checked data-toggle="toggle" data-style="ios">
-                                <input type="date" class="input-sm float-right"  />
+                                 <form id="dateForm" method="POST" action="<?php echo base_url();?>visual">
+                                    <input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" style="min-height:32px;" data-onstyle="success" data-offstyle="info" onchange="change();" 
+                                    <?php
+                                        if(!isset($cageReceive))
+                                            echo " " ;
+                                        else
+                                            echo " checked";	
+                                    ?>
+                                    />
+                                    <?php
+                                        if(isset($dateReceive))
+                                            echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
+                                        else
+                                            echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".date('Y-m-d')."\"  max=\"".date('Y-m-d')."\" />" ;				
+                                    ?>			
+                                </form>
                             </div>
                             <div class = "class-body">
-                                <div class="col-lg-12">
-                                    <h1>cage selecter</h1>
-                                </div>
-                                <div class="col-lg-12">
-                                    <h1>graph</h1>
-                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 ">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="options" id="option1" autocomplete="off" checked=""> days
+                                            </label>
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="options" id="option2" autocomplete="off"> weeks
+                                            </label>
+                                            <label class="btn btn-primary active">
+                                                <input type="radio" name="options" id="option3" autocomplete="off"> month
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <canvas id="visualize-chart" width="800" height="340"></canvas>
+                                    </div>
+                                </div>    
                             </div>
                         </div>
                     </div>
