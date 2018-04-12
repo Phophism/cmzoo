@@ -26,7 +26,6 @@ class Report extends CI_Controller {
 					$countDur = 0;	
 					$whole->startTime = date("H:i:s",strtotime($whole->startTime));
 					
-					
 					// if($whole->startTime == date("H:i:s",strtotime("00:00:00"))){
 					// 	$periodCount[0] += 1;
 					// 	$nodeCount[($whole->nodeId)-1] +=1; 
@@ -34,7 +33,7 @@ class Report extends CI_Controller {
 					// 	var_dump("A");
 					// }
 					// else 
-					if($whole->startTime < date("H:i:s",strtotime($duration[0]))){
+					if($whole->startTime < date("H:i:s",strtotime($duration[0]))){ // ใช้ Start TIme ---> ถูกต้องแล้ว , ค่าเก่าๆจะไม่โชว์
 						$periodCount[0] += 1;
 						$nodeCount[($whole->nodeId)-1] +=1; 
 						$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[0];
@@ -47,7 +46,6 @@ class Report extends CI_Controller {
 							$nodeDuration[($whole->nodeId)-1]['nodeDur'][] = $duration[$countDur+1]; 
 						}
 						$countDur++;
-					
 					}
 				}
 				
@@ -175,10 +173,9 @@ class Report extends CI_Controller {
 				// !ห้ามลบ! 
 				// var_dump($mostActivePeriodPerNode);
 			// **** Most Active Peroid separated by sensors **** //
-	
-			echo "<pre>";
-			var_dump($nodeDuration);
-			echo "</pre>";				$setMost = 0;
+			var_dump($mostActivePeriodPerNode);
+			
+				$setMost = 0;
 				$mostPeriodNode = array(); 
 				while($setMost<10){
 					if(isset($mostActivePeriodPerNode[$setMost]) && $mostActivePeriodPerNode[$setMost] != '-' ){
