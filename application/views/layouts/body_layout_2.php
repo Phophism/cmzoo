@@ -56,8 +56,7 @@
             document.getElementById("dateForm").submit();
             console.log($("#date").val());
             console.log($("#checkbox").val());
+            console.log($("input[type=radio]:checked").val());
         }
     </script>
-
-</body>
-</html>
+    

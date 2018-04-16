@@ -23,7 +23,7 @@ class Report extends CI_Controller {
 				$nodeDuration = array();
 		
 				foreach($day as $whole){ 
-					$countDur = 0;	
+					$counterDur = 0;	
 					$whole->startTime = date("H:i:s",strtotime($whole->startTime));
 					
 					// if($whole->startTime == date("H:i:s",strtotime("00:00:00"))){
@@ -39,13 +39,13 @@ class Report extends CI_Controller {
 						$nodeDuration[($whole->nodeId)-1]['nodeDur'][] =$duration[0];
 					}
 					
-					while($countDur<23){
-						if($whole->startTime < date("H:i:s",strtotime($duration[$countDur+1])) && $whole->startTime >= date("H:i:s",strtotime($duration[$countDur]))){
-							$periodCount[$countDur+1]++;
+					while($counterDur<23){
+						if($whole->startTime < date("H:i:s",strtotime($duration[$counterDur+1])) && $whole->startTime >= date("H:i:s",strtotime($duration[$counterDur]))){
+							$periodCount[$counterDur+1]++;
 							$nodeCount[($whole->nodeId)-1]++;
-							$nodeDuration[($whole->nodeId)-1]['nodeDur'][] = $duration[$countDur+1]; 
+							$nodeDuration[($whole->nodeId)-1]['nodeDur'][] = $duration[$counterDur+1]; 
 						}
-						$countDur++;
+						$counterDur++;
 					}
 				}
 				
@@ -116,7 +116,6 @@ class Report extends CI_Controller {
 
 					// ***** mean sensor(node) ******
 					
-
 					$meanNode = array(
 						$nodeCount[0],
 						$nodeCount[1],

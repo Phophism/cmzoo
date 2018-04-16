@@ -4,48 +4,199 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Visual extends CI_Controller {
    
     public function index(){
-
 		$this->load->model('animal_log_model');
 		$dateReceive = $this->input->post('datepicker');
 		$cageReceive = $this->input->post('cageselect');
+		$period = $this->input->post("options");
 
-		if($dateReceive==null && $cageReceive==null){
+	
+		if($dateReceive==null && $cageReceive==null && $period==null){
 			$dateReceive = date("Y-m-d");
 			$cageReceive = "on";
+			$period = 1 ;
 		}else{
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 		}	
-
+		
 		$day = $this->animal_log_model->get_data_by_date($dateReceive);
+		$week = $this->animal_log_model->get_data_set_week($dateReceive);
+		$month = $this->animal_log_model->get_data_set_month($dateReceive);
 
 		if(isset($day)){
 			$duration = array("01:00:00","02:00:00","03:00:00","04:00:00","05:00:00","06:00:00","07:00:00","08:00:00","09:00:00","10:00:00","11:00:00","12:00:00","13:00:00","14:00:00","15:00:00","16:00:00","17:00:00","18:00:00","19:00:00","20:00:00","21:00:00","22:00:00","23:00:00","23:59:00");
-			$periodCount = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-			$nodeCount = array(0,0,0,0,0,0,0,0,0,0); // amount of activities per day (for week/month)
 			$nodeDuration = array(); // amount of activity per hour (for day)
 	
 			foreach($day as $whole){ 
-				$countDur = 0;	
+				$counterDur = 0;	
 				$whole->startTime = date("H:i:s",strtotime($whole->startTime));
 				
-				if($whole->startTime < date("H:i:s",strtotime($duration[0]))){ // ใช้ Start TIme ---> ถูกต้องแล้ว , ค่าเก่าๆจะไม่โชว์
-					$periodCount[0] += 1;
-					$nodeCount[($whole->nodeId)-1] +=1; 
+				if($whole->startTime < date("H:i:s",strtotime($duration[0]))){ // ใช้ Start TIme ---> ถูกต้องแล้ว , ค่าเก่าๆจะไม่โชว์ 
 					$nodeDuration[($whole->nodeId)-1][] =$duration[0];
 				}
 				
-				while($countDur<23){
-					if($whole->startTime < date("H:i:s",strtotime($duration[$countDur+1])) && $whole->startTime >= date("H:i:s",strtotime($duration[$countDur]))){
-						$periodCount[$countDur+1]++;
-						$nodeCount[($whole->nodeId)-1]++;
-						$nodeDuration[($whole->nodeId)-1][] = $duration[$countDur+1]; 
+				while($counterDur<23){
+					if($whole->startTime < date("H:i:s",strtotime($duration[$counterDur+1])) && $whole->startTime >= date("H:i:s",strtotime($duration[$counterDur]))){
+						$nodeDuration[($whole->nodeId)-1][] = $duration[$counterDur+1]; 
 					}
-					$countDur++;
+					$counterDur++;
 				}
 			}
 		}else{
-			$nodeCount = null ;
 			$nodeDuration = null ;
+		}
+
+
+ //-------------- week -------------/    
+
+		$counterWeek = 0;
+		$weeks = array();
+		$activityWeek = array();
+		if(isset($week)){
+			foreach($week as $node=>$datas){
+				if(isset($datas)){
+					foreach($datas as $data){
+						if(isset($data)){
+							$weeks[$counterWeek][] = ($data->nodeId)-1 ; 
+						}
+					}
+				}else
+					$weeks[$counterWeek] = null ; 
+				$counterWeek++; 	
+			}
+		}else
+			$weeks = null;
+			
+		// is nodeDuration has some blank index of nodeId
+		$countNodeNull = 0 ; 
+		while($countNodeNull < 7){ 
+			if(!isset($weeks[$countNodeNull])){
+				$weeks[$countNodeNull] = null; 
+			}
+			$countNodeNull++;
+		}
+
+		$countWeek = array(); // 1node that contain amount of activities in 7 days
+		$counterWeek = 0;
+		if(count($weeks)!=0){
+			while($counterWeek<7){
+				if(isset($weeks[$counterWeek])){
+					$countWeek[] = array_count_values($weeks[$counterWeek]);
+				}else{
+					$fillzero=0;
+					while($fillzero < 10){
+						$countWeek[$counterWeek][$fillzero] = 0;
+						$fillzero++;
+					}
+				}$counterWeek++;
+			}
+		}else
+			$countWeek = null ;
+
+	// fill the node that doesn't has activity amount (act amount = 0)
+		$counterNode = 0 ;
+		while($counterNode < 7){ 
+			$counterNodeNull = 0 ; 
+			while($counterNodeNull < 10){
+				if(!isset($countWeek[$counterNode][$counterNodeNull])){
+					$countWeek[$counterNode][$counterNodeNull] = 0 ;
+					// var_dump($countWeek[$counterNode][$counterNodeNull] );
+					// echo "/".$counterNode ;
+					// echo $counterNodeNull ; 
+					// echo "<hr/>";
+				}	
+				
+				$counterNodeNull++;
+			}
+			$counterNode++;
+		}
+
+		// switch index
+		$nodeWeek = array();;
+		foreach ($countWeek as $key1 => $arr) {
+			foreach ($arr as $key2 => $num) {
+				$nodeWeek[$key2][$key1] = $num;
+			}
+		}
+		
+// ---------- month ----------//
+
+		$counterMonth = 0;
+		$months = array();
+		$activityMonth = array();
+		if(isset($month)){
+			foreach($month as $node=>$datas){
+				if(isset($datas)){
+					foreach($datas as $data){
+						if(isset($data)){
+							$months[$counterMonth][] = ($data->nodeId)-1; 
+						}
+					}
+				}else
+					$months[$counterMonth] = null ; 
+				$counterMonth++; 	
+			}
+		}else
+			$months = null;
+			
+		// is nodeDuration has some blank index of nodeId
+		$countNodeNull = 0 ; 
+		while($countNodeNull < 30){ 
+			if(!isset($months[$countNodeNull])){
+				$months[$countNodeNull] = null; 
+			}
+			$countNodeNull++;
+		}
+
+		$countMonth = array(); // 1node that contain amount of activities in 7 days
+		$counterMonth = 0;
+		if(count($months)!=0){
+			while($counterMonth<30){
+				if(isset($months[$counterMonth])){
+					$countMonth[] = array_count_values($months[$counterMonth]);
+				}else{
+					$fillzero=0;
+					while($fillzero < 10){
+						$countMonth[$counterMonth][$fillzero] = 0;
+						$fillzero++;
+					}
+				}$counterMonth++;
+			}
+		}else
+			$countMonth = null ;
+
+		// fill the node that doesn't has activity amount (act amount = 0)
+		$counterNode = 0 ;
+		while($counterNode < 30){ 
+			$counterNodeNull = 0 ; 
+			while($counterNodeNull < 10){
+				if(!isset($countMonth[$counterNode][$counterNodeNull])){
+					$countMonth[$counterNode][$counterNodeNull] = 0 ;
+					// var_dump($countWeek[$counterNode][$counterNodeNull] );
+					// echo "/".$counterNode ;
+					// echo $counterNodeNull ; 
+					// echo "<hr/>";
+				}	
+				
+				$counterNodeNull++;
+			}
+			$counterNode++;
+		}
+
+		$nodeMonth = array();
+		foreach ($countMonth as $key1 => $arr) {
+			foreach ($arr as $key2 => $num) {
+				$nodeMonth[$key2][$key1] = $num;
+			}
+		}
+
+// -----------Day-------------//
+		// is nodeDuration has some blank index of nodeId
+		$countNodeNull = 0 ; 
+		while($countNodeNull < 10){ 
+			if(!isset($nodeDuration[$countNodeNull])){
+				$nodeDuration[$countNodeNull] = null; 
+			}
+			$countNodeNull++;
 		}
 
 		// separate time in one day to hour classify by nodeId
@@ -61,37 +212,10 @@ class Visual extends CI_Controller {
 				$activePeriodPerNode[] = Null;	
 			$activePeriodCount++;
 		}
-		// // var_dump($nodeDuration);
-		// $activityNodePeriod = array();
-		// $countNode = 0 ;
-		// while($countNode < 10){
-		// 	$durCount = 0;
-		// 	foreach($duration as $dur){
-		// 		if(isset($nodeDuration[$countNode][$durCount])){
-		// 			if(in_array($nodeDuration[$countNode][$durCount],$duration)){
-		// 				$activityNodePeriod[$countNode][$durCount][] += 1 ;
-		// 				// var_dump($dur);
-		// 				// var_dump($nodeDuration[$durCount]);
-		// 				// echo "<hr/>";
-		// 			}else{
-		// 				$activityNodePeriod[$countNode][$durCount][] = 0 ;
-		// 				// var_dump($dur);
-		// 				// var_dump($durCount);
-		// 				// echo "<hr/>";
-		// 			}
-		// 		}else{
-		// 			$activityNodePeriod[$countNode][$durCount][] = 0 ;
-		// 		}
-		// 		$durCount++;
-		// 	}
-		// 	$countNode++;
-		// }
+ 
 
-		// var_dump($nodeDuration[$durCountactivityNodePeriod]);
-		// echo "<br/>";
-		var_dump($nodeDuration);
-			echo "<hr/>";
-		 $nx = array(
+		
+		 $ActivitynodeAndPeriodPerHour = array(
 			array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
 			array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
 			array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
@@ -103,40 +227,36 @@ class Visual extends CI_Controller {
 			array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0),
 			array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
 		 );	
-		
-		 foreach($nodeDuration as $node){
-			$i = 0; // to 10
+	
+		$i = 0; // to 10
+		 foreach($nodeDuration as $d1=>$node){
 			if(isset($node)){
-				foreach($node as $dur=>$period){
+				foreach($node as $d2=>$period){
 					$j = 0 ;// to 24 
-					if(isset($dur)){
+					if(isset($period)){
 						while($j<24){
-							var_dump($period);
-							echo "<br/><br/>";
-							var_dump($nx);
-							echo "<hr/>";
 							if($period == $duration[$j]){
-								$nx[$i][$j]++;
+								$ActivitynodeAndPeriodPerHour[$i][$j]++;
 								break;
 							}
 							$j++;
 						}
-					}else{
-						echo "null";
-					}
-					$i++;
+					}		
 				}
-			}else
-	 			$nx = null;
-		 }
-	
+			}
+			 $i++;
+		}
+ 
+
 		$this->load->view('_visual', array(
-			"nodes" => $nodeCount ,
+			"nodeDay" => $ActivitynodeAndPeriodPerHour,
+			"nodeWeek" => $nodeWeek,
+			"nodeMonth" => $nodeMonth,
 			"dateReceive" => $dateReceive,
-			"cageReceive" => $cageReceive
+			"cageReceive" => $cageReceive,
+			"period" => $period
 		));
 
 	}
 
 }
-

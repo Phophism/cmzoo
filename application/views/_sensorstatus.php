@@ -74,4 +74,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php 
 	$this->load->view('layouts/body_layout_2');
+	$this->load->view('layouts/body_layout_3');
 ?>

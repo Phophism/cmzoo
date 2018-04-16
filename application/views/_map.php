@@ -97,5 +97,6 @@ $this->load->view('layouts/menu');
 	<?php 
 	$this->load->view('layouts/body_layout_2');
 	$this->load->view('scripts/map_script');
+	$this->load->view('layouts/body_layout_3');
 	?>
 

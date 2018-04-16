@@ -45,6 +45,31 @@
             return $data ;
         }
 
+        public function get_data_set_week($dateReceive){
+            $countDay = 0 ;
+            $dataSet = array();
+            while($countDay < 7){
+                $time = date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 7 วัน
+                $data = $this->db->query('select * from animal_log where endTime like \'%'.$time.'%\' order by endTime desc' )->result();
+                $dataSet[] = $data;
+                $countDay++;
+            }
+            return $dataSet ;
+        }
+
+        
+        public function get_data_set_month($dateReceive){
+            $countDay = 0 ;
+            $dataSet = array();
+            while($countDay < 30){
+                $time = date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 7 วัน
+                $data = $this->db->query('select * from animal_log where endTime like \'%'.$time.'%\' order by endTime desc' )->result();
+                $dataSet[] = $data;
+                $countDay++;
+            }
+            return $dataSet ;
+        }
+
         public function get_data_set_month_day($dateReceive){
             $countDay = 0 ;
             $dataSet = array();
