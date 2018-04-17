@@ -19,7 +19,7 @@ $this->load->view('layouts/menu');
 								<!--Map and slider-->
 								<div class="col-lg-12">
 									<!--Map-->
-									<h1 style="text-align: center;"> Map</h1>
+									<h1 style="text-align: center;"> Map </h1>
 								</div>
 								<div class="col-lg-12 container">
 									<!--Slider-->
