@@ -9,40 +9,50 @@ $this->load->view('layouts/menu');
 	<!-- content -->
 	<div class="col-lg-10">
 		<div class="row">
+		
 			<!-- Map -->
 			<div class="col-lg-8">
 				<div class="card text-white bg-secondary mb-3"  style="max-width: ">
-					<div class="row">
-						<!-- map side -->
-						<div class="col-lg-12">
-							<div class="row">
-								<!--Map and slider-->
-								<div class="col-lg-12">
-									<!--Map-->
-									<h1 style="text-align: center;"> Map </h1>
+					<form id="dateForm" method="POST" action="<?php echo base_url();?>map">
+						<div class="row">
+							<!-- map side -->
+							<div class="col-lg-12">
+								<div class="row">
+									<!--Map and slider-->
+									<div class="col-lg-12" >
+										<!--Map-->
+										<div id="map">
+											<div id="sensor" ></div>
+										</div>
+									</div>
+									<div class="col-lg-12 container">
+										<h3>Timepicker</h3>
+										<p>Drag the slider to select a time.</p>
+
+										<div class="slidecontainer">
+											<input type="range" min="1" max="172680" value="1" class="slider" id="timepicker" name="timeSlider" onchange="change();">
+											<p>Time : <span id="displayTime"></span></p>
+										</div>
+									</div>
 								</div>
-								<div class="col-lg-12 container">
-									<!--Slider-->
-									<!-- <input id="ex13" /> -->
+							</div>
+							<div class="col-lg-12 ">
+								<!--Status Details-->
+								<div class="row">
+									<!-- Each status detail -->
+									<div class="col-lg-4">
+										<h1>green</h1>
+									</div>
+									<div class="col-lg-4">
+										<h1>red</h1>
+									</div>
+									<div class="col-lg-4">
+										<h1>blue</h1>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-12 ">
-							<!--Status Details-->
-							<div class="row">
-								<!-- Each status detail -->
-								<div class="col-lg-4">
-									<h1>green</h1>
-								</div>
-								<div class="col-lg-4">
-									<h1>red</h1>
-								</div>
-								<div class="col-lg-4">
-									<h1>blue</h1>
-								</div>
-							</div>
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 
@@ -52,12 +62,10 @@ $this->load->view('layouts/menu');
 						<!-- option side -->
 						<div class="col-lg-12">
 							<!--Date Time-->
-							<form id="dateForm" method="POST" action="<?php echo base_url();?>report">
-								<!-- <input id="mydate" name ="datepicker" type="text" /> -->
+							
 								<?php
-									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
+									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-left\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
 								?>
-							</form>
 							
 						</div>
 						<div class="col-lg-12">

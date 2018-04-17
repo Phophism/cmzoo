@@ -7,13 +7,13 @@ class Visual extends CI_Controller {
 		$this->load->model('animal_log_model');
 		$dateReceive = $this->input->post('datepicker');
 		$cageReceive = $this->input->post('cageselect');
-		$period = $this->input->post("options");
+		$periodReceive = $this->input->post("options");
 
 	
-		if($dateReceive==null && $cageReceive==null && $period==null){
+		if($dateReceive==null && $cageReceive==null && $periodReceive==null){
 			$dateReceive = date("Y-m-d");
 			$cageReceive = "on";
-			$period = 1 ;
+			$periodReceive = 1 ;
 		}else{
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 		}	
@@ -247,14 +247,13 @@ class Visual extends CI_Controller {
 			 $i++;
 		}
  
-
 		$this->load->view('_visual', array(
 			"nodeDay" => $ActivitynodeAndPeriodPerHour,
 			"nodeWeek" => $nodeWeek,
 			"nodeMonth" => $nodeMonth,
 			"dateReceive" => $dateReceive,
 			"cageReceive" => $cageReceive,
-			"period" => $period
+			"period" => $periodReceive
 		));
 
 	}

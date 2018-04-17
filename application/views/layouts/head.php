@@ -18,9 +18,9 @@
 	<!-- amchart -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/amchart/amcharts/plugins/export/export.css" type="text/css" media="all" />
 
+	
+
 	<!-- chartjs -->
-
-
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -48,7 +48,7 @@
 			width:50px;
 			margin: 20px;
 		}
-
+		/* side bar */
 		.side-nav {
 			list-style-type: none;
     		display: flex;
@@ -86,6 +86,52 @@
 
 		span{
 			color : rgba(255,255,255,0.6);
+		}
+
+		#map{
+			background-image : url("assets/img/Map.jpg");   
+			background-size : cover;
+			background-repeat : no-repeat;
+			height : 650px;
+			width : 100%;"
+			margin:0px;
+
+		}
+
+		/* slider */
+		.slidecontainer {
+			width: 100%;
+		}
+
+		.slider {
+			-webkit-appearance: none;
+			width: 100%;
+			height: 25px;
+			background: #d3d3d3;
+			outline: none;
+			opacity: 0.7;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+
+		.slider:hover {
+			opacity: 1;
+		}
+
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 25px;
+			height: 25px;
+			background: #4CAF50;
+			cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+			width: 25px;
+			height: 25px;
+			background: #4CAF50;
+			cursor: pointer;
 		}
 		
 	</style>

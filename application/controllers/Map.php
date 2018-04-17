@@ -8,6 +8,7 @@ class Map extends CI_Controller {
 		$this->load->model('animal_log_model');
 		$this->load->model('sensor_model');
 		$dateReceive = $this->input->post('datepicker');
+		$timeReceive = $this->input->post('timeSlider');
 		// $cageA = $this->input->post('cageButtonA');
 		// $cageB = $this->input->post('cageButtonB');
 
@@ -16,6 +17,9 @@ class Map extends CI_Controller {
 		}else{
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
 		}	
+
+		$timeSlide = gmdate("H:i",($timeReceive/2));
+
 		$day = $this->animal_log_model->get_data_by_date($dateReceive);
 		$sensors = $this->sensor_model->get();
 
