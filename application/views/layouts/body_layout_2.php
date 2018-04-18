@@ -48,15 +48,25 @@
         var currentDate = new Date();
         $("#mydate").datepicker().datepicker("setDate", new Date());
     </script>
-
     
     <!-- datepicker -->
     <script type="text/javascript">
         function change() {
             document.getElementById("dateForm").submit();
-            console.log($("#date").val());
-            console.log($("#checkbox").val());
-            console.log($("input[type=radio]:checked").val());
+            console.log("date :\t\t\t"  + $("#date").val());
+            console.log("previouse date :" + $("#previousDate").val());
+            console.log("checkbox :\t\t" + $("#checkbox").val());
+            console.log("radio :\t\t\t"+$("input[type=radio]:checked").val());
+            
+                var val = $("#timepicker").val() ;
+
+                var h = Math.floor(val / 3600);
+                var m = Math.floor(val % 3600 / 60);
+
+                h = ('0' + h).slice(-2);
+                m = ('0' + m).slice(-2);
+                
+            console.log("time picker :\t"+h+":"+m);
         }
     </script>
     

@@ -133,6 +133,16 @@
 			background: #4CAF50;
 			cursor: pointer;
 		}
+
+		.errDes{
+			color : #8D260F ;
+			font-weight: bold;
+		}
+		
+		.detectDes{
+			color : #20948B ;
+			font-weight: bold;
+		}
 		
 	</style>
 

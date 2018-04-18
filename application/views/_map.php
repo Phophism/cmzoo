@@ -30,29 +30,13 @@ $this->load->view('layouts/menu');
 										<p>Drag the slider to select a time.</p>
 
 										<div class="slidecontainer">
-											<input type="range" min="1" max="172680" value="1" class="slider" id="timepicker" name="timeSlider" onchange="change();">
+											<input type="range" min="1" max="<?php echo $maxTime ;?>" value="<?php echo $value ;?>" class="slider" id="timepicker" name="timeSlider" onchange="change();">
 											<p>Time : <span id="displayTime"></span></p>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-12 ">
-								<!--Status Details-->
-								<div class="row">
-									<!-- Each status detail -->
-									<div class="col-lg-4">
-										<h1>green</h1>
-									</div>
-									<div class="col-lg-4">
-										<h1>red</h1>
-									</div>
-									<div class="col-lg-4">
-										<h1>blue</h1>
-									</div>
-								</div>
-							</div>
 						</div>
-					</form>
 				</div>
 			</div>
 
@@ -64,8 +48,8 @@ $this->load->view('layouts/menu');
 							<!--Date Time-->
 								<?php
 									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-left\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
-									echo "<input type=\"date\" id=\"date\" name =\"datepickerOld\" class=\"input-sm float-left\" onkeydown=\"return false\"  value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" hidden/>" ;
 								?>
+								<input type="text" id="previousDate" name="datepickerOld" value="<?php echo $dateReceive ;?>" hidden/>
 							
 						</div>
 						<div class="col-lg-12">
@@ -87,14 +71,44 @@ $this->load->view('layouts/menu');
 								<div class="col-lg-12">
 									<!--Description-->
 									<div class="card border-dark mb-3">
-										<div class="card-header" style="color:black;">Description</div>
+										<div class="card-header" style="color:black;">Note</div>
 										<div class="card-body">
-										
+											<?php if(count($errors) == 0 && count($notes) == 0){?>
+												<p style="color: #505160; "> No activity detected.. </p>
+											<?php }else { ?>
+													<p style="color: #505160;"> Activity Found!! :</p>
+													<ul>
+														<?php
+															foreach($errors as $err){
+																echo "<li class='errDes'>". $err ."</li>" ;
+															}
+														?>	
+
+														<?php	
+															foreach($notes as $note){
+																echo "<li class='detectDes'>". $note ."</li>" ;
+															}
+														?>
+													</ul>
+											<?php 
+													} 
+											?>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="col-lg-12 ">
+							<!--Status Details-->
+							<div class = "row" style=" padding-top:5px; padding-bottom:15px;">
+								<div class="col text-center">
+									<span class="badge badge-pill badge-light" style=" height: 55px; width: 55px; line-height: 4;  background-color:#CC33334D; color:#e9e9e2E6;"  >Inactive</span>
+									<span class="badge badge-pill badge-info" style=" height: 55px; width: 55px; line-height: 4; margin-left:12px; margin-right:12px; background-color:#67ce674D;  color:#e9e9e2E6;"  >Active</span>
+									<span class="badge badge-pill badge-info" style=" height: 55px; width: 55px; line-height: 4;   background-color:#0066CC4D;  color:#e9e9e2E6;"  >Detect</span>
+								</div>
+							</div>
+						</div>
+					</form>
 					</div>
 				</div>
 			</div>
