@@ -62,9 +62,9 @@ $this->load->view('layouts/menu');
 						<!-- option side -->
 						<div class="col-lg-12">
 							<!--Date Time-->
-							
 								<?php
 									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-left\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
+									echo "<input type=\"date\" id=\"date\" name =\"datepickerOld\" class=\"input-sm float-left\" onkeydown=\"return false\"  value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" hidden/>" ;
 								?>
 							
 						</div>
