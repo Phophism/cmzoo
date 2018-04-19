@@ -7,21 +7,21 @@
   // ----- Sensor 1 ----- //  
     var sensor1 = paper.circle(230,310,25);
     // adjust the circle’s attributes
-    <?php if( $status[0] == 0){?>
+    <?php if( $status[0]['status'] == 0){?>
         sensor1.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 1 \n\nStatus: Inactive \n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 1 \n\nStatus: Inactive \n\nStart: <?php echo $status[0]['start']?> \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[0] == 1) {   
+        }else if( $status[0]['status'] == 1) {   
     ?>
          sensor1.attr({
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 1 \n\nStatus: Active \n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 1 \n\nStatus: Active \n\nStart:  <?php echo $status[0]['start']?>  \n\nEnd \n\nDuration "
         });
     <?php 
         }else{
@@ -38,15 +38,16 @@
 
     var sensor2 = paper.circle(190,270,25);
     // adjust the circle’s attributes
-    <?php if( $status[1] == 0){?>
+    <?php if( $status[1]['status'] == 0){?>
         sensor2.attr({
+        "text" : "2",
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
         "title" : "Sensor : 2 \n\nStatus: Inactive \n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[1] == 1) {   
+        }else if( $status[1]['status'] == 1) {   
     ?>
          sensor2.attr({
         "fill" : "rgba(103,206,103,0.5)",
@@ -69,7 +70,7 @@
 
     var sensor3 = paper.circle(350,50,25);
     // adjust the circle’s attributes
-    <?php if( $status[2] == 0){?>
+    <?php if( $status[2]['status'] == 0){?>
         sensor3.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
@@ -77,7 +78,7 @@
         "title" : "Sensor : 3 \n\nStatus: Inactive \n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[2] == 1) {   
+        }else if( $status[2]['status'] == 1) {   
     ?>
          sensor3.attr({
         "fill" : "rgba(103,206,103,0.5)",
@@ -100,7 +101,7 @@
 
     var sensor4 = paper.circle(292,54,25);
     // adjust the circle’s attributes
-    <?php if( $status[3] == 0){?>
+    <?php if( $status[3]['status'] == 0){?>
         sensor4.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
@@ -108,7 +109,7 @@
         "title" : "Sensor : 4 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[3] == 1) {   
+        }else if( $status[3]['status'] == 1) {   
     ?>
          sensor4.attr({
         "fill" : "rgba(103,206,103,0.5)",
@@ -131,7 +132,7 @@
 
      var sensor5 = paper.circle(235,55,25);
     // adjust the circle’s attributes
-    <?php if( $status[4] == 0){?>
+    <?php if( $status[4]['status'] == 0){?>
         sensor5.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
@@ -139,7 +140,7 @@
         "title" : "Sensor : 5 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[4] == 1) {   
+        }else if( $status[4]['status'] == 1) {   
     ?>
          sensor5.attr({
         "fill" : "rgba(103,206,103,0.5)",
@@ -162,7 +163,7 @@
 
     var sensor6 = paper.circle(210,160,25);
     // adjust the circle’s attributes
-    <?php if( $status[5] == 0){?>
+    <?php if( $status[5]['status'] == 0){?>
         sensor6.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
@@ -170,7 +171,7 @@
         "title" : "Sensor : 6 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[5] == 1) {   
+        }else if( $status[5]['status'] == 1) {   
     ?>
          sensor6.attr({
         "fill" : "rgba(103,206,103,0.5)",
@@ -193,7 +194,7 @@
 
      var sensor7 = paper.circle(450,300,25);
     // adjust the circle’s attributes
-        <?php if( $status[6] == 0){?>
+        <?php if( $status[6]['status']  == 0){?>
         sensor7.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
@@ -201,7 +202,7 @@
         "title" : "Sensor : 7 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[6] == 1) {   
+        }else if( $status[6]['status']  == 1) {   
     ?>
          sensor7.attr({
         "fill" : "rgba(103,206,103,0.5)",
@@ -225,7 +226,7 @@
     var sensor8 = paper.circle(437,247,25);
     // adjust the circle’s attributes
 
-        <?php if( $status[7] == 0){?>
+        <?php if( $status[7]['status'] == 0){?>
         sensor8.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
@@ -233,7 +234,7 @@
         "title" : "Sensor : 8 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[7] == 1) {   
+        }else if( $status[7]['status'] == 1) {   
     ?>
          sensor8.attr({
         "fill" : "rgba(103,206,103,0.5)",
@@ -256,7 +257,7 @@
 
      var sensor9 = paper.circle(490,160,25);
     // adjust the circle’s attributes
-        <?php if( $status[8] == 0){?>
+        <?php if( $status[8]['status'] == 0){?>
         sensor9.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
@@ -264,7 +265,7 @@
         "title" : "Sensor : 9 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[8] == 1) {   
+        }else if( $status[8]['status'] == 1) {   
     ?>
          sensor9.attr({
         "fill" : "rgba(103,206,103,0.5)",
@@ -287,7 +288,7 @@
 
     var sensor10 = paper.circle(380,180,25);
     // adjust the circle’s attributes
-    <?php if( $status[9] == 0){?>
+    <?php if( $status[9]['status'] == 0){?>
         sensor10.attr({
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
@@ -295,7 +296,7 @@
         "title" : "Sensor : 10 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
         });
     <?php
-        }else if( $status[9] == 1) {   
+        }else if( $status[9]['status'] == 1) {   
     ?>
          sensor10.attr({
         "fill" : "rgba(103,206,103,0.5)",

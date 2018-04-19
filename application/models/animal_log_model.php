@@ -103,6 +103,44 @@
             return $dataSet ;
         }
 
+        public function get_recent_duration($dateReceive,$timeReceive,$countNode){
+            $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
+            $this->db->select('duration');
+            $this->db->from('animal_log');
+            $this->db->where('nodeId',$countNode);
+            $this->db->where('endTime < ',$time);
+            $this->db->order_by('endTime', 'DESC');
+            $this->db->limit(1);
+            $data = $this->db->get()->row()->duration;
+            //$data = $this->db->query("select duration from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result_array();
+            
+            return (int)$data."sec.";  
+        }
+        public function get_recent_start_time($dateReceive,$timeReceive,$countNode){
+            $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
+            $this->db->select('startTime');
+            $this->db->from('animal_log');
+            $this->db->where('nodeId',$countNode);
+            $this->db->where('endTime < ',$time);
+            $this->db->order_by('endTime', 'DESC');
+            $this->db->limit(1);
+            $data = $this->db->get()->row()->startTime;
+            //$data = $this->db->query("select startTime from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result();
+            return $data;  
+        }
+        public function get_recent_end_time($dateReceive,$timeReceive,$countNode){
+            $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
+            $this->db->select('endTime');
+            $this->db->from('animal_log');
+            $this->db->where('nodeId',$countNode);
+            $this->db->where('endTime < ',$time);
+            $this->db->order_by('endTime', 'DESC');
+            $this->db->limit(1);
+            $data = $this->db->get()->row()->endTime;
+            //$data = $this->db->query("select endTime from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result();
+            return $data;  
+        }
+
         //httpget
         public function add($nodeId,$lightIntensity,$temperatureC,$temperatureF,$humidity,$duration){
             

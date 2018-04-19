@@ -172,7 +172,7 @@ class Report extends CI_Controller {
 				// !ห้ามลบ! 
 				// var_dump($mostActivePeriodPerNode);
 			// **** Most Active Peroid separated by sensors **** //
-			var_dump($mostActivePeriodPerNode);
+			// var_dump($mostActivePeriodPerNode);
 			
 				$setMost = 0;
 				$mostPeriodNode = array(); 

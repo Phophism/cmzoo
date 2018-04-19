@@ -102,9 +102,9 @@ $this->load->view('layouts/menu');
 							<!--Status Details-->
 							<div class = "row" style=" padding-top:5px; padding-bottom:15px;">
 								<div class="col text-center">
-									<span class="badge badge-pill badge-light" style=" height: 55px; width: 55px; line-height: 4;  background-color:#CC33334D; color:#e9e9e2E6;"  >Inactive</span>
-									<span class="badge badge-pill badge-info" style=" height: 55px; width: 55px; line-height: 4; margin-left:12px; margin-right:12px; background-color:#67ce674D;  color:#e9e9e2E6;"  >Active</span>
-									<span class="badge badge-pill badge-info" style=" height: 55px; width: 55px; line-height: 4;   background-color:#0066CC4D;  color:#e9e9e2E6;"  >Detect</span>
+									<span class="badge badge-pill badge-light" style=" height: 55px; width: 55px; line-height: 4;  background-color:#CC333366; color:#e9e9e2E6;"  >Inactive</span>
+									<span class="badge badge-pill badge-info" style=" height: 55px; width: 55px; line-height: 4; margin-left:12px; margin-right:12px; background-color:#67ce6766;  color:#e9e9e2E6;"  >Active</span>
+									<span class="badge badge-pill badge-info" style=" height: 55px; width: 55px; line-height: 4;   background-color:#0066CC66;  color:#e9e9e2E6;"  >Detect</span>
 								</div>
 							</div>
 						</div>
@@ -122,3 +122,13 @@ $this->load->view('layouts/menu');
 	$this->load->view('layouts/body_layout_3');
 	?>
 
+
+
+
+				<!-- 
+					
+					โละออก สร้าง function ใน Model ใหม่
+				รับค่าราย col -> getDur() , getstart() , getend 
+				
+				-->
+			

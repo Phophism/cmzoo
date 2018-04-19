@@ -101,7 +101,7 @@
 	var weekA = [];
 	for(var i = 0 ; i<6 ; i++){
 		weekA.push([]);
-		for(var j = 1 ; j<7 ; j++){
+		for(var j = 0 ; j<7 ; j++){
 			weekA[i][j] = itemsWeek[i][j] ; 
 		}
 	}

@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Map extends CI_Controller {
 
+// see calculate -> search and delete -> //*-
+// see logic -> search and delete -> //+-
+
 	public function index()
 	{
 		date_default_timezone_set("Asia/bangkok"); // set timezone
@@ -15,16 +18,17 @@ class Map extends CI_Controller {
 		// $cageA = $this->input->post('cageButtonA');
 		// $cageB = $this->input->post('cageButtonB');
 
-		$timeSlide = gmdate("H:i",$timeReceive);
-
-		if($dateReceive==null && $timeReceive==null /*&& $cageA==null && $cageB==null*/){
+		if($dateReceive==null && $timeReceive==null /*&& $cageA==null && $cageB==null*/){ // first time access
 			$dateReceive = date("Y-m-d");
 			$previousDate = date("Y-m-d");
 			$timeReceive = date("H:i");
 			$timeSlide = date("H:i");
 		}else{
 			$dateReceive = date("Y-m-d",strtotime($dateReceive));
-			$timeSlide = gmdate("H:i",$timeReceive);
+			if($timeReceive >= 60)
+				$timeSlide = gmdate("H:i",$timeReceive);
+			else
+				$timeSlide = gmdate("H:i",60);
 		}	
 
 		$day = $this->animal_log_model->get_data_by_date($dateReceive);
@@ -57,19 +61,20 @@ class Map extends CI_Controller {
 			$durT= ($h2*3600)+($m2*60)+$s1;
 
 			$sensorStatus[] = array(
-				'id' => (int)$status->status,
-				'startT' => date("H:i",strtotime($status->startTime)),
-				'endT' => $durT + $startT ,
-				'dur' => date("H:i",strtotime($status->recentTime))
+				'id' => (int)$status->nodeId,
+				'status' => (int)$status->status,
+				'start' => $status->startTime,
+				'end' => "-" ,
+				'dur' => $status->recentTime
 			);
 		}
-		var_dump($sensorStatus);
-
 
 		//--------------Calculate Sensor Status--------------//
 		
+		// use only today //
 
-		if($dateReceive == date("Y-m-d") && $timeSlide == date("H:i")){
+		if(($dateReceive == date("Y-m-d") && $timeSlide == date("H:i")) || ($dateReceive == date("Y-m-d") && $dateReceive!=$previousDate)){
+		//	var_dump($sensorStatus);
 			// add description
 			foreach($sensors as $sensor){	
 				//error
@@ -128,13 +133,14 @@ class Map extends CI_Controller {
 			}
 		}
 
-
 		//-------------- collect day && calculate status by end time---------------//
 	
 		else {
+			
+			$dataNode = array(); // Get Id,Status,Start Time, End Time, Duration
 
+			// in case data in that day exist
 			if(isset($day)){
-				$dataNode = array(); // Get Id,Status,Start Time, End Time, Duration
 				// $statusNode = array(); // get id , status
 				foreach($day as $whole){ 
 					$dataNode[($whole->nodeId)-1][] = array(
@@ -150,42 +156,72 @@ class Map extends CI_Controller {
 				
 			}
 			
-			if(isset($dataNode)){
+			if(count($dataNode)>0){
+				//*-echo "date Node";
 				foreach($dataNode as $node=>$id){
 					if(isset($id)){
 						foreach($id as $time => $end){
 							list($h,$m) = explode(':',date("H:i",strtotime($end['end'])));
 							$endTimeToSec = ($h*3600)+($m*60);
+
+							// เก็บตัวที่ Detected by sensor
 							if($endTimeToSec-$end['duration']<=$timeReceive && $endTimeToSec>=$timeReceive ){
-								$detected[] = array(
+								$detected[(int)$end['id']-1] = array(
 									'id' => (int)$end['id'],
+									'status' => 2 ,
 									'start' => $end['start'],
 									'end' => $end['end'],
-									"dur" => $end['duration']
+									'dur' => $end['duration']
 								);
-								
 							}
 						}
 					}
 				}
 			}
-		
-			unset($sensorStatus);
-			$nodeStatusCounter = 0;
-			while($nodeStatusCounter < 10){
-				$sensorStatus[] = 1 ;
-				$nodeStatusCounter++;
-			}
 			
-			if(isset($detected)){
-				foreach($detected as $node){
-					$sensorStatus[($node['id'])-1] = 2 ;
+			if(count($detected)>0){
+				// ------- วันนั้นมีข้อมูลเข้าบ้าง-------//
+				//*-echo "detected exist" ;
+				$sensorStatus=null;
+				$nodeStatusCounter = 1;
+				while($nodeStatusCounter <= 10 ){
+					if(isset($detected[$nodeStatusCounter-1])){
+						// not now where status should be detect
+						$sensorStatus[$nodeStatusCounter-1] = $detected[$nodeStatusCounter-1];
+					}else{
+						// not now where status should be active
+						$sensorStatus[$nodeStatusCounter-1] = array(
+							// not today
+							'id' => (int)($nodeStatusCounter),
+							'status' => 1 ,
+							'start' => $this->animal_log_model->get_recent_start_time($dateReceive,$timeSlide,$nodeStatusCounter),
+							'end'  => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
+							'dur' => $this->animal_log_model->get_recent_duration($dateReceive,$timeSlide,$nodeStatusCounter)
+						);
+					}
+					$nodeStatusCounter++;
 				}
 			}
-
-		  	var_dump($sensorStatus);"<hr/>";
+			else{
+				// ------- วันนั้นไม่มีข้อมูลเข้าเลย-------//
+				// -------Set sensor status ------//
+				//*-echo "detected not exist";
+				$sensorStatus=null;
+				$nodeStatusCounter = 1 ;
+				while($nodeStatusCounter <= 10){
+					$sensorStatus[($nodeStatusCounter)-1] = array(
+						'id' => (int)$nodeStatusCounter,
+						'status' => 1 ,
+						'start' => $this->animal_log_model->get_recent_start_time($dateReceive,$timeSlide,$nodeStatusCounter),
+						'end'  => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
+						'dur' => $this->animal_log_model->get_recent_duration($dateReceive,$timeSlide,$nodeStatusCounter)
+					);
+					$nodeStatusCounter++;
+				}
+				
+			}
+			// -------Set ------//
 			foreach($detected as $node){
-				var_dump($node) ; echo "<br/>";
 				if($node['id'] == 1)
 					$detectDescription[] = "Activity Detected at Sensor 1 (eating area A)";
 				else if($node['id'] == 2)
@@ -207,14 +243,13 @@ class Map extends CI_Controller {
 				else if($node['id'] == 10)
 					$detectDescription[] = "Activity Detected at Sensor 10 (relaxing-area-2B)";
 			}
+
 		}
 
-	
 		// -------------------- status logic ---------------- //
 
-	
 		if($timeReceive == date("H:i") && $dateReceive = date("Y-m-d") ){
-			echo "first" ;
+			//+- echo "first" ;
 			// First Time access ??
 			// convert H:i to second (Now)
 			list($h,$m) = explode(':',date("H:i"));
@@ -232,11 +267,11 @@ class Map extends CI_Controller {
 			));
 
 		}else if($dateReceive == date("Y-m-d")){
-			echo "today" ;
+			//+- echo "today" ;
 			// Second Access
 			// Today
 			if($dateReceive != $previousDate){
-				echo "day change" ;
+				//+- echo "day change" ;
 				// day change
 				// convert H:i to second (Now)
 				list($h,$m) = explode(':',date("H:i"));
@@ -254,10 +289,10 @@ class Map extends CI_Controller {
 					"status" => $sensorStatus
 				));
 			}else if($dateReceive == $previousDate ){
-				echo "day not change" ;
+				//+- echo "day not change" ;
 				// Day not change 
 				if( $timeSlide == date('H:i')){
-					echo "Time = now" ;
+					//+-echo "Time = now" ;
 					// Time = Now
 					// day change
 					// convert H:i to second (Now)
@@ -276,7 +311,7 @@ class Map extends CI_Controller {
 						"status" => $sensorStatus
 					));
 				}else{
-					echo "Time != now" ;
+					//+- echo "Time != now" ;
 					// day change -> Time != now
 					// convert H:i to second (Now)
 					list($h,$m) = explode(':',$timeSlide);
@@ -300,11 +335,11 @@ class Map extends CI_Controller {
 			}
 
 		} else {
-			echo "not today";
+			//+-echo "not today";
 			//$dateReceive != date("Y-m-d")
 			// Not today
 			if($dateReceive == $previousDate){
-				echo " day not change";
+				//+-echo " day not change";
 				// day not change
 				list($h,$m) = explode(':',$timeSlide);
 				$valueToSec = ($h*3600)+($m*60);
@@ -320,12 +355,12 @@ class Map extends CI_Controller {
 					"status" => $sensorStatus
 				));
 			}else{
-				echo " day change";
+				//+- echo " day change";
 				
 				$this->load->view('_map',array(
 					"dateReceive" => $dateReceive,
 					"maxTime" => $maxTime,
-					"value" => $valueTime,
+					"value" => 0,
 					"notes" => $detectDescription,
 					"errors" => $errorDescription,
 					"status" => $sensorStatus

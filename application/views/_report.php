@@ -36,38 +36,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="row">
 								<div class="col-lg-3">
 									<!-- <div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<div class="card text-white bg-secondary mb-2">
-										<div class="card-header">
-											<div class="float-right col-lg-7" style="padding:0;">
-												<div class="row">
-													<div class="col">
-														<h4 class="float-right" style="  text-align: right; line-height:1;">Total Amount</h2>
-													</div>
-												</div>
-												<div class="row">
-													<div class = "col">
-														<p class="float-right"><?php echo $amounts['amountAll'] ; ?> </p>
-													</div>
-												</div>												
-											</div>
-										</div>
-										<div class="card-body">
-											total amount of activities
-										</div>
-									</div>	
-									<h1></h1>  
+									<h3><?php echo "Total Amount : ".$amounts['amountAll'] ; ?></h3> 
 								</div>
 								<div class="col-lg-3">
 									<!-- <div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h1><?php echo "Temp (&#8451) : ".$weather['tmp'] ?> </h1>
+									<h3><?php echo "Temp (&#8451) : ".$weather['tmp'] ?> </h3>
 								</div>
 								<div class="col-lg-3">
 									<!-- <div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h1><?php echo "Max/Min Temp (&#8451) : ".$weather['maxTmp']."/".$weather['minTmp'] ?> </h1>
+									<h3><?php echo "Max/Min Temp (&#8451) : ".$weather['maxTmp']."/".$weather['minTmp'] ?> </h3>
 								</div>
 								<div class="col-lg-3">
 									<!-- <div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h1><?php echo"Avg Humidity : ". $weather['humid']."%"?></h1>
+									<h3><?php echo"Avg Humidity : ". $weather['humid']."%"?></h3>
 								</div>
 							</div>
 						</div>
