@@ -300,7 +300,7 @@ class Report extends CI_Controller {
 					$sumTmp = 0 ;
 					$countNA = 0 ;
 					foreach($day as $d){
-						if($d->temperatureC == "NA")
+						if($d->temperatureC == null)
 							$countNA++;
 						else
 							$sumTmp += $d->temperatureC;
@@ -314,7 +314,7 @@ class Report extends CI_Controller {
 					$sumHumid = 0 ;
 					$countNA = 0 ;
 					foreach($day as $d){
-						if($d->temperatureC == "NA")
+						if($d->temperatureC == null)
 							$countNA++;
 						else
 							$sumHumid += $d->temperatureC;

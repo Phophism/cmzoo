@@ -39,7 +39,7 @@
 		}],
 		"startDuration": 1,
 		"graphs": [{
-			"balloonText": "value:<b>[[value]]</b><br>error:<b>[[error]]</b>",
+			"balloonText": "Mean:<b>[[value]]</b><br>error:<b>[[error]]</b>",
 			"bullet": "yError",
 			"bulletamount": 10,
 			"errorField": "error",
@@ -103,7 +103,7 @@
 		}],
 		"startDuration": 1,
 		"graphs": [{
-			"balloonText": "value:<b>[[value]]</b><br>error:<b>[[error]]</b>",
+			"balloonText": "Mean:<b>[[value]]</b><br>error:<b>[[error]]</b>",
 			"bullet": "yError",
 			"bulletamount": 10,
 			"errorField": "error",
@@ -176,7 +176,7 @@ var chart = AmCharts.makeChart("sdLineNA", {
 		}],
 		"startDuration": 1,
 		"graphs": [{
-			"balloonText": "value:<b>[[value]]</b><br>error:<b>[[error]]</b>",
+			"balloonText": "Mean:<b>[[value]]</b><br>error:<b>[[error]]</b>",
 			"bullet": "yError",
 			"bulletamount": 10,
 			"errorField": "error",
@@ -240,7 +240,7 @@ var chart = AmCharts.makeChart("sdLineNA", {
 		}],
 		"startDuration": 1,
 		"graphs": [{
-			"balloonText": "value:<b>[[value]]</b><br>error:<b>[[error]]</b>",
+			"balloonText": "Mean:<b>[[value]]</b><br>error:<b>[[error]]</b>",
 			"bullet": "yError",
 			"bulletamount": 10,
 			"errorField": "error",

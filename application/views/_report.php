@@ -75,8 +75,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 														echo	"<div id=\"reportRadar1\" style=\"height: 400px; width:100%;\"></div>";
 													else if($nodecount[$mostNodes['mostNode']-1] >=10 && $nodecount[$mostNodes['mostNode']-1] <50)
 														echo	"<div id=\"reportRadar2\" style=\"height: 400px; width:100%;\"></div>";
-													else 
+													else if($nodecount[$mostNodes['mostNode']-1] >=5 && $nodecount[$mostNodes['mostNode']-1] <10)
 														echo	"<div id=\"reportRadar3\" style=\"height: 400px; width:100%;\"></div>";
+													else
+														echo	"<div id=\"reportRadar4\" style=\"height: 400px; width:100%;\"></div>";	
 												}
 											?>
 										</div>
