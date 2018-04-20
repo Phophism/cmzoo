@@ -12,7 +12,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 1 \n\nStatus: Inactive \n\nStart: <?php echo $status[0]['start']?> \n\nEnd \n\nDuration "
+        "title" : "Sensor : 1 \n\nStatus: Inactive \n\nStart: <?php echo $status[0]['start']?> \n\nEnd:  <?php echo $status[0]['end']?> \n\nDuration:  <?php echo $status[0]['dur']?> "
         });
     <?php
         }else if( $status[0]['status'] == 1) {   
@@ -21,7 +21,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 1 \n\nStatus: Active \n\nStart:  <?php echo $status[0]['start']?>  \n\nEnd \n\nDuration "
+        "title" : "Sensor : 1 \n\nStatus: Active \n\nStart: <?php echo $status[0]['start']?> \n\nEnd:  <?php echo $status[0]['end']?> \n\nDuration:  <?php echo $status[0]['dur']?>  "
         });
     <?php 
         }else{
@@ -30,7 +30,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 1 \n\nStatus: Detected \n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 1 \n\nStatus: Detected \n\nStart: <?php echo $status[0]['start']?> \n\nEnd:  <?php echo $status[0]['end']?> \n\nDuration:  <?php echo $status[0]['dur']?> "
         });
     <?php
         }
@@ -44,7 +44,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 2 \n\nStatus: Inactive \n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 2 \n\nStatus: Inactive \n\nStart: <?php echo $status[1]['start']?> \n\nEnd:  <?php echo $status[1]['end']?> \n\nDuration:  <?php echo $status[1]['dur']?> "
         });
     <?php
         }else if( $status[1]['status'] == 1) {   
@@ -53,7 +53,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 2 \n\nStatus: Active \n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 2 \n\nStatus: Active \n\nStart: <?php echo $status[1]['start']?> \n\nEnd:  <?php echo $status[1]['end']?> \n\nDuration:  <?php echo $status[1]['dur']?> "
         });
     <?php 
         }else{
@@ -62,7 +62,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 2 \n\nStatus: Detected \n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 2 \n\nStatus: Detected \n\nStart: <?php echo $status[1]['start']?> \n\nEnd:  <?php echo $status[1]['end']?> \n\nDuration:  <?php echo $status[1]['dur']?> "
         });
     <?php
         }
@@ -75,7 +75,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 3 \n\nStatus: Inactive \n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 3 \n\nStatus: Inactive \n\nStart: <?php echo $status[2]['start']?> \n\nEnd:  <?php echo $status[2]['end']?> \n\nDuration:  <?php echo $status[2]['dur']?> "
         });
     <?php
         }else if( $status[2]['status'] == 1) {   
@@ -84,7 +84,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 3 \n\nStatus: Active\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 3 \n\nStatus: Active\n\nStart: <?php echo $status[2]['start']?> \n\nEnd:  <?php echo $status[2]['end']?> \n\nDuration:  <?php echo $status[2]['dur']?> "
         });
     <?php 
         }else{
@@ -93,7 +93,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 3 \n\nStatus: Detected\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 3 \n\nStatus: Detected\n\nStart: <?php echo $status[2]['start']?> \n\nEnd:  <?php echo $status[2]['end']?> \n\nDuration:  <?php echo $status[2]['dur']?> "
         });
     <?php
         }
@@ -106,7 +106,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 4 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 4 \n\nStatus: Inactive\n\nStart: <?php echo $status[3]['start']?> \n\nEnd:  <?php echo $status[3]['end']?> \n\nDuration:  <?php echo $status[3]['dur']?> "
         });
     <?php
         }else if( $status[3]['status'] == 1) {   
@@ -115,7 +115,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 4 \n\nStatus: Active\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 4 \n\nStatus: Active\n\nStart: <?php echo $status[3]['start']?> \n\nEnd:  <?php echo $status[3]['end']?> \n\nDuration:  <?php echo $status[3]['dur']?> "
         });
     <?php 
         }else{
@@ -124,7 +124,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 4 \n\nStatus: Detected \n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 4 \n\nStatus: Detected \n\nStart: <?php echo $status[3]['start']?> \n\nEnd:  <?php echo $status[3]['end']?> \n\nDuration:  <?php echo $status[3]['dur']?> "
         });
     <?php
         }
@@ -137,7 +137,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 5 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 5 \n\nStatus: Inactive\n\nStart: <?php echo $status[4]['start']?> \n\nEnd:  <?php echo $status[4]['end']?> \n\nDuration:  <?php echo $status[4]['dur']?> "
         });
     <?php
         }else if( $status[4]['status'] == 1) {   
@@ -146,7 +146,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 5 \n\nStatus: Active\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 5 \n\nStatus: Active\n\nStart: <?php echo $status[4]['start']?> \n\nEnd:  <?php echo $status[4]['end']?> \n\nDuration:  <?php echo $status[4]['dur']?> "
         });
     <?php 
         }else{
@@ -155,7 +155,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 5 \n\nStatus: Detected\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 5 \n\nStatus: Detected\n\nStart: <?php echo $status[4]['start']?> \n\nEnd:  <?php echo $status[4]['end']?> \n\nDuration:  <?php echo $status[4]['dur']?> "
         });
     <?php
         }
@@ -168,7 +168,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 6 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 6 \n\nStatus: Inactive\n\nStart: <?php echo $status[5]['start']?> \n\nEnd:  <?php echo $status[5]['end']?> \n\nDuration:  <?php echo $status[5]['dur']?> "
         });
     <?php
         }else if( $status[5]['status'] == 1) {   
@@ -177,7 +177,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 6 \n\nStatus: Active\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 6 \n\nStatus: Active\n\nStart: <?php echo $status[5]['start']?> \n\nEnd:  <?php echo $status[5]['end']?> \n\nDuration:  <?php echo $status[5]['dur']?> "
         });
     <?php 
         }else{
@@ -186,7 +186,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 6 \n\nStatus: Detected\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 6 \n\nStatus: Detected\n\nStart: <?php echo $status[5]['start']?> \n\nEnd:  <?php echo $status[5]['end']?> \n\nDuration:  <?php echo $status[5]['dur']?> "
         });
     <?php
         }
@@ -199,7 +199,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 7 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 7 \n\nStatus: Inactive\n\nStart: <?php echo $status[6]['start']?> \n\nEnd:  <?php echo $status[6]['end']?> \n\nDuration:  <?php echo $status[6]['dur']?> "
         });
     <?php
         }else if( $status[6]['status']  == 1) {   
@@ -208,7 +208,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 7 \n\nStatus: Active\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 7 \n\nStatus: Active\n\nStart: <?php echo $status[6]['start']?> \n\nEnd:  <?php echo $status[6]['end']?> \n\nDuration:  <?php echo $status[6]['dur']?> "
         });
     <?php 
         }else{
@@ -217,7 +217,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 7 \n\nStatus: Detected\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 7 \n\nStatus: Detected\n\nStart: <?php echo $status[6]['start']?> \n\nEnd:  <?php echo $status[6]['end']?> \n\nDuration:  <?php echo $status[6]['dur']?> "
         });
     <?php
         }
@@ -231,7 +231,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 8 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 8 \n\nStatus: Inactive\n\nStart: <?php echo $status[7]['start']?> \n\nEnd:  <?php echo $status[7]['end']?> \n\nDuration:  <?php echo $status[7]['dur']?> "
         });
     <?php
         }else if( $status[7]['status'] == 1) {   
@@ -240,7 +240,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 8 \n\nStatus: Active\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 8 \n\nStatus: Active\n\nStart: <?php echo $status[7]['start']?> \n\nEnd:  <?php echo $status[7]['end']?> \n\nDuration:  <?php echo $status[7]['dur']?> "
         });
     <?php 
         }else{
@@ -249,7 +249,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 8 \n\nStatus: Detected\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 8 \n\nStatus: Detected\n\nStart: <?php echo $status[7]['start']?> \n\nEnd:  <?php echo $status[7]['end']?> \n\nDuration:  <?php echo $status[7]['dur']?> "
         });
     <?php
         }
@@ -262,7 +262,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 9 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 9 \n\nStatus: Inactive\n\nStart: <?php echo $status[8]['start']?> \n\nEnd:  <?php echo $status[8]['end']?> \n\nDuration:  <?php echo $status[8]['dur']?> "
         });
     <?php
         }else if( $status[8]['status'] == 1) {   
@@ -271,7 +271,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 9 \n\nStatus: Active\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 9 \n\nStatus: Active\n\nStart: <?php echo $status[8]['start']?> \n\nEnd:  <?php echo $status[8]['end']?> \n\nDuration:  <?php echo $status[8]['dur']?> "
         });
     <?php 
         }else{
@@ -280,7 +280,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 9 \n\nStatus: Detected\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 9 \n\nStatus: Detected\n\nStart: <?php echo $status[8]['start']?> \n\nEnd:  <?php echo $status[8]['end']?> \n\nDuration:  <?php echo $status[8]['dur']?> "
         });
     <?php
         }
@@ -293,7 +293,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 10 \n\nStatus: Inactive\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 10 \n\nStatus: Inactive\n\nStart: <?php echo $status[9]['start']?> \n\nEnd:  <?php echo $status[9]['end']?> \n\nDuration:  <?php echo $status[9]['dur']?> "
         });
     <?php
         }else if( $status[9]['status'] == 1) {   
@@ -302,7 +302,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 10 \n\nStatus: Active\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 10 \n\nStatus: Active\n\nStart: <?php echo $status[9]['start']?> \n\nEnd:  <?php echo $status[9]['end']?> \n\nDuration:  <?php echo $status[9]['dur']?> "
         });
     <?php 
         }else{
@@ -311,7 +311,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor : 10 \n\nStatus: Detected\n\nStart \n\nEnd \n\nDuration "
+        "title" : "Sensor : 10 \n\nStatus: Detected\n\nStart: <?php echo $status[9]['start']?> \n\nEnd:  <?php echo $status[9]['end']?> \n\nDuration:  <?php echo $status[9]['dur']?> "
         });
     <?php
         }
