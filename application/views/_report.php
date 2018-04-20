@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<form id="dateForm" method="POST" action="<?php echo base_url();?>report">
 											<!-- <input id="mydate" name ="datepicker" type="text" /> -->
 											<?php
-												echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$datepicker."\"  max=\"".date('Y-m-d')."\" />" ;
+												echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
 											?>
 										</form>
 									</div>

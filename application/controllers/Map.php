@@ -24,11 +24,17 @@ class Map extends CI_Controller {
 			$timeReceive = date("H:i");
 			$timeSlide = date("H:i");
 		}else{
-			$dateReceive = date("Y-m-d",strtotime($dateReceive));
-			if($timeReceive >= 60)
+			if($dateReceive > date("Y-m-d")){
+				$dateReceive = date("Y-m-d") ;
+			}else{
+				$dateReceive = date("Y-m-d",strtotime($dateReceive));
+			}
+
+			if($timeReceive >= 60){
 				$timeSlide = gmdate("H:i",$timeReceive);
-			else
+			}else{
 				$timeSlide = gmdate("H:i",60);
+			}
 		}	
 
 		$day = $this->animal_log_model->get_data_by_date($dateReceive);

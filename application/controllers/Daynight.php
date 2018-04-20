@@ -7,13 +7,16 @@ class Daynight extends CI_Controller {
 		$this->load->model('animal_log_model');
 		$dateReceive = $this->input->post('datepicker');
 		$cageReceive = $this->input->post('cageselect');
-	
 
 		if($dateReceive==null && $cageReceive==null){
 			$dateReceive = date("Y-m-d");
 			$cageReceive = "on";
 		}else{
-			$dateReceive = date("Y-m-d",strtotime($dateReceive));
+			if($dateReceive > date("Y-m-d")){
+				$dateReceive = date("Y-m-d") ;
+			}else{
+				$dateReceive = date("Y-m-d",strtotime($dateReceive));
+			}
 		}	
 
 		$sdSetDay =  $this->animal_log_model->get_data_set_month_day($dateReceive);

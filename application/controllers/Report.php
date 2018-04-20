@@ -6,14 +6,18 @@ class Report extends CI_Controller {
 	public function index(){
 		$this->load->helper('array');
 		$this->load->model('animal_log_model');
-		$datepicker = $this->input->post('datepicker');
+		$dateReceive = $this->input->post('datepicker');
 
-		if($datepicker==null){
-			$datepicker = date("Y-m-d");
+		if($dateReceive==null){
+			$dateReceive = date("Y-m-d");
 		}else{
-			$datepicker = date("Y-m-d",strtotime($datepicker));
+			if($dateReceive > date("Y-m-d")){
+				$dateReceive = date("Y-m-d") ;
+			}else{
+				$dateReceive = date("Y-m-d",strtotime($dateReceive));
+			}
 		}
-			$day = $this->animal_log_model->get_data_by_date($datepicker);
+			$day = $this->animal_log_model->get_data_by_date($dateReceive);
 		
 
 			if(isset($day)){
@@ -370,7 +374,7 @@ class Report extends CI_Controller {
 								"mostNodes" => $dataSetMostNode,
 								"percentages" => $dataSetPercentage,
 								"amounts" => $dataSetAmount,
-								"datepicker" => $datepicker,
+								"dateReceive" => $dateReceive,
 								"day" => $day,
 								"nodecount" => $nodeCount,
 								"weather" =>$weather

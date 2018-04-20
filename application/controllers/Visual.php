@@ -15,7 +15,11 @@ class Visual extends CI_Controller {
 			$cageReceive = "on";
 			$periodReceive = 1 ;
 		}else{
-			$dateReceive = date("Y-m-d",strtotime($dateReceive));
+			if($dateReceive > date("Y-m-d")){
+				$dateReceive = date("Y-m-d") ;
+			}else{
+				$dateReceive = date("Y-m-d",strtotime($dateReceive));
+			}
 		}	
 		
 		$day = $this->animal_log_model->get_data_by_date($dateReceive);
