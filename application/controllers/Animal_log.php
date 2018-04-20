@@ -16,6 +16,5 @@ class Animal_log extends CI_Controller {
 		$this->animal_log_model->add($nodeId,$lightIntensity,$temperatureC,$temperatureF,$humidity,$duration);
 	}
 
-
 }
 

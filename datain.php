@@ -35,7 +35,7 @@ if ($_GET["sensor_id"]!="")
 	    	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
 		// curl && file_get_contents ?temp=3&hum=2&poomy=20
-		file_get_contents('http://teng.thai2biz.net/sensorData/add?temp='. $_GET["temperatureC"] .'&poomy=' . $_GET['light_intensity'], false, $context);
+		file_get_contents('http://teng.thai2biz.net/cmzoo2/application/controllers/Animal_log/add?nodeId'. $_GET["temperatureC"] .'&poomy=' . $_GET['light_intensity'], false, $context);
 		file_get_contents('http://teng.thai2biz.net/sensorData/update', false, $context);
 	}
 
