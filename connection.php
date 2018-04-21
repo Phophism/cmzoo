@@ -7,7 +7,7 @@
 //$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 //xampp
-$servername = "localhost:8080";
+$servername = "localhost:3306";
 $username = 'root';
 $pass = '';
 $dbname =  "thai2biz_net_cmzoo";

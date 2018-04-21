@@ -36,7 +36,7 @@ if ($_GET["sensor_id"]!="")
 		}
 		// curl && file_get_contents ?temp=3&hum=2&poomy=20
 		file_get_contents('http://teng.thai2biz.net/cmzoo2/Animal_log/add?nodeId='. $_GET["sensor_id"] .'&lightIntensity=' . $_GET['light_intensity'] .'&temperatureC='. $_GET["temperatureC"] . '&temperatureF = ' . $_GET["temperatureF"] . '&humidity = ' .$_GET["humidity"] . '&duration = ' . $_GET["duration"], false, $context);
-		file_get_contents('http://teng.thai2biz.net/cmzoo2/Sensor/update?nodeId=' . $_GET["nodeId"] . '&status=' . $_GET["status"] , false, $context);
+		//file_get_contents('http://teng.thai2biz.net/cmzoo2/Sensor/update?nodeId=' . $_GET["nodeId"] . '&status=' . $_GET["status"] , false, $context);
 	}
 
 ?>

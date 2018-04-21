@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'thai2biz_net_cmzoo',
+	'hostname' => 'localhost:3306',
+	'username' => 'thai2_cmzoo2',
+	'password' => 'Akkapop02',
+	'database' => 'thai2biz_net_cmzoo2',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
