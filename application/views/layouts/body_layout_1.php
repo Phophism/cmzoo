@@ -1,3 +1,1 @@
-<body>
-    <div class="container-fluid">
-        <div class="row">
+<body class="sidebar-fixed topnav-fixed dashboard">
