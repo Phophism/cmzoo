@@ -6,27 +6,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->view('layouts/menu');
 ?>
 
-	<div class="col-lg-10 ">
+	<div class="col-lg-12">
 		<div class="row">
 			<!--Group 1-->
 			<div class="col-lg-12">
-				<div class="card" >
-					<div class="card-header" >
+				<div class="widget">
+					<div class="widget-header">
 						<form id="dateForm" method="POST" action="<?php echo base_url();?>daynight">
-							<input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" style="min-height:32px;" data-onstyle="success" data-offstyle="info" onchange="change();" 
-							<?php
-								if(!isset($cageReceive))
-									echo " " ;
-								else
-									echo " checked";	
-							?>
-							/>
-							<?php
+							<div class="col-lg-9">
+								<input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" style="min-height:32px;" data-onstyle="success"
+								data-offstyle="info" data-on="Zone A" data-off="Zone B" onchange="change();" <?php if(!isset($cageReceive)) echo
+								" " ; else echo " checked"; ?> />
+							</div>
+							<div class="col-lg-3">
+								<?php
 								if(isset($dateReceive))
-									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
+									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"form-control pull-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
 								else
-									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".date('Y-m-d')."\"  max=\"".date('Y-m-d')."\" />" ;				
-							?>			
+									echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"form-control pull-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".date('Y-m-d')."\"  max=\"".date('Y-m-d')."\" />" ;				
+							?>
+							</div>
+
 						</form>
 					</div>
 				</div>
@@ -35,18 +35,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			<!--Group 2-->
 			<div class="col-lg-12" style="margin-top:12px;">
-				<div class="card">
+				<div class="widget">
 					<div class="row">
-						<div class="col-lg-12">
-							<h1 style="text-align:center;">A</h1>
-						</div>
+						<!-- <div class="col-lg-12">
+							<h1 id="show-zone" style="text-align:center;">A</h1>
+							<hr/>
+						</div> -->
 						<div class="col-lg-12">
 							<div class="row">
 								<div class="col-lg-6">
-									<div class="card">
+									<div class="widget">
 										<div class="row">
-											<div class="col-lg-12" >
-												<div class="card" >
+											<div class="col-lg-12">
+												<div class="widget">
 													<?php
 														if($cageReceive=="on"){
 															if(count($logDayA)!=0)
@@ -63,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="card">
+												<div class="widget">
 													<?php
 														if($cageReceive=="on"){
 															if(count($logDayA)!=0)
@@ -80,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="card">
+												<div class="widget">
 													<?php
 														if($cageReceive=="on"){
 															if(count($logDayA)!=0)
@@ -97,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="card">
+												<div class="widget">
 													<?php
 														if($cageReceive=="on"){
 															if(count($logDayA)!=0)
@@ -117,10 +118,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 								</div>
 								<div class="col-lg-6">
-									<div class="card">
+									<div class="widget">
 										<div class="row">
 											<div class="col-lg-12">
-												<div class="card">
+												<div class="widget">
 													<?php
 														if($cageReceive=="on"){
 															if(count($logNightA) != 0)
@@ -137,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="card">
+												<div class="widget">
 													<?php
 														if($cageReceive=="on"){
 															if(count($logNightA) != 0)
@@ -150,11 +151,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															else
 																echo "<h1 style=\"height:350px; margin:0;\">No Data to Show</h1>" ;
 														}	
-													?>	
+													?>
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="card">
+												<div class="widget">
 													<?php
 														if($cageReceive=="on"){
 															if(count($logNightA)!=0)
@@ -171,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="card">
+												<div class="widget">
 													<?php
 														if($cageReceive=="on"){
 															if(count($logNightA)!=0)
@@ -206,4 +207,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$this->load->view('scripts/daynight_script');
 	$this->load->view('layouts/body_layout_3');
 ?>
-

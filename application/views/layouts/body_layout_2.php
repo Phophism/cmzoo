@@ -1,28 +1,39 @@
-        </div> <!-- end row -->
-    </div>  <!-- end container -->
 
+	</div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+</div>
+    <!-- Javascript -->
+    <script src="assets/js/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/admin-template/js/bootstrap/bootstrap.js"></script>	
+	<script src="assets/admin-template/js/king-common.js"></script>
+	<script src="assets/admin-template/js/king-chart-stat-transparent.js"></script>
+	<script src="assets/admin-template/js/king-table.js"></script>
+    <script src="assets/admin-template/js/king-components-transparent.js"></script>
+    
      <!-- Optional JavaScript -->
     <!-- jQuery first, Popper.js, Bootstrap JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-    <script src="<?php echo base_url(); ?>assets/jquery/jquery-3-2-1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/jquery/jquery-3-2-1.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
     <script src="<?php echo base_url(); ?>node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
     
-    <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script> -->
 
     <script src="<?php echo base_url(); ?>node_modules/chart.js/dist/Chart.js"></script>
 
-    <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script> -->
+
 
     <!-- toggle -->
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
- <!-- amchart -->
+    <!-- amchart -->
     <script src="assets/amchart/amcharts/amcharts.js"></script>
     <script src="assets/amchart/amcharts/radar.js"></script>
     <script src="assets/amchart/amcharts/serial.js"></script>
@@ -67,6 +78,36 @@
                 m = ('0' + m).slice(-2);
                 
             console.log("time picker :\t"+h+":"+m);
+        }
+    </script>
+
+    <!-- activelink -->
+    <script type="text/javascript">       
+        var path = window.location.pathname.split('/');
+        var pathActive = path[2]
+        pathActive = pathActive.toLowerCase().trim();
+        if (pathActive !== "" || pathActive !== null) {
+        $('#exampleAccordion > li').removeClass('active');
+            if (pathActive === "home") {
+                $('#daynightMenu').addClass('active')
+            }
+            else if (pathActive === "map") {
+                $('#mapMenu').addClass('active')
+            }
+            else if (pathActive === "daynight") {
+                $('#daynightMenu').addClass('active')
+            }
+            else if (pathActive === "visual") {
+                $('#visualMenu').addClass('active')
+            }
+            else if (pathActive === "report") {
+                $('#reportMenu').addClass('active')
+            }
+            else if (pathActive === "sensor") {
+                $('#sensorMenu').addClass('active')
+            } else {
+                $('#daynightMenu').addClass('active')
+            }
         }
     </script>
     

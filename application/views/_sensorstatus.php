@@ -7,72 +7,80 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 	<!--details-->
-	<div class="col-lg-10 ">
-	<div class = "row">
-		<!-- sensorstatus -->
-		<div class="container" style="padding-top:50px;">
-			<div class="card text-white bg-secondary mb-3" style="max-width: 55rem; ">
-				<div class="card-header">Sensor Status</div>
-				<div class="card-body">
-					<div class="row-fluid">
-						<div class="col-lg-12">
-							<a>Current Time : </a> <?php echo date("M d, Y H:i:s"); ?>
-						</div>
-						<div class="col-lg-12">
-							<table class="table">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Status</th>
-										<th>Start Activity Time</th>
-										<th>Activity Running Time</th>
-										<th>Note</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php 
+	<div class="col-lg-12">
+		<div class="row">
+			<!-- sensorstatus -->
+			<div class="container">
+				<div class="widget widget-table">
+					<div class="widget-header">
+						<h3>Sensor Status</h3>
+					</div>
+					<div class="widget-content">
+						<div class="row-fluid">
+							<div class="col-lg-12">
+								<a>Current Time : </a>
+								<?php echo date("M d, Y H:i:s"); ?>
+								<table class="table" width="100%">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th class="text-center">Status</th>
+											<th class="text-center">Start Activity Time</th>
+											<th class="text-center">Activity Running Time</th>
+											<th class="text-center">Note</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php 
 										foreach($sensors as $sensor){
 									?>
 										<tr>
-											<td><?php echo $sensor->nodeId; ?></td>
+											<td>
+												<?php echo $sensor->nodeId; ?>
+											</td>
 											<td style="
 												<?php 
 													if($sensor->status==0){
-														echo "background-color:#F77D7D;";
+														echo " background-color:#d9534f; ";
 													}else if($sensor->status==1){
-														echo "background-color:#70D19F;";
+														echo "background-color:#5cb85c; ";
 													}else{
-														echo "background-color:#00E6E6;";
+														echo "background-color:#11B4C2; ";
 													}
 												?>
 											border-radius: 7%;
 											">
 											</td>
-											<td><?php echo $sensor->startTime; ?></td>
-											<td><?php echo $sensor->recentTime; ?></td>
-											<td><?php if($sensor->status==0){
+											<td class="text-center">
+												<?php echo $sensor->startTime; ?>
+											</td>
+											<td class="text-center">
+												<?php echo $sensor->recentTime; ?>
+											</td>
+											<td class="text-center">
+												<?php if($sensor->status==0){
 												echo "Node Inactive";
 											}else if($sensor->status==1){
 												echo "Node Active";
 											}else{
 												echo "Detecting";
 											}
-											 ?></td>
+											 ?>
+											</td>
 										</tr>
-									<?php
+										<?php
 										}
 									?>
-								</tbody>
-							</table>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		</div>
-	</div>
 
-<?php 
+		<?php 
 	$this->load->view('layouts/body_layout_2');
 	$this->load->view('layouts/body_layout_3');
 ?>
