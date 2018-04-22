@@ -7,23 +7,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 	<!--content-->
-	<div class="col-lg-10 row">
+	<div class="col-lg-12">
 		<div class="row">
 			<!-- report -->
 			<div class="col-lg-12">
-				<div class="card text-white bg-secondary mb-3">
-					<div class="card-header">
+				<div class="">
+					<div class="">
 						<div class="row">
 							<div class="col-lg-12 ">
 								<div class="row">
-									<div class="col-lg-6">
-										<h1>report</h1>
+									<div class="col-lg-9">
 									</div>
-									<div class="col-lg-6">
+									<div class="col-lg-3">
 										<form id="dateForm" method="POST" action="<?php echo base_url();?>report">
 											<!-- <input id="mydate" name ="datepicker" type="text" /> -->
 											<?php
-												echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"input-sm float-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
+												echo "<input type=\"date\" id=\"date\" name =\"datepicker\" class=\"form-control pull-right\" onkeydown=\"return false\" onchange=\"change();\" value=\"".$dateReceive."\"  max=\"".date('Y-m-d')."\" />" ;
 											?>
 										</form>
 									</div>
@@ -31,25 +30,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 						</div>
 					</div>
-					<div class="card-body">
-						<div class="col-lg-12">
-							<div class="row">
-								<div class="col-lg-3">
-									<!-- <div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h3><?php echo "Total Amount : ".$amounts['amountAll'] ; ?></h3> 
-								</div>
-								<div class="col-lg-3">
-									<!-- <div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h3><?php echo "Temp (&#8451) : ".$weather['tmp'] ?> </h3>
-								</div>
-								<div class="col-lg-3">
-									<!-- <div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h3><?php echo "Max/Min Temp (&#8451) : ".$weather['maxTmp']."/".$weather['minTmp'] ?> </h3>
-								</div>
-								<div class="col-lg-3">
-									<!-- <div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
-									<h3><?php echo"Avg Humidity : ". $weather['humid']."%"?></h3>
-								</div>
+				</div>
+				<div class="widget-content">
+					<div class="col-lg-12">
+						<div class="row">
+							<hr>
+							<div class="col-lg-3">
+								<!-- <div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
+								<h3 class="text-center">
+									<?php echo "<b>Total Amount</b><br><br>".$amounts['amountAll'] ; ?>
+								</h3>
+							</div>
+							<div class="col-lg-3">
+								<!-- <div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
+								<h3 class="text-center">
+									<?php echo "<b>Temp (&#8451)</b> <br><br>".$weather['tmp'] ?> </h3>
+							</div>
+							<div class="col-lg-3">
+								<!-- <div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
+								<h3 class="text-center">
+									<?php echo "<b>Max/Min Temp (&#8451)</b> <br><br>".$weather['maxTmp']." / ".$weather['minTmp'] ?> </h3>
+							</div>
+							<div class="col-lg-3">
+								<!-- <div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
+								<h3 class="text-center">
+									<?php echo"<b>Avg Humidity</b> <br><br>". $weather['humid']." %"?>
+								</h3>
 							</div>
 						</div>
 					</div>
@@ -58,15 +64,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!--average-->
 			<div class="col-lg-12 ">
 				<div class="row">
+					<br>
 					<!-- column 1 -->
 					<div class="col-lg-6">
 						<div class="row">
 							<!-- radar chart -->
 							<div class="col-lg-12 ">
-								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
-									<div class="card-header">Total Amount</div>
-									<div class="card-body">
-										<div class = "row">
+								<div class="widget">
+									<div class="widget-header">
+										<h3>Total Amount</h3>
+									</div>
+									<div class="widget-content">
+										<div class="row">
 											<?php 
 												if(is_null($mostNodes['mostNode'])){
 													echo	"<div id=\"reportRadar1\" style=\"height: 500px; width:100%;\"></div>";
@@ -82,11 +91,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												}
 											?>
 										</div>
-										<div class = "row" style=" padding-top:5px; padding-bottom:15px;">
+										<div class="row" style=" padding-top:5px; padding-bottom:15px;">
 											<div class="col text-center">
-												<span class="badge badge-pill badge-light" style=" height: 55px; line-height: 4; margin-right:12.5px; background-color:#CC33334D; color:#e9e9e2E6;"  >Cage B</span>
-												<span class="badge badge-pill badge-info" style=" height: 55px; line-height: 4; margin-left:12.5px; background-color:#0066CC4D;  color:#e9e9e2E6;"  >Cage A</span>
-												
+												<span class="badge badge-pill badge-light" style=" height: 55px; line-height: 4; margin-right:12.5px; background-color:#CC33334D; color:#e9e9e2E6;">Cage B</span>
+												<span class="badge badge-pill badge-info" style=" height: 55px; line-height: 4; margin-left:12.5px; background-color:#0066CC4D;  color:#e9e9e2E6;">Cage A</span>
+
 											</div>
 										</div>
 									</div>
@@ -94,46 +103,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<!-- by cage (if exist) -->
 							<?php if(count($day) != 0) {?>
-								<div class="col-lg-12 ">
-									<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
-										<div class="card-header">Cages</div>
-										<div class="card-body">
-											<table class="table">
-												<thead>
-													<tr>
-														<th>#</th>
-														<th>Mean</th>
-														<th>M.A.P</th>
-														<th>M.A.N</th>
-														<th>Percentage</th>
-														<th>Amount</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>A</td>
-														<td><?php echo $means['meanA'] ; ?></td>
-														<td><?php echo $periods['mostPeriodA'] ; ?></td>
-														<td><?php echo $mostNodes['mostNodeA'] ; ?></td>
-														<td><?php echo $percentages['percentageA']; ?></td>
-														<td><?php echo $amounts['amountA'] ; ?></td>
-													</tr>
-													<tr>
-														<td>B</td>
-														<td><?php echo $means['meanB'] ; ?></td>
-														<td><?php echo $periods['mostPeriodB'] ; ?></td>
-														<td><?php echo $mostNodes['mostNodeB'] ; ?></td>
-														<td><?php echo $percentages['percentageB']; ?></td>
-														<td><?php echo $amounts['amountB'] ; ?></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
+							<div class="col-lg-12 ">
+								<div class="widget widget-table">
+									<div class="widget-header">
+										<h3>Cages</h3>
+									</div>
+									<div class="widget-content">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Mean</th>
+													<th>M.A.P</th>
+													<th>M.A.N</th>
+													<th>Percentage</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>A</td>
+													<td>
+														<?php echo $means['meanA'] ; ?>
+													</td>
+													<td>
+														<?php echo $periods['mostPeriodA'] ; ?>
+													</td>
+													<td>
+														<?php echo $mostNodes['mostNodeA'] ; ?>
+													</td>
+													<td>
+														<?php echo $percentages['percentageA']; ?>
+													</td>
+													<td>
+														<?php echo $amounts['amountA'] ; ?>
+													</td>
+												</tr>
+												<tr>
+													<td>B</td>
+													<td>
+														<?php echo $means['meanB'] ; ?>
+													</td>
+													<td>
+														<?php echo $periods['mostPeriodB'] ; ?>
+													</td>
+													<td>
+														<?php echo $mostNodes['mostNodeB'] ; ?>
+													</td>
+													<td>
+														<?php echo $percentages['percentageB']; ?>
+													</td>
+													<td>
+														<?php echo $amounts['amountB'] ; ?>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
+							</div>
 							<?php
 							}
-							?>	
+							?>
 						</div>
 					</div>
 					<!-- column 2 -->
@@ -141,9 +172,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="row">
 							<!-- by sensor -->
 							<div class="col-lg-12">
-								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
-									<div class="card-header">Sensors</div>
-									<div class="card-body">
+								<div class="widget widget-table">
+									<div class="widget-header">
+										<h3>Sensors</h3>
+									</div>
+									<div class="widget-content">
 										<table class="table">
 											<thead>
 												<tr>
@@ -156,27 +189,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</thead>
 											<tbody>
 												<?php if(count($day)!=0){?>
-													<?php
+												<?php
 														$counter = 0 ;
 														while($counter<10){
 													?>
 													<tr>
-														<td><?php echo $counter+1 ;?></td>
-														<td><?php echo $means['meanNode'][$counter] ;?></td>
-														<td><?php echo $periods['mostPeriodNode'][$counter] ;?></td>
-														<td><?php echo $percentages['percentageNode'][$counter] ;?></td>
-														<td><?php echo $amounts['amountNode'][$counter] ;?></td>
+														<td>
+															<?php echo $counter+1 ;?>
+														</td>
+														<td>
+															<?php echo $means['meanNode'][$counter] ;?>
+														</td>
+														<td>
+															<?php echo $periods['mostPeriodNode'][$counter] ;?>
+														</td>
+														<td>
+															<?php echo $percentages['percentageNode'][$counter] ;?>
+														</td>
+														<td>
+															<?php echo $amounts['amountNode'][$counter] ;?>
+														</td>
 													</tr>
 													<?php 
 														$counter++;
 													}
 													?>
-												<?php
+													<?php
 												}
 												else{
 												?>
-													<td class="text-center" colspan="5"><p>NO DATA TO SHOW</p></td>
-												<?php
+													<td class="text-center" colspan="5">
+														<p>NO DATA TO SHOW</p>
+													</td>
+													<?php
 												}
 												?>
 											</tbody>
@@ -187,9 +232,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<!-- whole system -->
 							<div class="col-lg-12 ">
-								<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
-									<div class="card-header">whole</div>
-									<div class="card-body">
+								<div class="widget widget-table">
+									<div class="widget-header">
+										<h3>Whole</h3>
+									</div>
+									<div class="widget-content">
 										<table class="table">
 											<thead>
 												<tr>
@@ -201,17 +248,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</thead>
 											<tbody>
 												<?php if(count($day)!=0 ){?>
-													<tr>
-														<td><?php echo $means['meanWhole'] ;?> </td>
-														<td><?php echo $periods['mostPeriod'] ?> </td>
-														<td><?php echo $mostNodes['mostNode'] ?> </td>
-														<td><?php echo $amounts['amountAll'] ?> </td>
-													</tr>
+												<tr>
+													<td>
+														<?php echo $means['meanWhole'] ;?> </td>
+													<td>
+														<?php echo $periods['mostPeriod'] ?> </td>
+													<td>
+														<?php echo $mostNodes['mostNode'] ?> </td>
+													<td>
+														<?php echo $amounts['amountAll'] ?> </td>
+												</tr>
 												<?php
 												}
 												else{
 												?>
-													<td class="text-center" colspan="6"><p>NO DATA TO SHOW</p></td>
+												<td class="text-center" colspan="6">
+													<p>NO DATA TO SHOW</p>
+												</td>
 												<?php
 												}
 												?>
@@ -222,53 +275,77 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 
 							<?php if(count($day)==0){?>
-								<div class="col-lg-12 ">
-									<div class="card text-white bg-secondary mb-3" style="max-width: 50rem; ">
-										<div class="card-header">Cages</div>
-										<div class="card-body">
-											<table class="table">
-												<thead>
-													<tr>
-														<th>#</th>
-														<th>Mean</th>
-														<th>M.A.P</th>
-														<th>M.A.N</th>
-														<th>Percentage</th>
-														<th>Amount</th>
-													</tr>
-												</thead>
-												<tbody>
-													<?php if(count($day)!=0){?>
-														<tr>
-															<td>A</td>
-															<td><?php echo $means['meanA'] ; ?></td>
-															<td><?php echo $periods['mostPeriodA'] ; ?></td>
-															<td><?php echo $mostNodes['mostNodeA'] ; ?></td>
-															<td><?php echo $percentages['percentageA']; ?></td>
-															<td><?php echo $amounts['amountA'] ; ?></td>
-														</tr>
-														<tr>
-															<td>B</td>
-															<td><?php echo $means['meanB'] ; ?></td>
-															<td><?php echo $periods['mostPeriodB'] ; ?></td>
-															<td><?php echo $mostNodes['mostNodeB'] ; ?></td>
-															<td><?php echo $percentages['percentageB']; ?></td>
-															<td><?php echo $amounts['amountB'] ; ?></td>
-														</tr>
+							<div class="col-lg-12 ">
+								<div class="widget widget-table">
+									<div class="widget-header">
+										<h3>Cages</h3>
+									</div>
+									<div class="widget-content">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>Mean</th>
+													<th>M.A.P</th>
+													<th>M.A.N</th>
+													<th>Percentage</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php if(count($day)!=0){?>
+												<tr>
+													<td>A</td>
+													<td>
+														<?php echo $means['meanA'] ; ?>
+													</td>
+													<td>
+														<?php echo $periods['mostPeriodA'] ; ?>
+													</td>
+													<td>
+														<?php echo $mostNodes['mostNodeA'] ; ?>
+													</td>
+													<td>
+														<?php echo $percentages['percentageA']; ?>
+													</td>
+													<td>
+														<?php echo $amounts['amountA'] ; ?>
+													</td>
+												</tr>
+												<tr>
+													<td>B</td>
+													<td>
+														<?php echo $means['meanB'] ; ?>
+													</td>
+													<td>
+														<?php echo $periods['mostPeriodB'] ; ?>
+													</td>
+													<td>
+														<?php echo $mostNodes['mostNodeB'] ; ?>
+													</td>
+													<td>
+														<?php echo $percentages['percentageB']; ?>
+													</td>
+													<td>
+														<?php echo $amounts['amountB'] ; ?>
+													</td>
+												</tr>
 
-													<?php
+												<?php
 													}
 													else{
 													?>
-														<td class="text-center" colspan="6"><p>NO DATA TO SHOW</p></td>
-													<?php
+												<td class="text-center" colspan="6">
+													<p>NO DATA TO SHOW</p>
+												</td>
+												<?php
 													}
 													?>
-												</tbody>
-											</table>
-										</div>
+											</tbody>
+										</table>
 									</div>
 								</div>
+							</div>
 							<?php
 							}
 							?>
@@ -297,4 +374,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$this->load->view('scripts/report_script');
 	$this->load->view('layouts/body_layout_3');
 ?>
-
