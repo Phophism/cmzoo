@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('layouts/head', array('title' => "Visual Map"));
 $this->load->view('layouts/body_layout_1');
-$this->load->view('layouts/header');
 $this->load->view('layouts/menu');
 ?>
 	<!-- content -->
@@ -29,14 +28,16 @@ $this->load->view('layouts/menu');
 							</div>
 							<div class="col-lg-12">
 								<div class="widget-content">
+									<a>Current Time : </a>
+									<?php echo date("M d, Y H:i:s"); ?>
 									<h3>Timepicker</h3>
 									<p>Drag the slider to select a time.</p>
+									<p class = "float-right">Time :
+											<span id="displayTime"></span>
+										</p>
 									<div class="slidecontainer">
 										<input type="range" min="1" max="<?php echo $maxTime ;?>" value="<?php echo $value ;?>" class="slider" id="timepicker" name="timeSlider"
 										onchange="change();">
-										<p>Time :
-											<span id="displayTime"></span>
-										</p>
 									</div>
 								</div>
 							</div>
@@ -78,7 +79,7 @@ $this->load->view('layouts/menu');
 											<h4>
 												<i class="fa fa-list-alt fw"></i>
 												<span>&nbsp;
-													<U>Note&nbsp;</U>
+													<U>Status Activity&nbsp;</U>
 												</span>
 											</h4>
 											<?php if(count($errors) == 0 && count($notes) == 0){?>

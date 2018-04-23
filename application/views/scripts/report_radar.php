@@ -4,7 +4,7 @@
 <script>
 	var chart = AmCharts.makeChart("reportRadar1", {
 		"type": "radar",
-		"theme": "light",
+		"theme": "dark",
 		"dataProvider": [{
 			"sensor": "sensor #1",
 			"amount": value1

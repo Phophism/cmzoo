@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->view('layouts/head', array('title' => "Report"));
 		$this->load->view('layouts/body_layout_1');
-		$this->load->view('layouts/header');
 		$this->load->view('layouts/menu');
 ?>
 
@@ -33,28 +32,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="widget-content">
 					<div class="col-lg-12">
-						<div class="row">
 							<hr>
 							<div class="col-lg-3">
 								<!-- <div id="lineAmount" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								<h3 class="text-center">
-									<?php echo "<b>Total Amount</b><br><br>".$amounts['amountAll'] ; ?>
+									<?php echo "<b>Total Activity</b><br><br>".$amounts['amountAll'] ; ?>
 								</h3>
 							</div>
 							<div class="col-lg-3">
 								<!-- <div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								<h3 class="text-center">
-									<?php echo "<b>Temp (&#8451)</b> <br><br>".$weather['tmp'] ?> </h3>
+									<?php echo "<b>Average Temperature (&#8451)</b> <br><br>".$weather['tmp'] ?> </h3>
 							</div>
 							<div class="col-lg-3">
 								<!-- <div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								<h3 class="text-center">
-									<?php echo "<b>Max/Min Temp (&#8451)</b> <br><br>".$weather['maxTmp']." / ".$weather['minTmp'] ?> </h3>
+									<?php echo "<b>Max/Min Temperature (&#8451)</b> <br><br>".$weather['maxTmp']." / ".$weather['minTmp'] ?> </h3>
 							</div>
 							<div class="col-lg-3">
 								<!-- <div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								<h3 class="text-center">
-									<?php echo"<b>Avg Humidity</b> <br><br>". $weather['humid']." %"?>
+									<?php echo"<b>Average Humidity</b> <br><br>". $weather['humid']." %"?>
 								</h3>
 							</div>
 						</div>

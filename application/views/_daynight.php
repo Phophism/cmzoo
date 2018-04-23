@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->view('layouts/head', array('title' => "Day Night Status",'test'=>"Test"));
 		$this->load->view('layouts/body_layout_1');
-		$this->load->view('layouts/header');
 		$this->load->view('layouts/menu');
 ?>
 

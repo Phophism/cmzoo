@@ -78,18 +78,24 @@
    			font-weight: bold;
 		}
 
-		a{
-			text-decoration : none!important;
-		}
+		
 
 		a:hover {
 			text-decoration : none;
 			color : rgba(255,255,255,0.6);
 		}
 
+		a{
+			text-decoration : none!important;
+		}
+
 		span{
 			color : rgba(255,255,255,0.6);
 		} */ 
+
+		tspan{
+			color : #B8B8B8 ;
+		}
 
 		#map{
 			background-image : url("assets/img/Map.jpg");   
@@ -138,12 +144,12 @@
 		}
 
 		.errDes{
-			color : #8D260F ;
+			color : #FF998A ;
 			font-weight: bold;
 		}
 		
 		.detectDes{
-			color : #20948B ;
+			color : #B8B8FF ;
 			font-weight: bold;
 		}
 		

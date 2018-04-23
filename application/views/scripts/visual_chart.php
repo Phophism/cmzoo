@@ -299,7 +299,11 @@
 		options: {
 			title: {
 				display: true,
-				text: 'World population per region (in millions)'
+				<?php if ($period == 1 ){ ?>
+					text: ['Amount of activities detected per hour [ X-axist = Time(hr.) , Y-axist = Amount ]']
+				<?php }else{ ?>
+					text: ['Amount of activities detected per day [ X-axist = Time(date) , Y-axist = Amount ]']
+			<?php } ?>	
 			}
 		}
 	});
