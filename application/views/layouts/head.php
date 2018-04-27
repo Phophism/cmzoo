@@ -101,7 +101,7 @@
 			background-image : url("assets/img/Map.jpg");   
 			background-size : cover;
 			background-repeat : no-repeat;
-			height : 650px;
+			height : 600px;
 			width : 100%;"
 			margin:0px;
 

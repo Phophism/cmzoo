@@ -42,17 +42,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="col-lg-3">
 								<!-- <div id="lineTemp" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								<h3 class="text-center">
-									<?php echo "<b>Average Temperature (&#8451)</b> <br><br>".$weather['tmp'] ?> </h3>
+									<?php echo "<b>Average Temperature (&#8451)</b> <br><br>".$weather['tmp'] ;?> </h3>
 							</div>
 							<div class="col-lg-3">
 								<!-- <div id="lineLight" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								<h3 class="text-center">
-									<?php echo "<b>Max/Min Temperature (&#8451)</b> <br><br>".$weather['maxTmp']." / ".$weather['minTmp'] ?> </h3>
+									<?php echo "<b>Max/Min Temperature (&#8451)</b> <br><br>".$weather['maxTmp']." / ".$weather['minTmp'] ; ?> </h3>
 							</div>
 							<div class="col-lg-3">
 								<!-- <div id="lineHumid" style="vertical-align: middle; display: inline-block; width: 100px; height: 30px;"></div> -->
 								<h3 class="text-center">
-									<?php echo"<b>Average Humidity</b> <br><br>". $weather['humid']." %"?>
+									<?php echo"<b>Average Humidity</b> <br><br>". $weather['humid']." %" ;?>
 								</h3>
 							</div>
 						</div>

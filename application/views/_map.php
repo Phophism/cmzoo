@@ -88,16 +88,20 @@ $this->load->view('layouts/menu');
 											<p> Activity Found!! :</p>
 											<ul>
 												<?php
-															foreach($errors as $err){
-																echo "<li class='errDes'>". $err ."</li>" ;
-															}
-														?>
+													if(isset($errors)){												
+														foreach($errors as $err){
+															echo "<li class='errDes'>". $err ."</li>" ;
+														}
+													}
+												?>
 
 													<?php	
+														if(isset($notes)){
 															foreach($notes as $note){
-																echo "<li class='detectDes'>". $note ."</li>" ;
+															echo "<li class='detectDes'>". $note ."</li>" ;
 															}
-														?>
+														}
+													?>
 											</ul>
 											<?php 
 													} 

@@ -271,7 +271,7 @@ class Report extends CI_Controller {
 						$nodeCount[9]
 					)
 					,$nodeCount
-				)+1+6;
+				)+1;
 				// + 1 for plus 1 element (element 0 = node 1)
 				// + 6 for plus 6 sensors. So, it will start at sensor 7
 				if($mostActiveNodeB == 0){
@@ -305,7 +305,7 @@ class Report extends CI_Controller {
 						else
 							$sumTmp += $d->temperatureC;
 					}
-					$avgTmp = $sumTmp/(count($day)-$countNA); 
+					$avgTmp = round($sumTmp/(count($day)-$countNA),2); 
 				}else
 					$avgTmp = "-";
 
@@ -319,7 +319,7 @@ class Report extends CI_Controller {
 						else
 							$sumHumid += $d->temperatureC;
 					}
-					$avgHumid = $sumHumid/(count($day)-$countNA); 
+					$avgHumid = round($sumHumid/(count($day)-$countNA),2); 
 				}else
 					$avgHumid = "-";	 
 
