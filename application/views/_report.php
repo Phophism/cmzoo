@@ -15,7 +15,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="row">
 							<div class="col-lg-12 ">
 								<div class="row">
-									<div class="col-lg-9">
+									<div class="col-lg-4">
+										<h2 id="header-report">Daily Report</h2>
+									</div>
+									<div class="col-lg-4">
 									</div>
 									<div class="col-lg-3">
 										<form id="dateForm" method="POST" action="<?php echo base_url();?>report">
@@ -107,13 +110,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<h3>Cages</h3>
 									</div>
 									<div class="widget-content">
-										<table class="table">
+										<table class="table" >
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Mean</th>
-													<th>M.A.P</th>
-													<th>M.A.N</th>
+													<th>Mean (hr)</th>
+													<th>Most Active Period</th>
+													<th>Most Active Sensor</th>
 													<th>Percentage</th>
 													<th>Amount</th>
 												</tr>
@@ -179,8 +182,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Mean</th>
-													<th>M.A.P</th>
+													<th>Mean (hr)</th>
+													<th>Most Active Period</th>
 													<th>Percentage</th>
 													<th>Amount</th>
 												</tr>
@@ -238,9 +241,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<table class="table">
 											<thead>
 												<tr>
-													<th>Mean</th>
-													<th>M.A.P</th>
-													<th>M.A.N</th>
+													<th>Mean (hr)</th>
+													<th>Most Active Period</th>
+													<th>Most Active Sensor</th>
 													<th>Amount</th>
 												</tr>
 											</thead>
@@ -283,9 +286,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Mean</th>
-													<th>M.A.P</th>
-													<th>M.A.N</th>
+													<th>Mean (hr)</th>
+													<th>Most Active Period</th>
+													<th>Most Active Sensor</th>
 													<th>Percentage</th>
 													<th>Amount</th>
 												</tr>

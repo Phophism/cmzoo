@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container">
 				<div class="widget widget-table">
 					<div class="widget-header">
-						<h3>Sensor Status</h3>
+						<h2>Sensor Status</h2>
 					</div>
 					<div class="widget-content">
 						<div class="row-fluid">

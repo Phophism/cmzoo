@@ -3,7 +3,7 @@
 // <!-- DA -->
 	var chart = AmCharts.makeChart("chartMeanDA", {
 		"type": "serial",
-		"theme": "light",
+		"theme": "dark",
 
 		"fontFamily": "Lato",
 		"autoMargins": true,
@@ -55,7 +55,6 @@
 			"node": " ",
 			"max": 0,
 			"min": 0,
-
 		}, {
 			"node": "1",
 			"max": maxD1,
@@ -156,7 +155,7 @@
 		"chartCursor": {
 			"cursorAlpha": 1,
 			"zoomable": false,
-			"cursorColor": "#FFFFFF",
+			"cursorColor": "#8d83c8",
 			"categoryBalloonColor": "#8d83c8",
 			"fullWidth": true,
 			"balloonPointerOrientation": "vertical"
@@ -177,7 +176,7 @@
 
 	var chart = AmCharts.makeChart("chartMeanDB", {
 		"type": "serial",
-		"theme": "light",
+		"theme": "dark",
 
 		"fontFamily": "Lato",
 		"autoMargins": true,
@@ -320,7 +319,7 @@
 		"chartCursor": {
 			"cursorAlpha": 1,
 			"zoomable": false,
-			"cursorColor": "#FFFFFF",
+			"cursorColor": "#8d83c8",
 			"categoryBalloonColor": "#8d83c8",
 			"fullWidth": true,
 			"balloonPointerOrientation": "vertical"
@@ -341,7 +340,7 @@
 
 	var chart = AmCharts.makeChart("chartMeanNA", {
 		"type": "serial",
-		"theme": "light",
+		"theme": "dark",
 
 		"fontFamily": "Lato",
 		"autoMargins": true,
@@ -494,7 +493,7 @@
 		"chartCursor": {
 			"cursorAlpha": 1,
 			"zoomable": false,
-			"cursorColor": "#FFFFFF",
+			"cursorColor": "#8d83c8",
 			"categoryBalloonColor": "#8d83c8",
 			"fullWidth": true,
 			"balloonPointerOrientation": "vertical"
@@ -514,7 +513,7 @@
 
 	var chart = AmCharts.makeChart("chartMeanNB", {
 		"type": "serial",
-		"theme": "light",
+		"theme": "dark",
 
 		"fontFamily": "Lato",
 		"autoMargins": true,
@@ -657,7 +656,7 @@
 		"chartCursor": {
 			"cursorAlpha": 1,
 			"zoomable": false,
-			"cursorColor": "#FFFFFF",
+			"cursorColor": "#8d83c8",
 			"categoryBalloonColor": "#8d83c8",
 			"fullWidth": true,
 			"balloonPointerOrientation": "vertical"

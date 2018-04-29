@@ -152,6 +152,41 @@
 			color : #B8B8FF ;
 			font-weight: bold;
 		}
+
+		#topbar{
+			margin-bottom: 13px;
+		}
+
+		#header-map{
+			margin: 0px;
+			margin-bottom: 5px;
+		}
+
+		#header-report{
+			margin: 0px;
+			margin-left: 25px;
+		}
+
+		#header-visual{
+			margin: 0px;
+			justify-content: center;
+  			text-align: center;
+			margin-right: 50px;
+		}
+		#header-daynigth{
+			margin: 0px;
+			justify-content: center;
+  			text-align: center;
+		}
+
+
+		.noContent{
+			height:350px;
+			margin:0; 
+			justify-content: center; 
+			text-align: center;
+			padding-top: 150;
+		}
 		
 	</style>
 

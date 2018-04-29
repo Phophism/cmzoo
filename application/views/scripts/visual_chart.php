@@ -299,11 +299,30 @@
 		options: {
 			title: {
 				display: true,
+				fontColor: '#D9D9D9',
+				fontSize: 13,
 				<?php if ($period == 1 ){ ?>
-					text: ['Amount of activities detected per hour [ X-axist = Time(hr.) , Y-axist = Amount ]']
+					text: ['Amount of activities detected per hour [ x-axis = Time(hr.) , y-axis = Amount ]']
 				<?php }else{ ?>
-					text: ['Amount of activities detected per day [ X-axist = Time(date) , Y-axist = Amount ]']
+					text: ['Amount of activities detected per day [ x-axis = Time(date) , y-axis = Amount ]']
 			<?php } ?>	
+			},
+			legend: {
+					labels: {
+						fontColor: '#D9D9D9'
+				}
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						fontColor: '#D9D9D9' // makes grid lines from y axis red
+					}
+				}],
+				xAxes: [{
+					ticks: {
+						fontColor: '#D9D9D9' // makes grid lines from y axis red
+					}
+				}]
 			}
 		}
 	});

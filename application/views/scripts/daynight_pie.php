@@ -12,10 +12,10 @@
 	/* DA */
 	var chart = AmCharts.makeChart("percentageDA", {
 		"type": "pie",
-		"theme": "white",
+		"theme": "dark",
 		"dataProvider": [{
 				"sensor": "Sensor#1",
-				"amount": valueD1
+				"amount": valueD1,
 			},
 			{
 				"sensor": "Sensor#2",
@@ -69,7 +69,7 @@
 	/* DB */
 	var chart = AmCharts.makeChart("percentageDB", {
 		"type": "pie",
-		"theme": "white",
+		"theme": "dark",
 		"dataProvider": [{
 				"sensor": "Sensor#1",
 				"amount": valueD7
@@ -118,7 +118,7 @@
     	/*NA */
 	var chart = AmCharts.makeChart("percentageNA", {
 		"type": "pie",
-		"theme": "white",
+		"theme": "dark",
 		"dataProvider": [{
 				"sensor": "Sensor#1",
 				"amount": valueN1
@@ -175,7 +175,7 @@
     	/* NB */
 	var chart = AmCharts.makeChart("percentageNB", {
 		"type": "pie",
-		"theme": "white",
+		"theme": "dark",
 		"dataProvider": [{
 				"sensor": "Sensor#1",
 				"amount": valueN7

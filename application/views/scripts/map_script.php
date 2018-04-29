@@ -12,7 +12,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 1 \nSensor Status: Inactive \nStart Activity TIme: <?php echo $status[0]['start']?> \nEnd Activity Time:  <?php echo $status[0]['end']?> \nActivity Running TIme:  <?php echo $status[0]['dur']?> "
+        "title" : "Sensor Number: 1 \nSensor Status: Inactive \nStart Activity Time: <?php echo $status[0]['start']?> \nEnd Activity Time:  <?php echo $status[0]['end']?> \nActivity Running Time:  <?php echo $status[0]['dur']?> "
         });
     <?php
         }else if( $status[0]['status'] == 1) {   
@@ -21,7 +21,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 1 \nSensor Status: Active \nStart Activity TIme: <?php echo $status[0]['start']?> \nEnd Activity Time:  <?php echo $status[0]['end']?> \nActivity Running TIme:  <?php echo $status[0]['dur']?>  "
+        "title" : "Sensor Number: 1 \nSensor Status: Active \nStart Activity Time: <?php echo $status[0]['start']?> \nEnd Activity Time:  <?php echo $status[0]['end']?> \nActivity Running Time:  <?php echo $status[0]['dur']?>  "
         });
     <?php 
         }else{
@@ -30,7 +30,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 1 \nSensor Status: Detected \nStart Activity TIme: <?php echo $status[0]['start']?> \nEnd Activity Time:  <?php echo $status[0]['end']?> \nActivity Running TIme:  <?php echo $status[0]['dur']?> "
+        "title" : "Sensor Number: 1 \nSensor Status: Detected \nStart Activity Time: <?php echo $status[0]['start']?> \nEnd Activity Time:  <?php echo $status[0]['end']?> \nActivity Running Time:  <?php echo $status[0]['dur']?> "
         });
     <?php
         }
@@ -44,7 +44,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 2 \nSensor Status: Inactive \nStart Activity TIme: <?php echo $status[1]['start']?> \nEnd Activity Time:  <?php echo $status[1]['end']?> \nActivity Running TIme:  <?php echo $status[1]['dur']?> "
+        "title" : "Sensor Number: 2 \nSensor Status: Inactive \nStart Activity Time: <?php echo $status[1]['start']?> \nEnd Activity Time:  <?php echo $status[1]['end']?> \nActivity Running Time:  <?php echo $status[1]['dur']?> "
         });
     <?php
         }else if( $status[1]['status'] == 1) {   
@@ -53,7 +53,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 2 \nSensor Status: Active \nStart Activity TIme: <?php echo $status[1]['start']?> \nEnd Activity Time:  <?php echo $status[1]['end']?> \nActivity Running TIme:  <?php echo $status[1]['dur']?> "
+        "title" : "Sensor Number: 2 \nSensor Status: Active \nStart Activity Time: <?php echo $status[1]['start']?> \nEnd Activity Time:  <?php echo $status[1]['end']?> \nActivity Running Time:  <?php echo $status[1]['dur']?> "
         });
     <?php 
         }else{
@@ -62,7 +62,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 2 \nSensor Status: Detected \nStart Activity TIme: <?php echo $status[1]['start']?> \nEnd Activity Time:  <?php echo $status[1]['end']?> \nActivity Running TIme:  <?php echo $status[1]['dur']?> "
+        "title" : "Sensor Number: 2 \nSensor Status: Detected \nStart Activity Time: <?php echo $status[1]['start']?> \nEnd Activity Time:  <?php echo $status[1]['end']?> \nActivity Running Time:  <?php echo $status[1]['dur']?> "
         });
     <?php
         }
@@ -75,7 +75,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 3 \nSensor Status: Inactive \nStart Activity TIme: <?php echo $status[2]['start']?> \nEnd Activity Time:  <?php echo $status[2]['end']?> \nActivity Running TIme:  <?php echo $status[2]['dur']?> "
+        "title" : "Sensor Number: 3 \nSensor Status: Inactive \nStart Activity Time: <?php echo $status[2]['start']?> \nEnd Activity Time:  <?php echo $status[2]['end']?> \nActivity Running Time:  <?php echo $status[2]['dur']?> "
         });
     <?php
         }else if( $status[2]['status'] == 1) {   
@@ -84,7 +84,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 3 \nSensor Status: Active\nStart Activity TIme: <?php echo $status[2]['start']?> \nEnd Activity Time:  <?php echo $status[2]['end']?> \nActivity Running TIme:  <?php echo $status[2]['dur']?> "
+        "title" : "Sensor Number: 3 \nSensor Status: Active\nStart Activity Time: <?php echo $status[2]['start']?> \nEnd Activity Time:  <?php echo $status[2]['end']?> \nActivity Running Time:  <?php echo $status[2]['dur']?> "
         });
     <?php 
         }else{
@@ -93,7 +93,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 3 \nSensor Status: Detected\nStart Activity TIme: <?php echo $status[2]['start']?> \nEnd Activity Time:  <?php echo $status[2]['end']?> \nActivity Running TIme:  <?php echo $status[2]['dur']?> "
+        "title" : "Sensor Number: 3 \nSensor Status: Detected\nStart Activity Time: <?php echo $status[2]['start']?> \nEnd Activity Time:  <?php echo $status[2]['end']?> \nActivity Running Time:  <?php echo $status[2]['dur']?> "
         });
     <?php
         }
@@ -106,7 +106,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 4 \nSensor Status: Inactive\nStart Activity TIme: <?php echo $status[3]['start']?> \nEnd Activity Time:  <?php echo $status[3]['end']?> \nActivity Running TIme:  <?php echo $status[3]['dur']?> "
+        "title" : "Sensor Number: 4 \nSensor Status: Inactive\nStart Activity Time: <?php echo $status[3]['start']?> \nEnd Activity Time:  <?php echo $status[3]['end']?> \nActivity Running Time:  <?php echo $status[3]['dur']?> "
         });
     <?php
         }else if( $status[3]['status'] == 1) {   
@@ -115,7 +115,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 4 \nSensor Status: Active\nStart Activity TIme: <?php echo $status[3]['start']?> \nEnd Activity Time:  <?php echo $status[3]['end']?> \nActivity Running TIme:  <?php echo $status[3]['dur']?> "
+        "title" : "Sensor Number: 4 \nSensor Status: Active\nStart Activity Time: <?php echo $status[3]['start']?> \nEnd Activity Time:  <?php echo $status[3]['end']?> \nActivity Running Time:  <?php echo $status[3]['dur']?> "
         });
     <?php 
         }else{
@@ -124,7 +124,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 4 \nSensor Status: Detected \nStart Activity TIme: <?php echo $status[3]['start']?> \nEnd Activity Time:  <?php echo $status[3]['end']?> \nActivity Running TIme:  <?php echo $status[3]['dur']?> "
+        "title" : "Sensor Number: 4 \nSensor Status: Detected \nStart Activity Time: <?php echo $status[3]['start']?> \nEnd Activity Time:  <?php echo $status[3]['end']?> \nActivity Running Time:  <?php echo $status[3]['dur']?> "
         });
     <?php
         }
@@ -137,7 +137,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 5 \nSensor Status: Inactive\nStart Activity TIme: <?php echo $status[4]['start']?> \nEnd Activity Time:  <?php echo $status[4]['end']?> \nActivity Running TIme:  <?php echo $status[4]['dur']?> "
+        "title" : "Sensor Number: 5 \nSensor Status: Inactive\nStart Activity Time: <?php echo $status[4]['start']?> \nEnd Activity Time:  <?php echo $status[4]['end']?> \nActivity Running Time:  <?php echo $status[4]['dur']?> "
         });
     <?php
         }else if( $status[4]['status'] == 1) {   
@@ -146,7 +146,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 5 \nSensor Status: Active\nStart Activity TIme: <?php echo $status[4]['start']?> \nEnd Activity Time:  <?php echo $status[4]['end']?> \nActivity Running TIme:  <?php echo $status[4]['dur']?> "
+        "title" : "Sensor Number: 5 \nSensor Status: Active\nStart Activity Time: <?php echo $status[4]['start']?> \nEnd Activity Time:  <?php echo $status[4]['end']?> \nActivity Running Time:  <?php echo $status[4]['dur']?> "
         });
     <?php 
         }else{
@@ -155,7 +155,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 5 \nSensor Status: Detected\nStart Activity TIme: <?php echo $status[4]['start']?> \nEnd Activity Time:  <?php echo $status[4]['end']?> \nActivity Running TIme:  <?php echo $status[4]['dur']?> "
+        "title" : "Sensor Number: 5 \nSensor Status: Detected\nStart Activity Time: <?php echo $status[4]['start']?> \nEnd Activity Time:  <?php echo $status[4]['end']?> \nActivity Running Time:  <?php echo $status[4]['dur']?> "
         });
     <?php
         }
@@ -168,7 +168,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 6 \nSensor Status: Inactive\nStart Activity TIme: <?php echo $status[5]['start']?> \nEnd Activity Time:  <?php echo $status[5]['end']?> \nActivity Running TIme:  <?php echo $status[5]['dur']?> "
+        "title" : "Sensor Number: 6 \nSensor Status: Inactive\nStart Activity Time: <?php echo $status[5]['start']?> \nEnd Activity Time:  <?php echo $status[5]['end']?> \nActivity Running Time:  <?php echo $status[5]['dur']?> "
         });
     <?php
         }else if( $status[5]['status'] == 1) {   
@@ -177,7 +177,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 6 \nSensor Status: Active\nStart Activity TIme: <?php echo $status[5]['start']?> \nEnd Activity Time:  <?php echo $status[5]['end']?> \nActivity Running TIme:  <?php echo $status[5]['dur']?> "
+        "title" : "Sensor Number: 6 \nSensor Status: Active\nStart Activity Time: <?php echo $status[5]['start']?> \nEnd Activity Time:  <?php echo $status[5]['end']?> \nActivity Running Time:  <?php echo $status[5]['dur']?> "
         });
     <?php 
         }else{
@@ -186,7 +186,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 6 \nSensor Status: Detected\nStart Activity TIme: <?php echo $status[5]['start']?> \nEnd Activity Time:  <?php echo $status[5]['end']?> \nActivity Running TIme:  <?php echo $status[5]['dur']?> "
+        "title" : "Sensor Number: 6 \nSensor Status: Detected\nStart Activity Time: <?php echo $status[5]['start']?> \nEnd Activity Time:  <?php echo $status[5]['end']?> \nActivity Running Time:  <?php echo $status[5]['dur']?> "
         });
     <?php
         }
@@ -199,7 +199,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 7 \nSensor Status: Inactive\nStart Activity TIme: <?php echo $status[6]['start']?> \nEnd Activity Time:  <?php echo $status[6]['end']?> \nActivity Running TIme:  <?php echo $status[6]['dur']?> "
+        "title" : "Sensor Number: 7 \nSensor Status: Inactive\nStart Activity Time: <?php echo $status[6]['start']?> \nEnd Activity Time:  <?php echo $status[6]['end']?> \nActivity Running Time:  <?php echo $status[6]['dur']?> "
         });
     <?php
         }else if( $status[6]['status']  == 1) {   
@@ -208,7 +208,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 7 \nSensor Status: Active\nStart Activity TIme: <?php echo $status[6]['start']?> \nEnd Activity Time:  <?php echo $status[6]['end']?> \nActivity Running TIme:  <?php echo $status[6]['dur']?> "
+        "title" : "Sensor Number: 7 \nSensor Status: Active\nStart Activity Time: <?php echo $status[6]['start']?> \nEnd Activity Time:  <?php echo $status[6]['end']?> \nActivity Running Time:  <?php echo $status[6]['dur']?> "
         });
     <?php 
         }else{
@@ -217,7 +217,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 7 \nSensor Status: Detected\nStart Activity TIme: <?php echo $status[6]['start']?> \nEnd Activity Time:  <?php echo $status[6]['end']?> \nActivity Running TIme:  <?php echo $status[6]['dur']?> "
+        "title" : "Sensor Number: 7 \nSensor Status: Detected\nStart Activity Time: <?php echo $status[6]['start']?> \nEnd Activity Time:  <?php echo $status[6]['end']?> \nActivity Running Time:  <?php echo $status[6]['dur']?> "
         });
     <?php
         }
@@ -231,7 +231,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 8 \nSensor Status: Inactive\nStart Activity TIme: <?php echo $status[7]['start']?> \nEnd Activity Time:  <?php echo $status[7]['end']?> \nActivity Running TIme:  <?php echo $status[7]['dur']?> "
+        "title" : "Sensor Number: 8 \nSensor Status: Inactive\nStart Activity Time: <?php echo $status[7]['start']?> \nEnd Activity Time:  <?php echo $status[7]['end']?> \nActivity Running Time:  <?php echo $status[7]['dur']?> "
         });
     <?php
         }else if( $status[7]['status'] == 1) {   
@@ -240,7 +240,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 8 \nSensor Status: Active\nStart Activity TIme: <?php echo $status[7]['start']?> \nEnd Activity Time:  <?php echo $status[7]['end']?> \nActivity Running TIme:  <?php echo $status[7]['dur']?> "
+        "title" : "Sensor Number: 8 \nSensor Status: Active\nStart Activity Time: <?php echo $status[7]['start']?> \nEnd Activity Time:  <?php echo $status[7]['end']?> \nActivity Running Time:  <?php echo $status[7]['dur']?> "
         });
     <?php 
         }else{
@@ -249,7 +249,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 8 \nSensor Status: Detected\nStart Activity TIme: <?php echo $status[7]['start']?> \nEnd Activity Time:  <?php echo $status[7]['end']?> \nActivity Running TIme:  <?php echo $status[7]['dur']?> "
+        "title" : "Sensor Number: 8 \nSensor Status: Detected\nStart Activity Time: <?php echo $status[7]['start']?> \nEnd Activity Time:  <?php echo $status[7]['end']?> \nActivity Running Time:  <?php echo $status[7]['dur']?> "
         });
     <?php
         }
@@ -262,7 +262,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 9 \nSensor Status: Inactive\nStart Activity TIme: <?php echo $status[8]['start']?> \nEnd Activity Time:  <?php echo $status[8]['end']?> \nActivity Running TIme:  <?php echo $status[8]['dur']?> "
+        "title" : "Sensor Number: 9 \nSensor Status: Inactive\nStart Activity Time: <?php echo $status[8]['start']?> \nEnd Activity Time:  <?php echo $status[8]['end']?> \nActivity Running Time:  <?php echo $status[8]['dur']?> "
         });
     <?php
         }else if( $status[8]['status'] == 1) {   
@@ -271,7 +271,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 9 \nSensor Status: Active\nStart Activity TIme: <?php echo $status[8]['start']?> \nEnd Activity Time:  <?php echo $status[8]['end']?> \nActivity Running TIme:  <?php echo $status[8]['dur']?> "
+        "title" : "Sensor Number: 9 \nSensor Status: Active\nStart Activity Time: <?php echo $status[8]['start']?> \nEnd Activity Time:  <?php echo $status[8]['end']?> \nActivity Running Time:  <?php echo $status[8]['dur']?> "
         });
     <?php 
         }else{
@@ -280,7 +280,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 9 \nSensor Status: Detected\nStart Activity TIme: <?php echo $status[8]['start']?> \nEnd Activity Time:  <?php echo $status[8]['end']?> \nActivity Running TIme:  <?php echo $status[8]['dur']?> "
+        "title" : "Sensor Number: 9 \nSensor Status: Detected\nStart Activity Time: <?php echo $status[8]['start']?> \nEnd Activity Time:  <?php echo $status[8]['end']?> \nActivity Running Time:  <?php echo $status[8]['dur']?> "
         });
     <?php
         }
@@ -293,7 +293,7 @@
         "fill" : "rgba(255,0,0,0.5)",
         "stroke" : "rgba(255,70,1,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 10 \nSensor Status: Inactive\nStart Activity TIme: <?php echo $status[9]['start']?> \nEnd Activity Time:  <?php echo $status[9]['end']?> \nActivity Running TIme:  <?php echo $status[9]['dur']?> "
+        "title" : "Sensor Number: 10 \nSensor Status: Inactive\nStart Activity Time: <?php echo $status[9]['start']?> \nEnd Activity Time:  <?php echo $status[9]['end']?> \nActivity Running Time:  <?php echo $status[9]['dur']?> "
         });
     <?php
         }else if( $status[9]['status'] == 1) {   
@@ -302,7 +302,7 @@
         "fill" : "rgba(103,206,103,0.5)",
         "stroke" : "rgba(42,135,42,0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 10 \nSensor Status: Active\nStart Activity TIme: <?php echo $status[9]['start']?> \nEnd Activity Time:  <?php echo $status[9]['end']?> \nActivity Running TIme:  <?php echo $status[9]['dur']?> "
+        "title" : "Sensor Number: 10 \nSensor Status: Active\nStart Activity Time: <?php echo $status[9]['start']?> \nEnd Activity Time:  <?php echo $status[9]['end']?> \nActivity Running Time:  <?php echo $status[9]['dur']?> "
         });
     <?php 
         }else{
@@ -311,7 +311,7 @@
         "fill" : "rgba(89, 140, 205,0.7)",
         "stroke" : "rgba(35, 112, 211 , 0.5)",
         "stroke-width" : 6,
-        "title" : "Sensor Number: 10 \nSensor Status: Detected\nStart Activity TIme: <?php echo $status[9]['start']?> \nEnd Activity Time:  <?php echo $status[9]['end']?> \nActivity Running TIme:  <?php echo $status[9]['dur']?> "
+        "title" : "Sensor Number: 10 \nSensor Status: Detected\nStart Activity Time: <?php echo $status[9]['start']?> \nEnd Activity Time:  <?php echo $status[9]['end']?> \nActivity Running Time:  <?php echo $status[9]['dur']?> "
         });
     <?php
         }

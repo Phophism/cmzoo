@@ -289,7 +289,10 @@ class Report extends CI_Controller {
 			
 				if(!empty($day)){
 					$highestTmp = max(array_column($day, 'temperatureC'));
-					$lowestTmp = min(array_column($day, 'temperatureC'));
+					if(count(array_filter(array_column($day, 'temperatureC'))) !== null)
+						$lowestTmp = min(array_filter(array_column($day, 'temperatureC')));
+					else
+						$lowestTmp = "-";	
 				}else{
 					$highestTmp = "-";
 					$lowestTmp = "-";

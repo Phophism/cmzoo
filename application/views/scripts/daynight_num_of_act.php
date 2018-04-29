@@ -8,7 +8,7 @@
 var chart = AmCharts.makeChart("numActDayA",
 {
     "type": "serial",
-    "theme": "white",
+    "theme": "light",
     "dataProvider": [{
         "name": "Sensor #1",
 		"activities":valueD1,
@@ -81,7 +81,7 @@ var chart = AmCharts.makeChart("numActDayA",
 var chart = AmCharts.makeChart("numActDayB",
 {
     "type": "serial",
-    "theme": "white",
+    "theme": "light",
     "dataProvider": [{
         "name": "Sensor #7",
 		"activities":valueD7,
@@ -143,7 +143,7 @@ var chart = AmCharts.makeChart("numActDayB",
 var chart = AmCharts.makeChart("numActNightA",
 {
     "type": "serial",
-    "theme": "white",
+    "theme": "light",
     "dataProvider": [{
         "name": "Sensor #1",
 		"activities":valueN1,
@@ -216,7 +216,7 @@ var chart = AmCharts.makeChart("numActNightA",
 var chart = AmCharts.makeChart("numActNightB",
 {
     "type": "serial",
-    "theme": "white",
+    "theme": "light",
     "dataProvider": [{
         "name": "Sensor #7",
 		"activities":valueN7,

@@ -6,6 +6,10 @@ $this->load->view('layouts/menu');
 ?>
 	<!-- content -->
 	<div class="col-lg-12">
+		<div class="widget-header" >
+			<h2 id="header-map">Visual Map</h2>
+		</div>
+		<hr>
 		<div class="row">
 			<!-- Map -->
 			<div class="col-lg-8">
@@ -83,9 +87,9 @@ $this->load->view('layouts/menu');
 												</span>
 											</h4>
 											<?php if(count($errors) == 0 && count($notes) == 0){?>
-											<p> No activity detected.. </p>
+												<p> No activity detected.. </p>
 											<?php }else { ?>
-											<p> Activity Found!! :</p>
+												<p> Activity Found!! :</p>
 											<ul>
 												<?php
 													if(isset($errors)){												
@@ -134,9 +138,6 @@ $this->load->view('layouts/menu');
 	$this->load->view('scripts/map_script');
 	$this->load->view('layouts/body_layout_3');
 	?>
-
-
-
 
 	<!-- 
 					

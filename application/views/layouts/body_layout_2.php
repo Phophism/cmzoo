@@ -88,8 +88,8 @@
         pathActive = pathActive.toLowerCase().trim();
         if (pathActive !== "" || pathActive !== null) {
         $('#exampleAccordion > li').removeClass('active');
-            if (pathActive === "home") {
-                $('#daynightMenu').addClass('active')
+            if (pathActive === "") {
+                $('#mapMenu').addClass('active')
             }
             else if (pathActive === "map") {
                 $('#mapMenu').addClass('active')

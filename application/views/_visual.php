@@ -14,10 +14,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="col-lg-12">
 							<div class="widget">
 									<div class="widget-content">
-										<div class="col-lg-9">
+										<div class="col-lg-3">
 											<input type="checkbox" id="checkbox" name="cageselect" data-toggle="toggle" style="min-height:32px;" data-onstyle="success"
 											data-offstyle="info" data-on="Zone A" data-off="Zone B" onchange="change();" <?php if(!isset($cageReceive)) echo
 											" " ; else echo " checked"; ?> />
+										</div>
+										<div class="col-lg-6" >
+											<h2 id="header-visual">Activity Chart</h2>
 										</div>
 										<div class="col-lg-3">
 											<?php

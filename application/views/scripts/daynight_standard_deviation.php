@@ -4,7 +4,7 @@
 	// -----DA----- //
 	var chart = AmCharts.makeChart("sdLineDA", {
 		"type": "serial",
-		"theme": "light",
+		"theme": "dark",
 		"dataProvider": [{
 			"node": "S#1",
 			"mean": meanD1,
@@ -76,7 +76,7 @@
 	// -----DB----- //
 	var chart = AmCharts.makeChart("sdLineDB", {
 		"type": "serial",
-		"theme": "light",
+		"theme": "dark",
 		"dataProvider": [{
 			"node": "S#7",
 			"mean": meanD7,
@@ -141,7 +141,7 @@
 // -----NA----- //
 var chart = AmCharts.makeChart("sdLineNA", {
 		"type": "serial",
-		"theme": "light",
+		"theme": "dark",
 		"dataProvider": [{
 			"node": "S#1",
 			"mean": meanN1,
@@ -213,7 +213,7 @@ var chart = AmCharts.makeChart("sdLineNA", {
 	// -----NB----- //
 	var chart = AmCharts.makeChart("sdLineNB", {
 		"type": "serial",
-		"theme": "light",
+		"theme": "dark",
 		"dataProvider": [{
 			"node": "S#7",
 			"mean": meanN7,
