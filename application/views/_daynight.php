@@ -55,12 +55,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															if(count($logDayA)!=0)
 																echo "<div id=\"numActDayA\" style=\"height:350px;\"></div>" ;
 															else
-																echo "<h1 class='noContent' >No Content </h1>" ;
+																echo "<h1 class='noContent' >No Content Found</h1>" ;
 														}else {
 															if(count($logDayB)!=0)
 																echo "<div id=\"numActDayB\" style=\"height:350px;\"></div>" ;
 															else
-																 echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																 echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}	
 													?>
 												</div>
@@ -72,12 +72,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															if(count($logDayA)!=0)
 																echo "<div id=\"percentageDA\" style=\"height:350px;\"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}else {
 															if(count($logDayB)!=0)
 																echo  "<div id=\"percentageDB\" style=\"height:350px;\"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}
 													?>
 												</div>
@@ -89,12 +89,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															if(count($logDayA)!=0)
 																echo "<div id=\"chartMeanDA\" style=\"height:350px; \"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}else {
 															if(count($logDayB)!=0)
 																echo   "<div id=\"chartMeanDB\" style=\"height:350px; \"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}
 													?>
 												</div>
@@ -106,12 +106,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															if(count($logDayA)!=0)
 																echo "<div id=\"sdLineDA\" style=\"height:350px; \"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}else {
 															if(count($logDayB)!=0)
 																echo "<div id=\"sdLineDB\" style=\"height:350px; \"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}
 													?>
 												</div>
@@ -129,12 +129,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															if(count($logNightA) != 0)
 																echo "<div id=\"numActNightA\" style=\"height:350px;\"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}else {
 															if(count($logNightB) != 0)
 																echo "<div id=\"numActNightB\" style=\"height:350px;\"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}	
 													?>
 												</div>
@@ -146,12 +146,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															if(count($logNightA) != 0)
 																echo "<div id=\"percentageNA\" style=\"height:350px;\"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}else {
 															if(count($logNightB)!=0)
 																echo  "<div id=\"percentageNB\" style=\"height:350px;\"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}	
 													?>
 												</div>
@@ -163,12 +163,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															if(count($logNightA)!=0)
 																echo "<div id=\"chartMeanNA\" style=\"height:350px; \"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}else {
 															if(count($logNightB)!=0)
 																echo   "<div id=\"chartMeanNB\" style=\"height:350px; \"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}
 													?>
 												</div>
@@ -180,12 +180,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 															if(count($logNightA)!=0)
 																echo "<div id=\"sdLineNA\" style=\"height:350px; \"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}else {
 															if(count($logNightB)!=0)
 																echo "<div id=\"sdLineNB\" style=\"height:350px; \"></div>" ;
 															else
-																echo "<h1 class='noContent'>No Data to Show</h1>" ;
+																echo "<h1 class='noContent'>No Content Found</h1>" ;
 														}
 													?>
 												</div>

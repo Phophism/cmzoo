@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Report extends CI_Controller {
 
 	public function index(){
+		date_default_timezone_set("Asia/Bangkok");
+		
 		$this->load->helper('array');
 		$this->load->model('animal_log_model');
 		$dateReceive = $this->input->post('datepicker');
@@ -386,6 +388,27 @@ class Report extends CI_Controller {
 						);
 		
 	}
+
+	// public function percentage(){
+	// 	if(count($day)!= 0 ){
+	// 		// ******** Percentage Cage A/B ******** //
+	// 		$percentageA = round((($amountCageA*100)/$amountAll),2)." %";
+	// 		$percentageB = round((($amountCageB*100)/$amountAll),2)." %";
+	// 		// ดัก divide by 0 ด้วย
+
+	// 		// ******** Percentage Node ********** //
+	// 		$percentageNode = array();
+	// 		$countPercenNode = 0 ;
+	// 		while($countPercenNode<10){
+	// 			$percentageNode[] = round((($nodeCount[$countPercenNode]*100)/$amountAll),2)." %";
+	// 			$countPercenNode++;
+	// 		}
+	// 	}else{
+	// 		$percentageA = Null ;
+	// 		$percentageB = Null	;
+	// 		$percentageNode = Null ;
+	// 	}
+	// }
 
 
 }

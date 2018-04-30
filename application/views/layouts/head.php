@@ -212,7 +212,4 @@
 		filter: url(#shadow);
 		}
 	</style>
-
-	
-
 </head>

@@ -5,6 +5,7 @@ class Sensor extends CI_Controller {
 
 	public function index()
 	{
+		date_default_timezone_set("Asia/Bangkok");
 		$this->load->model('sensor_model');
 
 		$this->load->view('_sensorstatus',
@@ -27,8 +28,5 @@ class Sensor extends CI_Controller {
 		$this->load->model('sensor_model');
 		$this->sensor_model->update($nodeId,$status);
 	}
-
 	// function Time expire
-
 }
-

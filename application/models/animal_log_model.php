@@ -10,6 +10,7 @@
 
         public function get_data_by_date($dateReceive){
             //var_dump($dateReceive);
+            date_default_timezone_set("Asia/Bangkok");
             $time = array('endTime'=>$dateReceive); // ใช้ endTime ก่อน เพราะ startTime ข้อมูลไม่วิ่ง
             $this->db->select('*');
             $this->db->from('animal_log');
@@ -19,33 +20,34 @@
             // var_dump($data);
             return $data ;
         }
-
+        
         public function get_data_by_date_day($dateReceive){
-            //var_dump($datepicker);
+            date_default_timezone_set("Asia/Bangkok");
             $time = array('endTime'=>$dateReceive); // ใช้ endTime ก่อน เพราะ startTime ข้อมูลไม่วิ่ง
             $this->db->select('*');
             $this->db->from('animal_log');
             $this->db->like($time);
             $this->db->where('lightIntensity >=',40); // lightintensity >= 40 
             $data = $this->db->get()->result(); // SELECT * FROM `animal_log` WHERE `endTime` LIKE '%2018-03-07%' ESCAPE '!' AND `lightIntensity` >= 40
-
             return $data ;
         }
 
         public function get_data_by_date_night($dateReceive){
             //var_dump($datepicker);
+            date_default_timezone_set("Asia/Bangkok");
             $nextNight = date("Y-m-d",strtotime($dateReceive. '+1 day' )); // dateRecieve + 1 day
             $limitTimeFirst = date("H:i:s",strtotime("16.00.00"));
             $limitTimeSecond = date("H:i:s",strtotime("09.00.00"));
 
             $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and endTime > '".$dateReceive." ".$limitTimeFirst.
-                                    "') and (lightIntensity < 40 and endTime < '".$nextNight." ".$limitTimeSecond."')")->result();
+                                    "') and n (lightIntensity < 40 and endTime < '".$nextNight." ".$limitTimeSecond."')")->result();
             // select * from animal_log where (lightIntensity < 40 and endTime > '2018-03-07 12:00:00') and (lightIntensity < 40 and endTime < '2018-03-08 12:00:00')  
 
             return $data ;
         }
 
         public function get_data_set_week($dateReceive){
+            date_default_timezone_set("Asia/Bangkok");
             $countDay = 0 ;
             $dataSet = array();
             while($countDay < 7){
@@ -59,6 +61,7 @@
 
         
         public function get_data_set_month($dateReceive){
+            date_default_timezone_set("Asia/Bangkok");
             $countDay = 0 ;
             $dataSet = array();
             while($countDay < 30){
@@ -71,6 +74,7 @@
         }
 
         public function get_data_set_month_day($dateReceive){
+            date_default_timezone_set("Asia/Bangkok");
             $countDay = 0 ;
             $dataSet = array();
             while($countDay < 30){
@@ -83,6 +87,7 @@
         }
 
         public function get_data_set_month_night($dateReceive){
+            date_default_timezone_set("Asia/Bangkok");
             $countDay = 0 ;
             $dataSet = array();
             $limitTimeFirst = date("H:i:s",strtotime("16.00.00"));
@@ -104,6 +109,7 @@
         }
 
         public function get_recent_duration($dateReceive,$timeReceive,$countNode){
+            date_default_timezone_set("Asia/Bangkok");
             $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
             $this->db->select('endTime');
             $this->db->from('animal_log');
@@ -137,6 +143,7 @@
             return $dur ;  
         }
         public function get_recent_start_time($dateReceive,$timeReceive,$countNode){
+            date_default_timezone_set("Asia/Bangkok");
             $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
             $this->db->select('endTime');
             $this->db->from('animal_log');
@@ -153,6 +160,7 @@
             return $data;  
         }
         public function get_recent_end_time($dateReceive,$timeReceive,$countNode){
+            date_default_timezone_set("Asia/Bangkok");
             $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
             $this->db->select('startTime');
             $this->db->from('animal_log');

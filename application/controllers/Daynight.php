@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Daynight extends CI_Controller {
 
 	public function index(){
+		date_default_timezone_set("Asia/Bangkok"); 
+		
 		$this->load->model('animal_log_model');
 		$dateReceive = $this->input->post('datepicker');
 		$cageReceive = $this->input->post('cageselect');
