@@ -119,7 +119,7 @@ class Map extends CI_Controller {
 						"id" => $whole->nodeId,
 						"duration" => $whole->duration,
 						"start" => $whole->startTime,
-					//	"end" => $whole->endTime
+						"end" => $whole->endTime
 					);
 				}
 				// foreach($sensors as $sensor){
@@ -141,7 +141,7 @@ class Map extends CI_Controller {
 									'id' => (int)$end['id'],
 									'status' => 2 ,
 									'start' => $end['start'],
-								//	'end' => $end['end'],
+									'end' => $end['end'],
 									'dur' => $end['duration']
 								);
 							}
@@ -166,7 +166,7 @@ class Map extends CI_Controller {
 							'id' => (int)($nodeStatusCounter),
 							'status' => 1 ,
 							'start' => $this->animal_log_model->get_recent_start_time($dateReceive,$timeSlide,$nodeStatusCounter),
-						//	'end' => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
+							'end' => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
 							'dur' => $this->animal_log_model->get_recent_duration($dateReceive,$timeSlide,$nodeStatusCounter)
 						);
 					}
@@ -184,7 +184,7 @@ class Map extends CI_Controller {
 						'id' => (int)$nodeStatusCounter,
 						'status' => 1 ,
 						'start' => $this->animal_log_model->get_recent_start_time($dateReceive,$timeSlide,$nodeStatusCounter),
-						//'end'  => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
+						'end'  => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
 						'dur' => $this->animal_log_model->get_recent_duration($dateReceive,$timeSlide,$nodeStatusCounter)
 					);
 					$nodeStatusCounter++;
@@ -353,7 +353,7 @@ class Map extends CI_Controller {
 				'id' => (int)$status->nodeId,
 				'status' => (int)$status->status,
 				'start' => $status->startTime,
-				//'end' => "-" ,
+				'end' => "-" ,
 				'dur' => $status->recentTime
 			);
 		}
