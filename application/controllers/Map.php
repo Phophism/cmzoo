@@ -342,6 +342,7 @@ class Map extends CI_Controller {
 	}
 
 	public function sensorStatus($sensors){
+		date_default_timezone_set("Asia/bangkok"); // set timezone
 		foreach($sensors as $status){
 		
 			list($h1,$m1,$s1) = explode(':',date("H:i:s",strtotime($status->startTime)));

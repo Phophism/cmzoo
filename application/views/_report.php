@@ -365,10 +365,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</footer> -->
 
-	<div class="container-fluid">Page rendered in
+	<!-- <div class="container-fluid">Page rendered in
 		<strong>{elapsed_time}</strong> seconds.
 		<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
-	</div>
+	</div> -->
 
 	<?php 
 	$this->load->view('layouts/body_layout_2');

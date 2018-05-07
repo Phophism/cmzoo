@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</div>
 										</div>
 										<div class="col-lg-12">
-											<canvas id="visualize-chart" width="800" height="340"></canvas>
+											<canvas id="visualize-chart" width="800" height="320"></canvas>
 										</div>
 											</div>											
 									</div>
