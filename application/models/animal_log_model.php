@@ -159,23 +159,24 @@
             //$data = $this->db->query("select startTime from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result();
             return $data;  
         }
-        // public function get_recent_end_time($dateReceive,$timeReceive,$countNode){
-        //     date_default_timezone_set("Asia/Bangkok");
-        //     $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
-        //     $this->db->select('startTime');
-        //     $this->db->from('animal_log');
-        //     $this->db->where('nodeId',$countNode);
-        //     $this->db->where('startTime > ',$time);
-        //     $this->db->order_by('startTime');
-        //     $this->db->limit(1);
-        //     $data = $this->db->get();
-        //     if(($data->num_rows())>0)
-        //         $data = $data->row()->startTime;
-        //     else
-        //         $data = "-" ;
-        //     //$data = $this->db->query("select endTime from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result();
-        //     return $data;  
-        // }
+        
+        public function get_recent_end_time($dateReceive,$timeReceive,$countNode){
+            date_default_timezone_set("Asia/Bangkok");
+            $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
+            $this->db->select('startTime');
+            $this->db->from('animal_log');
+            $this->db->where('nodeId',$countNode);
+            $this->db->where('startTime > ',$time);
+            $this->db->order_by('startTime');
+            $this->db->limit(1);
+            $data = $this->db->get();
+            if(($data->num_rows())>0)
+                $data = $data->row()->startTime;
+            else
+                $data = "-" ;
+            //$data = $this->db->query("select endTime from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result();
+            return $data;  
+        }
 
         //httpget
         public function add($nodeId,$lightIntensity,$temperatureC,$temperatureF,$humidity,$duration){
