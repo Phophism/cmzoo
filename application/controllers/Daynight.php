@@ -36,22 +36,10 @@ class Daynight extends CI_Controller {
 		// ------------------ Total / Percen ------------------ //
 
 		//send id of DayA/DayB/NightA/NightB
-		// Day A
+		// Day A/B
 		if(isset($day)){
-			$dayNodeA = array();
-			$dayNodeB = array();
-			foreach($day as $node){
-				if(($node->nodeId >= $minA)&&($node->nodeId <= $maxA)){
-					$dayNodeA[] = array(
-						'id' => $node->nodeId // A
-					) ;
-				}
-				else if(($node->nodeId >= $minB)&&($node->nodeId <= $maxB)){
-					$dayNodeB[] = array(
-						'id' => $node->nodeId // B
-					) ;
-				}	
-			}
+			$dayNodeA = $this->dayIdA($day,$minA,$maxA);
+			$dayNodeB = $this->dayIdB($day,$minB,$maxB);
 		}else{
 			$dayNodeA = array();
 			$dayNodeB = array();
@@ -59,20 +47,8 @@ class Daynight extends CI_Controller {
 
 		// Night A/B
 		if(isset($night)){
-			$nightNodeA = array();
-			$nightNodeB = array();
-			foreach($night as $node){ 
-				if(($node->nodeId >= $minA)&&($node->nodeId <= $maxA)){
-					$nightNodeA[] = array(
-						'id' => $node->nodeId //A
-					) ;
-				}
-				else if(($node->nodeId >= $minB)&&($node->nodeId <= $maxB)){
-					$nightNodeB[] = array(
-						'id' => $node->nodeId //B
-					) ;
-				}		
-			}
+			$nightNodeA = $this->nightIdA($night,$minA,$maxA);
+			$nightNodeB = $this->nightIdB($night,$minB,$maxB);
 		}else{
 			$nightNodeA = array();
 			$nightNodeB = array();
@@ -99,17 +75,13 @@ class Daynight extends CI_Controller {
 					if(isset($datas)){
 						$dayMonthA = array();
 						$dayMonthB = array();
-						foreach($datas as $data ){
+						foreach($datas as $data){
 							if(isset($data)){
 								if(($data->nodeId >= $minA)&&($data->nodeId <= $maxA)){
-									$dayMonthA[] = array(
-										'id' => $data->nodeId // A
-									) ;
+									$dayMonthA[]= $this->activityMonth($data);
 								}
 								else if(($data->nodeId >= $minB)&&($data->nodeId <= $maxB)){
-									$dayMonthB[] = array(
-										'id' => $data->nodeId // B
-									) ;
+									$dayMonthB[]= $this->activityMonth($data);
 								}	
 							}else{
 								$dayMonthA[]=0;
@@ -119,13 +91,12 @@ class Daynight extends CI_Controller {
 					}else{
 						$dayMonthA[]=0;
 						$dayMonthB[]=0;
-					}
+					}    
 				
 					if(count($dayMonthA)!=0)	
-						$countDayMonthA = array_count_values(array_column($dayMonthA,'id'));
-				
+						$countDayMonthA = array_count_values($dayMonthA);
 					if(count($dayMonthB)!=0)
-						$countDayMonthB = array_count_values(array_column($dayMonthB,'id'));
+						$countDayMonthB = array_count_values($dayMonthB);
 					
 
 					if(isset($countDayMonthA['1']))
@@ -179,6 +150,7 @@ class Daynight extends CI_Controller {
 						$monthCountD10[] = 0;
 						
 				}
+
 				$maxD1 = max($monthCountD1);
 				$maxD2 = max($monthCountD2);
 				$maxD3 = max($monthCountD3);
@@ -201,16 +173,16 @@ class Daynight extends CI_Controller {
 				$minD9 = min($monthCountD9);
 				$minD10 = min($monthCountD10);
 
-				$meanD1 = round(((array_sum($monthCountD1))/30),3);			
-				$meanD2 = round(((array_sum($monthCountD2))/30),3);				
-				$meanD3 = round(((array_sum($monthCountD3))/30),3);				
-				$meanD4 = round(((array_sum($monthCountD4))/30),3);				
-				$meanD5 = round(((array_sum($monthCountD5))/30),3);					
-				$meanD6 = round(((array_sum($monthCountD6))/30),3);						
-				$meanD7 = round(((array_sum($monthCountD7))/30),3);					
-				$meanD8 = round(((array_sum($monthCountD8))/30),3);					
-				$meanD9 = round(((array_sum($monthCountD9))/30),3);			
-				$meanD10 = round(((array_sum($monthCountD10))/30),3);			
+				$meanD1 = $this->mean($monthCountD1)	;
+				$meanD2 = $this->mean($monthCountD2)	;		
+				$meanD3 = $this->mean($monthCountD3)	;	
+				$meanD4 = $this->mean($monthCountD4)	;	
+				$meanD5 = $this->mean($monthCountD5)	;		
+				$meanD6 = $this->mean($monthCountD6)	;					
+				$meanD7 = $this->mean($monthCountD7)	;					
+				$meanD8 = $this->mean($monthCountD8)	;					
+				$meanD9 = $this->mean($monthCountD9)	;		
+				$meanD10 = $this->mean($monthCountD10)	;			
 			}
 
 			// --------- Night ---------- //
@@ -236,14 +208,10 @@ class Daynight extends CI_Controller {
 						foreach($datas as $data ){
 							if(isset($data)){
 								if(($data->nodeId >= $minA)&&($data->nodeId <= $maxA)){
-									$nightMonthA[] = array(
-										'id' => $data->nodeId // A
-									) ;
+									$nightMonthA[]= $this->activityMonth($data);
 								}
 								else if(($data->nodeId >= $minB)&&($data->nodeId <= $maxB)){
-									$nightMonthB[] = array(
-										'id' => $data->nodeId // B
-									) ;
+									$nightMonthB[]= $this->activityMonth($data);
 								}	
 							}else{
 								$nightMonthA[]=0;
@@ -254,13 +222,13 @@ class Daynight extends CI_Controller {
 						$nightMonthA[]=0;
 						$nightMonthB[]=0;
 					}
-				
+					
 					if(count($nightMonthA)!=0)	
-						$countNightMonthA = array_count_values(array_column($nightMonthA,'id'));
+						$countNightMonthA = array_count_values($nightMonthA);
 				
 					if(count($nightMonthB)!=0)
-						$countNightMonthB = array_count_values(array_column($nightMonthB,'id'));
-					
+						$countNightMonthB = array_count_values($nightMonthB);
+				
 
 					if(isset($countNightMonthA['1']))
 						$monthCountN1[] = $countNightMonthA['1'];
@@ -335,17 +303,16 @@ class Daynight extends CI_Controller {
 				$minN9 = min($monthCountN9);
 				$minN10 = min($monthCountN10);
 
-				$meanN1 = round(((array_sum($monthCountN1))/30),3);				
-				$meanN2 = round(((array_sum($monthCountN2))/30),3);				
-				$meanN3 = round(((array_sum($monthCountN3))/30),3);				
-				$meanN4 = round(((array_sum($monthCountN4))/30),3);				
-				$meanN5 = round(((array_sum($monthCountN5))/30),3);			
-				$meanN6 = round(((array_sum($monthCountN6))/30),3);				
-				$meanN7 = round(((array_sum($monthCountN7))/30),3);				
-				$meanN8 = round(((array_sum($monthCountN8))/30),3);			
-				$meanN9 = round(((array_sum($monthCountN9))/30),3);		
-				$meanN10 = round(((array_sum($monthCountN10))/30),3);	
-
+				$meanN1 = $this->mean($monthCountN1)	;		
+				$meanN2 = $this->mean($monthCountN2)	;				
+				$meanN3 = $this->mean($monthCountN3)	;				
+				$meanN4 = $this->mean($monthCountN4)	;
+				$meanN5 = $this->mean($monthCountN5)	;
+				$meanN6 = $this->mean($monthCountN6)	;			
+				$meanN7 = $this->mean($monthCountN7)	;		
+				$meanN8 = $this->mean($monthCountN8)	;
+				$meanN9 = $this->mean($monthCountN9)	;
+				$meanN10 = $this->mean($monthCountN10)	;
 			}
 
 			$maxD = array(
@@ -430,149 +397,29 @@ class Daynight extends CI_Controller {
 
 			
 			if(isset($sdSetDay)){
-				$count = count($sdSetDay)-1;
-				$variance = 0.0;
-				foreach($monthCountD1 as $d1){
-					$deviation = ((double)$d1)-$meanD1;
-					$variance += $deviation * $deviation;
-				}
-				$sdD1 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD2 as $d2){
-					$deviation = ((double)$d2)-$meanD2;
-					$variance += $deviation * $deviation;
-				}
-				$sdD2 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD3 as $d3){
-					$deviation = ((double)$d3)-$meanD3;
-					$variance += $deviation * $deviation;
-				}
-				$sdD3 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD4 as $d4){
-					$deviation = ((double)$d4)-$meanD4;
-					$variance += $deviation * $deviation;
-				}
-				$sdD4 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD5 as $d5){
-					$deviation = ((double)$d5)-$meanD5;
-					$variance += $deviation * $deviation;
-				}
-				$sdD5 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD1 as $d6){
-					$deviation = ((double)$d6)-$meanD6;
-					$variance += $deviation * $deviation;
-				}
-				$sdD6 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD7 as $d7){
-					$deviation = ((double)$d7)-$meanD7;
-					$variance += $deviation * $deviation;
-				}
-				$sdD7 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD8 as $d8){
-					$deviation = ((double)$d8)-$meanD8;
-					$variance += $deviation * $deviation;
-				}
-				$sdD8 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD9 as $d9){
-					$deviation = ((double)$d9)-$meanD9;
-					$variance += $deviation * $deviation;
-				}
-				$sdD9 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountD10 as $d10){
-					$deviation = ((double)$d10)-$meanD10;
-					$variance += $deviation * $deviation;
-				}
-				$sdD10 = sqrt($variance/$count);
-
+				$sdD1 = $this->sd($sdSetDay,$meanD1,$monthCountD1) ;
+				$sdD2 = $this->sd($sdSetDay,$meanD2,$monthCountD2) ;
+				$sdD3 = $this->sd($sdSetDay,$meanD3,$monthCountD3) ;
+				$sdD4 = $this->sd($sdSetDay,$meanD4,$monthCountD4) ;
+				$sdD5 = $this->sd($sdSetDay,$meanD5,$monthCountD5) ;
+				$sdD6 = $this->sd($sdSetDay,$meanD6,$monthCountD6) ;
+				$sdD7 = $this->sd($sdSetDay,$meanD7,$monthCountD7) ;
+				$sdD8 = $this->sd($sdSetDay,$meanD8,$monthCountD8) ;
+				$sdD9 = $this->sd($sdSetDay,$meanD9,$monthCountD9) ;
+				$sdD10 = $this->sd($sdSetDay,$meanD10,$monthCountD10) ;
 			}
+
 			if(isset($sdSetNight)){
-				$count = count($sdSetNight)-1;
-				$variance = 0.0;
-				foreach($monthCountN1 as $n1){
-					$deviation = ((double)$n1)-$meanN1;
-					$variance += $deviation * $deviation;
-				}
-				$sdN1 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN2 as $n2){
-					$neviation = ((double)$n2)-$meanN2;
-					$variance += $deviation * $deviation;
-				}
-				$sdN2 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN3 as $n3){
-					$deviation = ((double)$n3)-$meanN3;
-					$variance += $deviation * $deviation;
-				}
-				$sdN3 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN4 as $n4){
-					$deviation = ((double)$n4)-$meanN4;
-					$variance += $deviation * $deviation;
-				}
-				$sdN4 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN5 as $n5){
-					$deviation = ((double)$n5)-$meanN5;
-					$variance += $deviation * $deviation;
-				}
-				$sdN5 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN1 as $n6){
-					$deviation = ((double)$n6)-$meanN6;
-					$variance += $deviation * $deviation;
-				}
-				$sdN6 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN7 as $n7){
-					$deviation = ((double)$n7)-$meanN7;
-					$variance += $deviation * $deviation;
-				}
-				$sdN7 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN8 as $n8){
-					$deviation = ((double)$n8)-$meanN8;
-					$variance += $deviation * $deviation;
-				}
-				$sdN8 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN9 as $n9){
-					$deviation = ((double)$n9)-$meanN9;
-					$variance += $deviation * $deviation;
-				}
-				$sdN9 = sqrt($variance/$count);
-
-				$variance = 0.0;
-				foreach($monthCountN10 as $n10){
-					$deviation = ((double)$n10)-$meanN10;
-					$variance += $deviation * $deviation;
-				}
-				$sdN10 = sqrt($variance/$count);
+				$sdN1 = $this->sd($sdSetNight,$meanN1,$monthCountN1) ;
+				$sdN2 = $this->sd($sdSetNight,$meanN2,$monthCountN2) ;
+				$sdN3 = $this->sd($sdSetNight,$meanN3,$monthCountN3) ;
+				$sdN4 = $this->sd($sdSetNight,$meanN4,$monthCountN4) ;
+				$sdN5 = $this->sd($sdSetNight,$meanN5,$monthCountN5) ;
+				$sdN6 = $this->sd($sdSetNight,$meanN6,$monthCountN6) ;
+				$sdN7 = $this->sd($sdSetNight,$meanN7,$monthCountN7) ;
+				$sdN8 = $this->sd($sdSetNight,$meanN8,$monthCountN8) ;
+				$sdN9 = $this->sd($sdSetNight,$meanN9,$monthCountN9) ;
+				$sdN10 = $this->sd($sdSetNight,$meanN10,$monthCountN10) ;
 
 			}
 			
@@ -621,7 +468,80 @@ class Daynight extends CI_Controller {
 					"sdN" => $sdN
 				)
 			);
-		
+	}
+
+
+	public function dayIdA($day,$min,$max){
+		$dayNodeA = array();
+		foreach($day as $node){
+			if(($node->nodeId >= $min)&&($node->nodeId <= $max)){
+				$dayNodeA[] = array(
+					'id' => $node->nodeId // A
+				);
+			}
+		}
+		return $dayNodeA ;
+	}
+
+	public function dayIdB($day,$min,$max){
+		$dayNodeB = array();
+		foreach($day as $node){
+			if(($node->nodeId >= $min)&&($node->nodeId <= $max)){
+				$dayNodeB[] = array(
+					'id' => $node->nodeId // B
+				) ;
+			}	
+		}
+		return $dayNodeB ;
+	}
+	
+	public function nightIdA($night,$min,$max){
+		$nightNodeA = array();
+		foreach($night as $node){
+			if(($node->nodeId >= $min)&&($node->nodeId <= $max)){
+				$nightNodeA[] = array(
+					'id' => $node->nodeId //A
+				) ;
+			}
+		}
+		return $nightNodeA ;
+	}
+
+	public function nightIdB($night,$min,$max){
+		$nightNodeB = array();
+		foreach($night as $node){
+			if(($node->nodeId >= $min)&&($node->nodeId <= $max)){
+				$nightNodeB[] = array(
+					'id' => $node->nodeId //B
+				) ;
+			}	
+		}
+		return $nightNodeB ;
+	} 
+	
+	
+	public function activityMonth($dayData){
+		$dayMonthA = array(
+			'id' => $dayData->nodeId // A
+		) ;
+		return $dayMonthA['id'] ;
+	}
+
+	public function mean($monthCount){
+		$mean = round(((array_sum($monthCount))/30),3);	
+		return $mean ;
+	}
+
+	public function sd($sdSetDay,$mean,$monthCount){
+		$count = count($sdSetDay)-1;
+		$variance = 0.0;
+		foreach($monthCount as $d){
+			$deviation = ((double)$d)-$mean;
+			$variance += $deviation * $deviation;
+		}
+		$sd = sqrt($variance/$count);
+
+		return $sd ;
 	}
 
 }

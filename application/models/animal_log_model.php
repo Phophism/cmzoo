@@ -11,7 +11,7 @@
         public function get_data_by_date($dateReceive){
             //var_dump($dateReceive);
             date_default_timezone_set("Asia/Bangkok");
-            $time = array('endTime'=>$dateReceive); // ใช้ endTime ก่อน เพราะ startTime ข้อมูลไม่วิ่ง
+            $time = array('startTime'=>$dateReceive); // ใช้ endTime ก่อน เพราะ startTime ข้อมูลไม่วิ่ง
             $this->db->select('*');
             $this->db->from('animal_log');
             $this->db->like($time);
@@ -23,7 +23,7 @@
         
         public function get_data_by_date_day($dateReceive){
             date_default_timezone_set("Asia/Bangkok");
-            $time = array('endTime'=>$dateReceive); // ใช้ endTime ก่อน เพราะ startTime ข้อมูลไม่วิ่ง
+            $time = array('startTime'=>$dateReceive); // ใช้ endTime ก่อน เพราะ startTime ข้อมูลไม่วิ่ง
             $this->db->select('*');
             $this->db->from('animal_log');
             $this->db->like($time);
@@ -39,8 +39,8 @@
             $limitTimeFirst = date("H:i:s",strtotime("16.00.00"));
             $limitTimeSecond = date("H:i:s",strtotime("09.00.00"));
 
-            $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and endTime > '".$dateReceive." ".$limitTimeFirst.
-                                    "') and n (lightIntensity < 40 and endTime < '".$nextNight." ".$limitTimeSecond."')")->result();
+            $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and startTime > '".$dateReceive." ".$limitTimeFirst.
+                                    "') and (lightIntensity < 40 and startTime < '".$nextNight." ".$limitTimeSecond."')")->result();
             // select * from animal_log where (lightIntensity < 40 and endTime > '2018-03-07 12:00:00') and (lightIntensity < 40 and endTime < '2018-03-08 12:00:00')  
 
             return $data ;
@@ -52,7 +52,7 @@
             $dataSet = array();
             while($countDay < 7){
                 $time = date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 7 วัน
-                $data = $this->db->query('select * from animal_log where endTime like \'%'.$time.'%\' order by endTime desc' )->result();
+                $data = $this->db->query('select * from animal_log where startTime like \'%'.$time.'%\' order by startTime desc' )->result();
                 $dataSet[] = $data;
                 $countDay++;
             }
@@ -66,7 +66,7 @@
             $dataSet = array();
             while($countDay < 30){
                 $time = date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 7 วัน
-                $data = $this->db->query('select * from animal_log where endTime like \'%'.$time.'%\' order by endTime desc' )->result();
+                $data = $this->db->query('select * from animal_log where startTime like \'%'.$time.'%\' order by startTime desc' )->result();
                 $dataSet[] = $data;
                 $countDay++;
             }
@@ -79,7 +79,7 @@
             $dataSet = array();
             while($countDay < 30){
                 $time = date("Y-m-d",strtotime($dateReceive. '-'.$countDay.' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 29 วัน
-                $data = $this->db->query('select * from animal_log where lightIntensity >=40 and endTime like \'%'.$time.'%\' order by endTime desc' )->result();
+                $data = $this->db->query('select * from animal_log where lightIntensity >=40 and startTime like \'%'.$time.'%\' order by startTime desc' )->result();
                 $dataSet[] = $data;
                 $countDay++;
             }
@@ -99,8 +99,8 @@
                     $nextNight = date("Y-m-d",strtotime($dateReceive. '-'.($countDay-1).' day' )); // dateRecieve + 1 day  
                                 
                 $nightTime = date("Y-m-d",strtotime($dateReceive. '-'.($countDay).' day' )) ; // ลบทุกๆ 1 วัน เพือเก็บค่าของวันก่อนๆหน้า ตลอด 29 วัน
-                $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and endTime > '".$nightTime." ".$limitTimeFirst.
-                                        "') and (lightIntensity < 40 and endTime < '".$nextNight." ".$limitTimeSecond."')  order by endTime desc ")->result();
+                $data = $this->db->query("select * from animal_log where (lightIntensity < 40 and startTime > '".$nightTime." ".$limitTimeFirst.
+                                        "') and (lightIntensity < 40 and startTime < '".$nextNight." ".$limitTimeSecond."')  order by startTime desc ")->result();
                 $dataSet[] = $data;
                 $countDay++;
             }
@@ -159,23 +159,23 @@
             //$data = $this->db->query("select startTime from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result();
             return $data;  
         }
-        public function get_recent_end_time($dateReceive,$timeReceive,$countNode){
-            date_default_timezone_set("Asia/Bangkok");
-            $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
-            $this->db->select('startTime');
-            $this->db->from('animal_log');
-            $this->db->where('nodeId',$countNode);
-            $this->db->where('startTime > ',$time);
-            $this->db->order_by('startTime');
-            $this->db->limit(1);
-            $data = $this->db->get();
-            if(($data->num_rows())>0)
-                $data = $data->row()->startTime;
-            else
-                $data = "-" ;
-            //$data = $this->db->query("select endTime from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result();
-            return $data;  
-        }
+        // public function get_recent_end_time($dateReceive,$timeReceive,$countNode){
+        //     date_default_timezone_set("Asia/Bangkok");
+        //     $time = date("Y-m-d H:i:s",strtotime($dateReceive." ".$timeReceive));
+        //     $this->db->select('startTime');
+        //     $this->db->from('animal_log');
+        //     $this->db->where('nodeId',$countNode);
+        //     $this->db->where('startTime > ',$time);
+        //     $this->db->order_by('startTime');
+        //     $this->db->limit(1);
+        //     $data = $this->db->get();
+        //     if(($data->num_rows())>0)
+        //         $data = $data->row()->startTime;
+        //     else
+        //         $data = "-" ;
+        //     //$data = $this->db->query("select endTime from animal_log where nodeId='".$countNode."' and endTime < '".$time."'  order by endTime desc limit 1 ")->result();
+        //     return $data;  
+        // }
 
         //httpget
         public function add($nodeId,$lightIntensity,$temperatureC,$temperatureF,$humidity,$duration){

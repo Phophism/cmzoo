@@ -59,21 +59,8 @@ class Map extends CI_Controller {
 		// --------------- Sensor Status ---------------//
 
 		$sensorStatus = array();
-		foreach($sensors as $status){
 		
-			list($h1,$m1,$s1) = explode(':',date("H:i:s",strtotime($status->startTime)));
-			$startT= ($h1*3600)+($m1*60)+$s1;
-			list($h2,$m2,$s1) = explode(':',gmdate("H:i:s",strtotime($status->recentTime)));
-			$durT= ($h2*3600)+($m2*60)+$s1;
-
-			$sensorStatus[] = array(
-				'id' => (int)$status->nodeId,
-				'status' => (int)$status->status,
-				'start' => $status->startTime,
-				'end' => "-" ,
-				'dur' => $status->recentTime
-			);
-		}
+		$sensorStatus = $this->sensorStatus($sensors);
 
 		//--------------Calculate Sensor Status--------------//
 		
@@ -85,7 +72,7 @@ class Map extends CI_Controller {
 			foreach($sensors as $sensor){	
 				//error
 				if($sensor->status == 0 ){
-					$errorDescription[] = "Sensor Number".$sensor->nodeId." is Down!!";
+					$errorDescription[] = $this->errorMsg($sensor);
 					$countErrorAll++;
 					if($sensor->nodeId < 7){
 						$countErrorCageA++;
@@ -95,26 +82,7 @@ class Map extends CI_Controller {
 
 				// detect
 				if($sensor->status == 2){
-					if($sensor->nodeId == 1)
-						$detectDescription[] = "Activity Detected at Sensor 1 (eating area A)";
-					else if($sensor->nodeId == 2)
-						$detectDescription[] = "Activity Detected at Sensor 2 (Excretory-Area-A1)";
-					else if($sensor->nodeId == 3)
-						$detectDescription[] = "Activity Detected at Sensor 3 (Excretory-Area-A2)";
-					else if($sensor->nodeId == 4)
-						$detectDescription[] = "Activity Detected at Sensor 4 (Relaxing-area-1A)";
-					else if($sensor->nodeId == 5)
-						$detectDescription[] = "Activity Detected at Sensor 5 (Relaxing-area-2A)";
-					else if($sensor->nodeId == 6)
-						$detectDescription[] = "Activity Detected at Sensor 6 (Relaxing-area-3A)";
-					else if($sensor->nodeId == 7)
-						$detectDescription[] = "Activity Detected at Sensor 7 (Eating area B)";
-					else if($sensor->nodeId == 8)
-						$detectDescription[] = "Activity Detected at Sensor 8 (Relaxing-Area-2)";
-					else if($sensor->nodeId == 9)
-						$detectDescription[] = "Activity Detected at Sensor 9 (Excretory-Area-B)";
-					else if($sensor->nodeId == 10)
-						$detectDescription[] = "Activity Detected at Sensor 10 (Relaxing-area-2)";
+					$detectDescription[] = $this->detectMsg($sensor);
 				}
 			}
 
@@ -126,7 +94,7 @@ class Map extends CI_Controller {
 				$errorDescription[] = "Caution : All sensors in cage \"A\" is Down!!! ";
 			}
 			if($countErrorCageB == 4 ){
-				$errorDescription=array_splice($errorDescription,-4);
+				$errorDescription = array_splice($errorDescription,-4);
 				$errorDescription[] = "Caution : All sensors in cage \"B\" is Down!!! ";
 			}
 			if($countErrorAll == 10){
@@ -142,9 +110,7 @@ class Map extends CI_Controller {
 		//-------------- collect day && calculate status by end time---------------//
 	
 		else {
-			
 			$dataNode = array(); // Get Id,Status,Start Time, End Time, Duration
-
 			// in case data in that day exist
 			if(isset($day)){
 				// $statusNode = array(); // get id , status
@@ -153,13 +119,12 @@ class Map extends CI_Controller {
 						"id" => $whole->nodeId,
 						"duration" => $whole->duration,
 						"start" => $whole->startTime,
-						"end" => $whole->endTime
+					//	"end" => $whole->endTime
 					);
 				}
 				// foreach($sensors as $sensor){
 				// 	$statusNode[] = $sensor->status;
 				// }
-				
 			}
 			
 			if(count($dataNode)>0){
@@ -176,7 +141,7 @@ class Map extends CI_Controller {
 									'id' => (int)$end['id'],
 									'status' => 2 ,
 									'start' => $end['start'],
-									'end' => $end['end'],
+								//	'end' => $end['end'],
 									'dur' => $end['duration']
 								);
 							}
@@ -201,7 +166,7 @@ class Map extends CI_Controller {
 							'id' => (int)($nodeStatusCounter),
 							'status' => 1 ,
 							'start' => $this->animal_log_model->get_recent_start_time($dateReceive,$timeSlide,$nodeStatusCounter),
-							'end'  => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
+						//	'end' => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
 							'dur' => $this->animal_log_model->get_recent_duration($dateReceive,$timeSlide,$nodeStatusCounter)
 						);
 					}
@@ -219,7 +184,7 @@ class Map extends CI_Controller {
 						'id' => (int)$nodeStatusCounter,
 						'status' => 1 ,
 						'start' => $this->animal_log_model->get_recent_start_time($dateReceive,$timeSlide,$nodeStatusCounter),
-						'end'  => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
+						//'end'  => $this->animal_log_model->get_recent_end_time($dateReceive,$timeSlide,$nodeStatusCounter),
 						'dur' => $this->animal_log_model->get_recent_duration($dateReceive,$timeSlide,$nodeStatusCounter)
 					);
 					$nodeStatusCounter++;
@@ -282,7 +247,7 @@ class Map extends CI_Controller {
 				// convert H:i to second (Now)
 				list($h,$m) = explode(':',date("H:i"));
 				$highestTime = ($h*3600)+($m*60);
-
+ 
 				$maxTime = $highestTime ;
 				$valueTime = $highestTime ;
 
@@ -375,5 +340,56 @@ class Map extends CI_Controller {
 			}
 		}
 	}
+
+	public function sensorStatus($sensors){
+		foreach($sensors as $status){
+		
+			list($h1,$m1,$s1) = explode(':',date("H:i:s",strtotime($status->startTime)));
+			$startT= ($h1*3600)+($m1*60)+$s1;
+			list($h2,$m2,$s1) = explode(':',gmdate("H:i:s",strtotime($status->recentTime)));
+			$durT= ($h2*3600)+($m2*60)+$s1;
+
+			$sensorStatus[] = array(
+				'id' => (int)$status->nodeId,
+				'status' => (int)$status->status,
+				'start' => $status->startTime,
+				//'end' => "-" ,
+				'dur' => $status->recentTime
+			);
+		}
+		return $sensorStatus ;
+	}
+
+	public function detectMsg($sensor){
+		if($sensor->nodeId == 1)
+			$detectDescription = "Activity Detected at Sensor 1 (eating area A)";
+		else if($sensor->nodeId == 2)
+			$detectDescription = "Activity Detected at Sensor 2 (Excretory-Area-A1)";
+		else if($sensor->nodeId == 3)
+			$detectDescription = "Activity Detected at Sensor 3 (Excretory-Area-A2)";
+		else if($sensor->nodeId == 4)
+			$detectDescription = "Activity Detected at Sensor 4 (Relaxing-area-1A)";
+		else if($sensor->nodeId == 5)
+			$detectDescription = "Activity Detected at Sensor 5 (Relaxing-area-2A)";
+		else if($sensor->nodeId == 6)
+			$detectDescription = "Activity Detected at Sensor 6 (Relaxing-area-3A)";
+		else if($sensor->nodeId == 7)
+			$detectDescription = "Activity Detected at Sensor 7 (Eating area B)";
+		else if($sensor->nodeId == 8)
+			$detectDescription = "Activity Detected at Sensor 8 (Relaxing-Area-2)";
+		else if($sensor->nodeId == 9)
+			$detectDescription = "Activity Detected at Sensor 9 (Excretory-Area-B)";
+		else if($sensor->nodeId == 10)
+			$detectDescription = "Activity Detected at Sensor 10 (Relaxing-area-2)";
+	
+		return $detectDescription;
+	}
+
+	public function errorMsg($sensor){
+		$errorDescription = "Sensor Number".$sensor->nodeId." is Down!!";
+
+		return	$errorDescription;
+	}
+	
 }
 
