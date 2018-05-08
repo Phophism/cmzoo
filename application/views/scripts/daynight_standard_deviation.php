@@ -6,27 +6,27 @@
 		"type": "serial",
 		"theme": "dark",
 		"dataProvider": [{
-			"node": "S#1",
+			"node": "Sensor#1",
 			"mean": meanD1,
 			"error": sdD1
 		}, {
-			"node": "S#2",
+			"node": "Sensor#2",
 			"mean": meanD2,
 			"error": sdD2
 		}, {
-			"node": "S#3",
+			"node": "Sensor#3",
 			"mean": meanD3,
 			"error": sdD3
 		}, {
-			"node": "S#4",
+			"node": "Sensor#4",
 			"mean": meanD4,
 			"error": sdD4
 		},{
-			"node": "S#5",
+			"node": "Sensor#5",
 			"mean": meanD5,
 			"error": sdD5
 		},{
-			"node": "S#6",
+			"node": "Sensor#6",
 			"mean": meanD6,
 			"error": sdD6
 		}],
@@ -78,19 +78,19 @@
 		"type": "serial",
 		"theme": "dark",
 		"dataProvider": [{
-			"node": "S#7",
+			"node": "Sensor#7",
 			"mean": meanD7,
 			"error": sdD7
 		}, {
-			"node": "S#8",
+			"node": "Sensor#8",
 			"mean": meanD8,
 			"error": sdD8
 		}, {
-			"node": "S#9",
+			"node": "Sensor#9",
 			"mean": meanD9,
 			"error": sdD9
 		},{
-			"node": "S#10",
+			"node": "Sensor#10",
 			"mean": meanD10,
 			"error": sdD10
 		}],
@@ -143,27 +143,27 @@ var chart = AmCharts.makeChart("sdLineNA", {
 		"type": "serial",
 		"theme": "dark",
 		"dataProvider": [{
-			"node": "S#1",
+			"node": "Sensor#1",
 			"mean": meanN1,
 			"error": sdN1
 		}, {
-			"node": "S#2",
+			"node": "Sensor#2",
 			"mean": meanN2,
 			"error": sdN2
 		}, {
-			"node": "S#3",
+			"node": "Sensor#3",
 			"mean": meanN3,
 			"error": sdN3
 		}, {
-			"node": "S#4",
+			"node": "Sensor#4",
 			"mean": meanN4,
 			"error": sdN4
 		},{
-			"node": "S#5",
+			"node": "Sensor#5",
 			"mean": meanN5,
 			"error": sdN5
 		},{
-			"node": "S#6",
+			"node": "Sensor#6",
 			"mean": meanN6,
 			"error": sdN6
 		}],
@@ -215,19 +215,19 @@ var chart = AmCharts.makeChart("sdLineNA", {
 		"type": "serial",
 		"theme": "dark",
 		"dataProvider": [{
-			"node": "S#7",
+			"node": "Sensor#7",
 			"mean": meanN7,
 			"error": sdN7
 		}, {
-			"node": "S#8",
+			"node": "Sensor#8",
 			"mean": meanN8,
 			"error": sdN8
 		}, {
-			"node": "S#9",
+			"node": "Sensor#9",
 			"mean": meanN9,
 			"error": sdN9
 		},{
-			"node": "S#10",
+			"node": "Sensor#10",
 			"mean": meanN10,
 			"error": sdN10
 		}],

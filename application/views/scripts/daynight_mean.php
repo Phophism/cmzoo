@@ -49,46 +49,46 @@
 				}
 			]
 		},
-		"fontSize": 15,
+		"fontSize": 12,
 		"pathToImages": "../amcharts/images/",
 		"dataProvider": [{
-			"node": " ",
+			"node": "",
 			"max": 0,
 			"min": 0,
 		}, {
-			"node": "1",
+			"node": "Sensor#1",
 			"max": maxD1,
 			"min": minD1,
 			"mean": meanD1
 
 		}, {
-			"node": "2",
+			"node": "Sensor#2",
 			"max": maxD2,
 			"min": minD2,
 			"mean": meanD2
 
 		}, {
-			"node": "3",
+			"node": "Sensor#3",
 			"max": maxD3,
 			"min": minD3,
 			"mean": meanD3
 		}, {
-			"node": "4",
+			"node": "Sensor#4",
 			"max": maxD4,
 			"min": minD4,
 			"mean": meanD4
 		}, {
-			"node": "5",
+			"node": "Sensor#5",
 			"max": maxD5,
 			"min": minD5,
 			"mean": meanD5
 		}, {
-			"node": "6",
+			"node": "Sensor#6",
 			"max": maxD6,
 			"min": minD6,
 			"mean": meanD6
 		}, {
-			"node": " ",
+			"node": "",
 			"max": 0,
 			"min": 0,
 		}],
@@ -222,37 +222,37 @@
 				}
 			]
 		},
-		"fontSize": 15,
+		"fontSize": 12,
 		"pathToImages": "../amcharts/images/",
 		"dataProvider": [{
-			"node": " ",
+			"node": "",
 			"max": 0,
 			"min": 0,
 
 		}, {
-			"node": "7",
+			"node": "Sensor#7",
 			"max": maxD7,
 			"min": minD7,
 			"mean": meanD7
 
 		}, {
-			"node": "8",
+			"node": "Sensor#8",
 			"max": maxD8,
 			"min": minD8,
 			"mean": meanD8
 
 		}, {
-			"node": "9",
+			"node": "Sensor#9",
 			"max": maxD9,
 			"min": minD9,
 			"mean": meanD9
 		}, {
-			"node": "10",
+			"node": "Sensor#10",
 			"max": maxD10,
 			"min": minD10,
 			"mean": meanD10
 		}, {
-			"node": " ",
+			"node": "",
 			"max": 0,
 			"min": 0,
 		}],
@@ -386,47 +386,47 @@
 				}
 			]
 		},
-		"fontSize": 15,
+		"fontSize": 12,
 		"pathToImages": "../amcharts/images/",
 		"dataProvider": [{
-			"node": " ",
+			"node": "",
 			"max": 0,
 			"min": 0,
 
 		}, {
-			"node": "1",
+			"node": "Sensor#1",
 			"max": maxN1,
 			"min": minN1,
 			"mean": meanN1
 
 		}, {
-			"node": "2",
+			"node": "Sensor#2",
 			"max": maxN2,
 			"min": minN2,
 			"mean": meanN2
 
 		}, {
-			"node": "3",
+			"node": "Sensor#3",
 			"max": maxN3,
 			"min": minN3,
 			"mean": meanN3
 		}, {
-			"node": "4",
+			"node": "Sensor#4",
 			"max": maxN4,
 			"min": minN4,
 			"mean": meanN4
 		}, {
-			"node": "5",
+			"node": "Sensor#5",
 			"max": maxN5,
 			"min": minN5,
 			"mean": meanN5
 		}, {
-			"node": "6",
+			"node": "Sensor#6",
 			"max": maxN6,
 			"min": minN6,
 			"mean": meanN6
 		}, {
-			"node": " ",
+			"node": "",
 			"max": 0,
 			"min": 0,
 		}],
@@ -559,37 +559,37 @@
 				}
 			]
 		},
-		"fontSize": 15,
+		"fontSize": 12,
 		"pathToImages": "../amcharts/images/",
 		"dataProvider": [{
-			"node": " ",
+			"node": "",
 			"max": 0,
 			"min": 0,
 
 		}, {
-			"node": "7",
+			"node": "Sensor#7",
 			"max": maxN7,
 			"min": minN7,
 			"mean": meanN7
 
 		}, {
-			"node": "8",
+			"node": "Sensor#8",
 			"max": maxN8,
 			"min": minN8,
 			"mean": meanN8
 
 		}, {
-			"node": "9",
+			"node": "Sensor#9",
 			"max": maxN9,
 			"min": minN9,
 			"mean": meanN9
 		}, {
-			"node": "10",
+			"node": "Sensor#10",
 			"max": maxN10,
 			"min": minN10,
 			"mean": meanN10
 		}, {
-			"node": " ",
+			"node": "",
 			"max": 0,
 			"min": 0,
 		}],

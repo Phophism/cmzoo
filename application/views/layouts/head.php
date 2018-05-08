@@ -107,6 +107,15 @@
 
 		}
 
+		#daynight{
+			background-image : url("assets/img/daynight.png");   
+			background-size : cover;
+			background-repeat : no-repeat;
+			height : 70px;
+			width : 70px;
+			margin: 0 auto;
+		}
+
 		/* slider */
 		.slidecontainer {
 			width: 100%;
@@ -185,7 +194,6 @@
 			margin:0; 
 			justify-content: center; 
 			text-align: center;
-			padding-top: 150;
 		}
 		
 	</style>

@@ -52,14 +52,14 @@
 			"amount": 25,
 			"bold": true,
 			"text": "A",
-			"color": "#555"
+			"color": "#d8d6d6"
 		}, {
 			"y": "53%",
 			"align": "center",
 			"amount": 15,
             "bold": true,
 			"text": "Cage",
-			"color": "#555"
+			"color": "#d8d6d6"
 		}],
 		"export": {
 			"enabled": true
@@ -101,14 +101,14 @@
 			"amount": 25,
 			"bold": true,
 			"text": "A",
-			"color": "#555"
+			"color": "#d8d6d6"
 		}, {
 			"y": "53%",
 			"align": "center",
 			"amount": 15,
             "bold": true,
 			"text": "Cage",
-			"color": "#555"
+			"color": "#d8d6d6"
 		}],
 		"export": {
 			"enabled": true
@@ -158,14 +158,14 @@
 			"amount": 25,
 			"bold": true,
 			"text": "B",
-			"color": "#555"
+			"color": "#d8d6d6"
 		}, {
 			"y": "53%",
 			"align": "center",
 			"amount": 15,
             "bold": true,
 			"text": "Cage",
-			"color": "#555"
+			"color": "#d8d6d6"
 		}],
 		"export": {
 			"enabled": true
@@ -207,14 +207,14 @@
 			"amount": 25,
 			"bold": true,
 			"text": "B",
-			"color": "#555"
+			"color": "#d8d6d6"
 		}, {
 			"y": "53%",
 			"align": "center",
 			"amount": 15,
             "bold": true,
 			"text": "Cage",
-			"color": "#555"
+			"color": "#d8d6d6"
 		}],
 		"export": {
 			"enabled": true
